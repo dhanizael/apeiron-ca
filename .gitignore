@@ -1,0 +1,21 @@
+# Rust
+target/
+Cargo.lock
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.venv*/
+.ipynb_checkpoints/
+
+# Experiments output (large binaries)
+experiments/**/*.bin
+experiments/**/*.snap
+
+# OS
+.DS_Store
+*.swp
+
+# Agents working state
+.agent-state/
