@@ -93,3 +93,46 @@ bit-parallel khusus (Rule 184 legacy: 2.6e10 cell-updates/detik, konteks saja).
 cd engine && cargo build --release && ./target/release/engine bench --protocol k2
 cargo test && ../.venv/bin/pytest ../analysis -q
 ```
+
+---
+
+## 003 — M1: K3 PASS — semesta pertama yang tidak kita tanam (2026-09-22)
+
+**Apa:** Pencarian fisika 3 tahap atas keluarga flow (k=2,4): 20.000 kandidat acak
+seeded → mutasi re-clip (hill-climbing) → horizon H = 10⁶ langkah. Kriteria K3
+dibekukan SEBELUM pencarian (spec §9 amendemen M1).
+
+**Verdict: K3-PASS.** 6.087/20.000 kandidat lolos filter tahap A; 5 juara lolos
+horizon penuh — semua k=4 hasil mutasi tahap B:
+
+- **Partikel:** 4.024–4.050 objek hidup di AKHIR horizon, lifetime 100/100
+  observasi = bertahan seluruh 10⁶ langkah (definisi: merge/pisasah = mati objek —
+  rantai yang tak pernah merge 10⁶ langkah adalah objek persisten sesuai
+  definisi beku).
+- **Tanpa competitive exclusion:** massa top-3 pola = 2.947–2.978 / 16.384 ≈ 0,18
+  (ambang exclusion 0,8); exclusion streak maksimum = 0 — tidak pernah sekali pun.
+- **Kontras rezim (kalibrasi):** Rule 184 pada skala sama runtuh ke top-3 = 0,989
+  (platoon); juara kita hidup di rezim yang benar-benar berbeda.
+- Reproduksi: `python experiments/m1/search.py` (manifest per juara di
+  `experiments/m1/result/champ_*/`, tabel hukum = `rule.bin` + rule_fnv).
+
+**Dua bug satuan yang tertangkap disiplin atribusi (berharga):**
+1. Run 1: kriteria `lifetime ≥ 500` dalam satuan OBSERVASI (maks 21) — mustahil
+   by construction; "hasil negatif" pertama adalah bug kriteria, bukan fisika.
+2. Run 2: T_persist skala horizon (5×10⁴ langkah) diterapkan pada probe 2×10⁴
+   langkah — mustahil untuk kedua kalinya.
+Fix: T_persist dalam langkah fisika, skala per tahap (A: 25% horizon probe;
+C: 5% horizon H). Pelajaran metodologi: **kriteria harus terdefinisi mungkin
+di skala pengukurannya** — dan hasil negatif wajib diatribusikan sebelum
+dipercaya. Keduanya tertangkap dalam hitungan menit karena distribusi penuh
+(20.000 baris) dilaporkan, bukan hanya survivors.
+
+**Temuan ilmiah kecil:** 30% kandidat acak keluarga flow lolos konjungsi
+partikel+keberagaman di skala probe — ruang ini jauh lebih kaya daripada yang
+graveyard (Tierra/Echo/Lenia) sarankan, kemungkinan karena konservasi
+by construction + komponen bergantung-state (Adams 2017) yang inheren di F.
+
+**Batas jujur:** "partikel" = definisi operasional beku kita (blob ≤8 sel dari
+background mode yang tak pernah merge/pisasah), bukan klaim struktur ala computational mechanics — itu kerja Newton di M3
+computational mechanics; H = 10⁶ langkah terukur, bukan keabadian. M2 (replikator)
+dan M3 (Newton memulihkan hukum semesta juara) adalah ujian berikutnya.

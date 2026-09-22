@@ -2,12 +2,12 @@
   "experiment": "M1",
   "mode": "full",
   "criteria": {
-    "K3_particle_persistent_and_no_exclusion": false
+    "K3_particle_persistent_and_no_exclusion": true
   },
   "stages": {
     "a": {
       "n_candidates": 20000,
-      "n_survivors": 0
+      "n_survivors": 6087
     },
     "b": {
       "rounds": 3,
@@ -15,7 +15,7 @@
     },
     "c": {
       "horizon_H": 1000000,
-      "n_champions": 0
+      "n_champions": 5
     }
   },
   "baselines": {
@@ -40,7 +40,98 @@
       "max_lifetime": 20
     }
   },
-  "n_survivors": 0,
-  "champions": [],
+  "n_survivors": 6087,
+  "champions": [
+    {
+      "k": 4,
+      "seed": 1161092,
+      "table_fnv": "90c4c44f130753f7",
+      "score": 82.012939453125,
+      "horizon_H": 1000000,
+      "particles_final": 4035,
+      "max_lifetime": 100,
+      "top3_final": [
+        100000,
+        2947,
+        16384
+      ],
+      "exclusion_streak_max": 0,
+      "criterion_particles": true,
+      "criterion_no_exclusion": true,
+      "manifest": "champ_k4_s1161092/manifest.json"
+    },
+    {
+      "k": 4,
+      "seed": 1161095,
+      "table_fnv": "90c4c44f130753f7",
+      "score": 81.951904296875,
+      "horizon_H": 1000000,
+      "particles_final": 4045,
+      "max_lifetime": 100,
+      "top3_final": [
+        100000,
+        2957,
+        16384
+      ],
+      "exclusion_streak_max": 0,
+      "criterion_particles": true,
+      "criterion_no_exclusion": true,
+      "manifest": "champ_k4_s1161095/manifest.json"
+    },
+    {
+      "k": 4,
+      "seed": 1161096,
+      "table_fnv": "90c4c44f130753f7",
+      "score": 81.927490234375,
+      "horizon_H": 1000000,
+      "particles_final": 4024,
+      "max_lifetime": 100,
+      "top3_final": [
+        100000,
+        2961,
+        16384
+      ],
+      "exclusion_streak_max": 0,
+      "criterion_particles": true,
+      "criterion_no_exclusion": true,
+      "manifest": "champ_k4_s1161096/manifest.json"
+    },
+    {
+      "k": 4,
+      "seed": 1161090,
+      "table_fnv": "90c4c44f130753f7",
+      "score": 81.890869140625,
+      "horizon_H": 1000000,
+      "particles_final": 4050,
+      "max_lifetime": 100,
+      "top3_final": [
+        100000,
+        2967,
+        16384
+      ],
+      "exclusion_streak_max": 0,
+      "criterion_particles": true,
+      "criterion_no_exclusion": true,
+      "manifest": "champ_k4_s1161090/manifest.json"
+    },
+    {
+      "k": 4,
+      "seed": 1161093,
+      "table_fnv": "90c4c44f130753f7",
+      "score": 81.82373046875,
+      "horizon_H": 1000000,
+      "particles_final": 4031,
+      "max_lifetime": 100,
+      "top3_final": [
+        100000,
+        2978,
+        16384
+      ],
+      "exclusion_streak_max": 0,
+      "criterion_particles": true,
+      "criterion_no_exclusion": true,
+      "manifest": "champ_k4_s1161093/manifest.json"
+    }
+  ],
   "reproduce": "cargo build --release (di engine/) && python experiments/m1/search.py"
 }

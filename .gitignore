@@ -19,3 +19,4 @@ experiments/**/*.snap
 
 # Agents working state
 .agent-state/
+!experiments/m1/result/champ_*/rule.bin
