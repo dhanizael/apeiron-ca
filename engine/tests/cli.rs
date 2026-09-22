@@ -51,6 +51,7 @@ fn run_produces_seam_files_deterministic() {
     let snap = engine::snapshot::read_snapshot(&a.join("final.bin")).unwrap();
     let w = engine::lattice::World {
         n: snap.n_cells,
+        k: 1,
         words: snap.words,
     };
     assert_eq!(w.popcount(), 32);

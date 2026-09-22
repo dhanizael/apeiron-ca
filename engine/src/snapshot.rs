@@ -56,7 +56,7 @@ pub fn read_snapshot(path: &Path) -> Result<Snapshot, String> {
     for j in 0..nw {
         words.push(q(need(34 + j * 8, 8)?));
     }
-    let w = World { n: n_cells, words };
+    let w = World { n: n_cells, k: 1, words }; // v1 = k implisit 1
     if w.fnv1a() != fnv {
         return Err("checksum fnv tidak cocok".into());
     }
@@ -107,7 +107,7 @@ mod tests {
 
     #[test]
     fn corrupt_byte_rejected() {
-        let w = crate::lattice::World::zeros(64);
+        let w = crate::lattice::World::zeros(64, 1);
         let dir = std::env::temp_dir().join(format!("lm0_snapc_{}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
         let p = dir.join("s.bin");

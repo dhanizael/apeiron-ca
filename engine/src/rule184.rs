@@ -4,13 +4,13 @@ use crate::lattice::World;
 /// Kanonik scalar; jalur bitwise wajib setara bit-dengan ini (diuji).
 pub fn step_scalar(w: &World) -> World {
     let n = w.n;
-    let mut out = World::zeros(n);
+    let mut out = World::zeros(n, 1);
     for i in 0..n {
-        let l = w.get((i + n - 1) % n) as u64;
-        let c = w.get(i) as u64;
-        let r = w.get((i + 1) % n) as u64;
+        let l = w.get_cell((i + n - 1) % n) as u64;
+        let c = w.get_cell(i) as u64;
+        let r = w.get_cell((i + 1) % n) as u64;
         let f = (l & r) | (l & !c & !r) | (!l & c & r);
-        out.set(i, (f & 1) as u8);
+        out.set_cell(i, (f & 1) as u8);
     }
     out
 }
@@ -35,8 +35,8 @@ fn rot(words: &[u64], left: bool) -> Vec<u64> {
 /// Jalur bitwise (butuh n % 64 == 0 — tanpa bit padding). F = (L&R)|(L&!C&!R)|(!L&C&R).
 pub fn step(w: &World) -> World {
     assert!(
-        w.n % 64 == 0 && w.words.len() == (w.n / 64) as usize,
-        "jalur bitwise butuh n kelipatan 64; pakai step_scalar"
+        w.k == 1 && w.n % 64 == 0 && w.words.len() == (w.n / 64) as usize,
+        "jalur bitwise butuh k=1 dan n kelipatan 64; pakai flow::step_scalar"
     );
     let l = rot(&w.words, true);
     let r = rot(&w.words, false);
@@ -45,7 +45,7 @@ pub fn step(w: &World) -> World {
     for j in 0..c.len() {
         out.push((l[j] & r[j]) | (l[j] & !c[j] & !r[j]) | (!l[j] & c[j] & r[j]));
     }
-    World { n: w.n, words: out }
+    World { n: w.n, k: 1, words: out }
 }
 
 #[cfg(test)]
@@ -54,24 +54,24 @@ mod tests {
 
     #[test]
     fn single_car_moves_right_one_per_step() {
-        let mut w = World::zeros(64);
-        w.set(4, 1);
+        let mut w = World::zeros(64, 1);
+        w.set_cell(4, 1);
         let mut cur = w;
         for k in 1..=3u32 {
             cur = step_scalar(&cur);
             assert_eq!(cur.popcount(), 1, "partikel hilang/duplikat");
-            assert_eq!(cur.get(4 + k), 1, "mobil harus di {}", 4 + k);
+            assert_eq!(cur.get_cell(4 + k), 1, "mobil harus di {}", 4 + k);
         }
     }
 
     #[test]
     fn jam_leader_moves_hole_propagates() {
         // 1100 → 1010: pemimpin gerombolan maju, celah bergeser (jam wave backward)
-        let mut w = World::zeros(64);
-        w.set(10, 1);
-        w.set(11, 1);
+        let mut w = World::zeros(64, 1);
+        w.set_cell(10, 1);
+        w.set_cell(11, 1);
         let n1 = step_scalar(&w);
-        assert_eq!((n1.get(10), n1.get(11), n1.get(12)), (1, 0, 1));
+        assert_eq!((n1.get_cell(10), n1.get_cell(11), n1.get_cell(12)), (1, 0, 1));
     }
 
     #[test]
