@@ -88,7 +88,7 @@ def clip_table(raw: list[int], k: int) -> list[int]:
     for idx, v in enumerate(raw):
         r = idx & mask
         c = (idx >> k) & mask
-        out.append(min(v, c, mask - r))
+        out.append(max(0, min(v, c, mask - r)))
     return out
 
 
@@ -132,3 +132,32 @@ def from_seed_uniform_capped(n: int, k: int, seed: int, cap: int) -> list[int]:
     """Mirror World::from_seed_uniform_capped — sel uniform [0, cap]."""
     rng = Rng(seed)
     return [rng.next_u64() % (cap + 1) for _ in range(n)]
+
+
+def cap_of(idx: int, k: int) -> int:
+    """Kapasitas flow entri idx: min(c, 2^k−1−r)."""
+    mask = (1 << k) - 1
+    c = (idx >> k) & mask
+    r = idx & mask
+    return min(c, mask - r)
+
+
+def random_table_rich(k: int, seed: int) -> list[int]:
+    """Generator slack-rich: tiap entri uniform [0, cap] — nilai terdistribusi
+    di bawah kapasitas, bukan 0..255 yang ter-clip menempel cap (akar
+    capacity-bound, log 006)."""
+    rng = Rng(seed)
+    return [rng.next_u64() % (cap_of(i, k) + 1) for i in range(1 << (3 * k))]
+
+
+def slack_fraction(table: list[int], k: int) -> float:
+    """Fraksi entri cap>0 yang bernilai < cap — ruang longgar struktural."""
+    size = 1 << (3 * k)
+    total = loose = 0
+    for i in range(size):
+        c = cap_of(i, k)
+        if c > 0:
+            total += 1
+            if table[i] < c:
+                loose += 1
+    return loose / total if total else 0.0

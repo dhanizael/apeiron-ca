@@ -68,3 +68,20 @@ def test_unpack_cells_roundtrip():
     cells = ca.from_seed_uniform(32, 4, 2)
     packed = ca.pack_cells(cells, 4)
     assert ca.unpack_cells(packed, 32, 4) == cells
+
+
+def test_generator_rich_is_slack_rich_vs_poor():
+    # hipotesis slack (log 006): generator lama (0..255→clip) = slack-miskin;
+    # generator rich (uniform [0,cap]) = slack kaya
+    for seed in (1, 2, 3):
+        poor = ca.slack_fraction(ca.clip_table(ca.random_table(4, seed), 4), 4)
+        rich = ca.slack_fraction(ca.random_table_rich(4, seed), 4)
+        assert rich > poor, f"seed={seed}: rich {rich:.3f} vs poor {poor:.3f}"
+        assert rich > 0.3
+
+
+def test_rich_table_respects_capacity():
+    k = 4
+    t = ca.random_table_rich(k, 7)
+    for i, v in enumerate(t):
+        assert 0 <= v <= ca.cap_of(i, k)
