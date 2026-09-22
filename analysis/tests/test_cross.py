@@ -13,7 +13,7 @@ def test_rust_python_bit_identical(engine_bin, tmp_path):
         check=True, capture_output=True,
     )
     m = io.read_manifest(out / "manifest.json")
-    assert m["rule_id"] == 184 and m["n_cells"] == n
+    assert m["rule"] == "builtin:184" and m["k"] == 1 and m["n_cells"] == n
     states = io.read_window(out / "window.bin", n, W + 1)
     st = ca.from_seed_exact(n, cars, seed)
     chain = [st]

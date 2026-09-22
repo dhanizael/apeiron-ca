@@ -65,3 +65,58 @@ def step_rule(state: int, n: int, rule_id: int) -> int:
         if (rule_id >> nb) & 1:
             out |= 1 << i
     return out
+
+
+# ---------- k-bit generalisasi (keluarga flow, M0) ----------
+
+def from_seed_uniform(n: int, k: int, seed: int) -> list[int]:
+    """Mirror lattice::World::from_seed_uniform — tiap sel uniform [0, 2^k)."""
+    rng, mask = Rng(seed), (1 << k) - 1
+    return [rng.next_u64() & mask for _ in range(n)]
+
+
+def random_table(k: int, seed: int) -> list[int]:
+    """Mirror flow::FlowRule::random — 2^(3k) entri mentah, satu draw per entri."""
+    rng = Rng(seed)
+    return [rng.next_u64() & 0xFF for _ in range(1 << (3 * k))]
+
+
+def clip_table(raw: list[int], k: int) -> list[int]:
+    """Mirror flow::FlowRule::from_table — clip per entri: min(raw, c, 2^k−1−r)."""
+    mask = (1 << k) - 1
+    out = []
+    for idx, v in enumerate(raw):
+        r = idx & mask
+        c = (idx >> k) & mask
+        out.append(min(v, c, mask - r))
+    return out
+
+
+def table_fnv(table: list[int]) -> int:
+    """FNV-1a 64 atas byte tabel (urutan index) — mirror hash::fnv1a_bytes."""
+    h = 0xCBF29CE484222325
+    for b in table:
+        h ^= b
+        h = (h * 0x100000001B3) & MASK64
+    return h
+
+
+def pack_cells(cells: list[int], k: int) -> int:
+    """Kemas cell list → int bit-packed (cell i di bit [i·k, (i+1)·k))."""
+    state = 0
+    for i in reversed(range(len(cells))):
+        state = (state << k) | (cells[i] & ((1 << k) - 1))
+    return state
+
+
+def step_flow(cells: list[int], k: int, table: list[int]) -> list[int]:
+    """Mirror flow::step_scalar — konvensi edge sama: f(i→i+1)=F(v[i−1],v[i],v[i+1])."""
+    n = len(cells)
+    mask = (1 << k) - 1
+
+    def f(e: int) -> int:
+        e %= n
+        idx = ((cells[(e - 1) % n] & mask) << (2 * k)) | ((cells[e] & mask) << k) | (cells[(e + 1) % n] & mask)
+        return table[idx]
+
+    return [cells[i] - f(i) + f(i - 1) for i in range(n)]

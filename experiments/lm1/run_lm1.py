@@ -61,7 +61,8 @@ def main() -> int:
     rec = micro.recover(states_micro, n)
     micro_rule = rec["verified"][0] if rec["verified"] else -1
     micro_gate = verify.gate_micro(micro_rule, states_micro, n) if rec["verified"] else False
-    g_micro = oracle.grade_micro(micro_rule, m_micro)
+    truth = int(m_micro["rule"].split(":")[1]) if m_micro["rule"].startswith("builtin:") else -1
+    g_micro = oracle.grade_micro(micro_rule, {"rule_id": truth})
 
     # --- Newton makro: J(ρ) dari window pasca-relaksasi ---
     J = {rho: macro.measure_flow(states, n) for rho, (_, states) in runs.items()}
