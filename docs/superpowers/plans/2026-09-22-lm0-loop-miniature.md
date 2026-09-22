@@ -31,7 +31,7 @@
 **Interfaces:**
 - Produces: `lattice::World { n: u32, words: Vec<u64> }` dengan `World::zeros(n)`, `World::from_seed_exact(n, cars, seed)`, `.get(i)`, `.set(i,v)`, `.popcount()`, `.fnv1a()`, `.words` publik; `rng::Rng::new(seed)`, `.next_u64()`, `.below(bound)`; `rule184::step_scalar(&World) -> World`, `rule184::step(&World) -> World` (bitwise, n%64==0).
 
-- [ ] **Step 1: Scaffold crate**
+- [x] **Step 1: Scaffold crate**
 
 ```bash
 cd "/home/dabroli/Projects/#explorations/0and1" && cargo new engine --lib -q
@@ -44,7 +44,7 @@ pub mod rng;
 pub mod rule184;
 ```
 
-- [ ] **Step 2: Tulis failing tests** (dulu semua test, struktur modul kosong)
+- [x] **Step 2: Tulis failing tests** (dulu semua test, struktur modul kosong)
 
 `engine/src/rng.rs` (test + impl):
 ```rust
@@ -298,8 +298,8 @@ mod tests {
 }
 ```
 
-- [ ] **Step 3: Run semua test** — `cd engine && cargo test` → semua PASS.
-- [ ] **Step 4: Commit**
+- [x] **Step 3: Run semua test** — `cd engine && cargo test` → semua PASS.
+- [x] **Step 4: Commit**
 
 ```bash
 git add engine && git commit -m "engine: lattice+RNG+rule184 — determinisme & konservasi teruji"
@@ -315,7 +315,7 @@ git add engine && git commit -m "engine: lattice+RNG+rule184 — determinisme & 
 **Interfaces:**
 - Produces: `snapshot::MAGIC: u64`, `write_snapshot(path, &World, rule_id, step) -> io::Result<u64>` (kembalikan fnv), `read_snapshot(path) -> Result<Snapshot,String>`, `Snapshot { rule_id, n_cells, step, fnv, words }`, `write_window(path, &[World]) -> io::Result<()>`, `manifest_json(&[(k, v)]) -> String` (JSON deterministik tanpa wall-clock).
 
-- [ ] **Step 1: Tulis failing tests + impl `snapshot.rs`**
+- [x] **Step 1: Tulis failing tests + impl `snapshot.rs`**
 
 ```rust
 use crate::lattice::World;
@@ -456,8 +456,8 @@ mod tests {
 }
 ```
 
-- [ ] **Step 2: `cargo test` → PASS.** — run
-- [ ] **Step 3: Commit** — `git add engine && git commit -m "engine: format snapshot/window/manifest final (v1)"`
+- [x] **Step 2: `cargo test` → PASS.** — run
+- [x] **Step 3: Commit** — `git add engine && git commit -m "engine: format snapshot/window/manifest final (v1)"`
 
 ---
 
@@ -469,7 +469,7 @@ mod tests {
 **Interfaces:**
 - Produces: biner `engine`; `engine run --n N --cars K --seed S --steps T --window W --outdir DIR` → `manifest.json` + `final.bin` + `window.bin` ((W+1) state terakhir) + stdout ringkas; `engine bench --n N --steps T` → cell-updates/detik (jujur, apa adanya). Exit code 0 sukses.
 
-- [ ] **Step 1: Tulis `main.rs`**
+- [x] **Step 1: Tulis `main.rs`**
 
 ```rust
 mod lattice;
@@ -589,7 +589,7 @@ fn main() {
 
 Catatan: `Instant`/`as_secs_f64` hanya di jalur pelaporan bench — evolusi substrat tetap integer murni.
 
-- [ ] **Step 2: Tulis integration test `engine/tests/cli.rs`**
+- [x] **Step 2: Tulis integration test `engine/tests/cli.rs`**
 
 ```rust
 use std::process::Command;
@@ -656,9 +656,9 @@ fn bad_args_rejected() {
 
 Perlu `engine/src/lib.rs` tetap modul publik (main.rs punya modul sendiri — file main menggunakan `engine::` via path? TIDAK — integration test otomatis link ke lib crate `engine`; main.rs mendeklarasikan `mod lattice;` sendiri (duplikasi modul bin vs lib itu normal untuk crate bin+lib). Test CLI memakai `engine::snapshot::read_snapshot` dari lib ✓.
 
-- [ ] **Step 3: `cargo test` → PASS.**
-- [ ] **Step 4: `cargo build --release` + `./target/release/engine bench --n 65536 --steps 200000`** — catat angka (informasional, bukan klaim K2).
-- [ ] **Step 5: Commit** — `git add engine && git commit -m "engine: CLI run/bench — file seam final + determinisme lintas proses"`
+- [x] **Step 3: `cargo test` → PASS.**
+- [x] **Step 4: `cargo build --release` + `./target/release/engine bench --n 65536 --steps 200000`** — catat angka (informasional, bukan klaim K2).
+- [x] **Step 5: Commit** — `git add engine && git commit -m "engine: CLI run/bench — file seam final + determinisme lintas proses"`
 
 ---
 
@@ -670,8 +670,8 @@ Perlu `engine/src/lib.rs` tetap modul publik (main.rs punya modul sendiri — fi
 **Interfaces:**
 - Produces (Python): `semesta.ca.step_rule184(state:int, n:int)->int`, `semesta.ca.step_rule(state,n,rule_id)->int`, `semesta.ca.from_seed_exact(n,cars,seed)->int`, `semesta.ca.Rng`; `semesta.io.read_manifest(path)->dict`, `read_snapshot(path)->dict{rule_id,n,step,fnv,state}`, `read_window(path,n,count)->list[int]`. Cell i = bit i (konsisten dengan Rust LE bit order).
 
-- [ ] **Step 1: Env** — di root repo: `python3 -m venv .venv && .venv/bin/pip -q install pytest` (atau `uv venv && uv pip install pytest` bila uv ada). `.venv` di .gitignore.
-- [ ] **Step 2: Tulis `ca.py` + `test_ca.py` (TDD: test dulu untuk rule184 pattern)**
+- [x] **Step 1: Env** — di root repo: `python3 -m venv .venv && .venv/bin/pip -q install pytest` (atau `uv venv && uv pip install pytest` bila uv ada). `.venv` di .gitignore.
+- [x] **Step 2: Tulis `ca.py` + `test_ca.py` (TDD: test dulu untuk rule184 pattern)**
 
 `analysis/semesta/ca.py`:
 ```python
@@ -790,7 +790,7 @@ def test_rng_mirror_selfconsistent():
     assert [r2.next_u64() for _ in range(3)] == vals
 ```
 
-- [ ] **Step 3: Tulis `io.py` + `conftest.py` + `test_cross.py`**
+- [x] **Step 3: Tulis `io.py` + `conftest.py` + `test_cross.py`**
 
 `analysis/semesta/io.py`:
 ```python
@@ -894,8 +894,8 @@ def test_rust_python_bit_identical(engine_bin, tmp_path):
     assert snap["fnv"] == int(m["fnv_final"], 16)
 ```
 
-- [ ] **Step 4: Run** — `.venv/bin/pytest analysis -q` → semua PASS.
-- [ ] **Step 5: Commit** — `git add analysis .gitignore && git commit -m "analysis: CA referensi + pembaca seam + K1 lintas implementasi (Rust≡Python)"`
+- [x] **Step 4: Run** — `.venv/bin/pytest analysis -q` → semua PASS.
+- [x] **Step 5: Commit** — `git add analysis .gitignore && git commit -m "analysis: CA referensi + pembaca seam + K1 lintas implementasi (Rust≡Python)"`
 
 ---
 
@@ -907,7 +907,7 @@ def test_rust_python_bit_identical(engine_bin, tmp_path):
 **Interfaces:**
 - Produces: `newton.micro.constraints(states, n, max_pairs=None) -> dict[int,int]` (raise `ContradictionError` bila substrat bising), `consistent_rules(cons) -> list[int]`, `recover(states, n, max_pairs=None) -> {"candidates": [...], "verified": [...], "constraints": {...}}`, `verify_rule(rule_id, states, n) -> bool`. Semua rule_id ∈ [0,256) urutan Wolfram.
 
-- [ ] **Step 1: Test dulu `test_micro.py`**
+- [x] **Step 1: Test dulu `test_micro.py`**
 
 ```python
 import pytest
@@ -964,7 +964,7 @@ def test_verified_reproduces_whole_window():
     assert micro.verify_rule(r, states, 256)
 ```
 
-- [ ] **Step 2: Impl `micro.py`**
+- [x] **Step 2: Impl `micro.py`**
 
 ```python
 """Newton Tahap-B mikro (v0): pemulihan aturan mikro ECA radius-1.
@@ -1022,8 +1022,8 @@ def recover(states: list[int], n: int, max_pairs: int | None = None) -> dict:
     return {"candidates": cands, "verified": verified, "constraints": cons}
 ```
 
-- [ ] **Step 3: Run → PASS.** (Catatan performa: verify_rule O(len·n) Python murni — cukup untuk LM0.)
-- [ ] **Step 4: Commit** — `git add analysis && git commit -m "newton: mikro v0 — ekshaustif 256 aturan + gerbang verifikasi eksak"`
+- [x] **Step 3: Run → PASS.** (Catatan performa: verify_rule O(len·n) Python murni — cukup untuk LM0.)
+- [x] **Step 4: Commit** — `git add analysis && git commit -m "newton: mikro v0 — ekshaustif 256 aturan + gerbang verifikasi eksak"`
 
 ---
 
@@ -1035,7 +1035,7 @@ def recover(states: list[int], n: int, max_pairs: int | None = None) -> dict:
 **Interfaces:**
 - Produces: `macro.measure_flow(states, n) -> float` (J = penyeberangan edge per site per step), `macro.fit_pw_linear(xs, ys, max_segments=3) -> {"segments": [(x0,x1,a,b)...], "mdl", "model_bits", "sse", "n_segments"}`, `macro.predict(model, x) -> float`. GRID breakpoint 0.05..0.95 step 0.05.
 
-- [ ] **Step 1: Test dulu `test_macro.py`**
+- [x] **Step 1: Test dulu `test_macro.py`**
 
 ```python
 from semesta import ca
@@ -1100,7 +1100,7 @@ def test_holds_out_prediction_within_eps():
         assert abs(macro.predict(m, x) - y) < 0.02
 ```
 
-- [ ] **Step 2: Impl `macro.py`**
+- [x] **Step 2: Impl `macro.py`**
 
 ```python
 """Newton Tahap-B makro (v0): pemulihan J(ρ) — fundamental diagram Rule 184.
@@ -1181,8 +1181,8 @@ def predict(model: dict, x: float) -> float:
     return a + b * x
 ```
 
-- [ ] **Step 3: Run → PASS.**
-- [ ] **Step 4: Commit** — `git add analysis && git commit -m "newton: makro v0 — measure_flow + piecewise-linear MDL (fundamental diagram)"`
+- [x] **Step 3: Run → PASS.**
+- [x] **Step 4: Commit** — `git add analysis && git commit -m "newton: makro v0 — measure_flow + piecewise-linear MDL (fundamental diagram)"`
 
 ---
 
@@ -1194,7 +1194,7 @@ def predict(model: dict, x: float) -> float:
 **Interfaces:**
 - Produces: `verify.gate_micro(rule_id, states, n) -> bool`; `verify.gate_macro(model, xs, ys, max_mae_train=0.01) -> bool`; `oracle.grade_micro(recovered, manifest) -> dict` (kunci `exact`); `oracle.grade_macro(model, holdout, eps=0.02) -> dict` (kunci `mae`, `pass`); `meter.log(entries: list[dict]) -> list[dict]` (validasi + kembalikan kurva (t, bits, what)).
 
-- [ ] **Step 1: Test `test_oracle_meter.py`**
+- [x] **Step 1: Test `test_oracle_meter.py`**
 
 ```python
 from newton import macro, meter, oracle, verify
@@ -1251,7 +1251,7 @@ def test_meter_rejects_malformed():
         meter.log([{"bits": 3}])
 ```
 
-- [ ] **Step 2: Implementasi tiga modul**
+- [x] **Step 2: Implementasi tiga modul**
 
 `analysis/newton/verify.py`:
 ```python
@@ -1315,8 +1315,8 @@ def log(entries: list[dict]) -> list[dict]:
     return curve
 ```
 
-- [ ] **Step 3: Run → PASS.**
-- [ ] **Step 4: Commit** — `git add analysis && git commit -m "instrumen: oracle eksak + gerbang verifier + meter T1"`
+- [x] **Step 3: Run → PASS.**
+- [x] **Step 4: Commit** — `git add analysis && git commit -m "instrumen: oracle eksak + gerbang verifier + meter T1"`
 
 ---
 
@@ -1329,7 +1329,7 @@ def log(entries: list[dict]) -> list[dict]:
 - Consumes: semua task sebelumnya.
 - Produces: `run_lm1.py [--mini] [--engine PATH] [--outdir DIR]` → `result.json` + stdout `LM-1 PASS|FAIL {kriteria}`. Kriteria: `1_micro_exact`, `2_macro_mae_lt_eps`, `3_meter_emits` (biner; `4_k1_cross` diisi oleh test suite, dilaporkan terpisah).
 
-- [ ] **Step 1: Tulis `run_lm1.py`**
+- [x] **Step 1: Tulis `run_lm1.py`**
 
 ```python
 """LM-1 — eksperimen hukum tanaman (kriteria biner LM0, spec §9).
@@ -1440,7 +1440,7 @@ if __name__ == "__main__":
     sys.exit(main())
 ```
 
-- [ ] **Step 2: Test e2e mini `analysis/tests/test_lm1_e2e.py`**
+- [x] **Step 2: Test e2e mini `analysis/tests/test_lm1_e2e.py`**
 
 ```python
 """LM-1 end-to-end versi mini — loop penuh hidup: engine→Newton→oracle→meter."""
@@ -1467,8 +1467,8 @@ def test_lm1_mini_pass(engine_bin, tmp_path):
     assert res["micro"]["ground_truth"] == 184
 ```
 
-- [ ] **Step 3: Run → PASS.** Kalau `2_macro` gagal di mini: naikkan `--steps` mini (bukan eps) — flakiness pengukuran, bukan hukum.
-- [ ] **Step 4: Commit** — `git add experiments analysis && git commit -m "lm1: harness eksperimen hukum tanaman — loop penuh end-to-end (mini teruji)"`
+- [x] **Step 3: Run → PASS.** Kalau `2_macro` gagal di mini: naikkan `--steps` mini (bukan eps) — flakiness pengukuran, bukan hukum.
+- [x] **Step 4: Commit** — `git add experiments analysis && git commit -m "lm1: harness eksperimen hukum tanaman — loop penuh end-to-end (mini teruji)"`
 
 ---
 
@@ -1478,11 +1478,11 @@ def test_lm1_mini_pass(engine_bin, tmp_path):
 - Create: `experiments/lm1/result/result.json` (output full run), catat di commit message.
 - Modify: `.agent-state/now.md`
 
-- [ ] **Step 1:** `cargo build --release`
-- [ ] **Step 2:** `python experiments/lm1/run_lm1.py` (full) — catat verdict + MAE + model_bits.
-- [ ] **Step 3:** Pastikan `4_k1_cross` = PASS dari `pytest analysis -q` (test_cross).
-- [ ] **Step 4:** Update `.agent-state/now.md` (status LM0, angka LM-1, next = M0 atau iterasi LM0).
-- [ ] **Step 5:** Commit — `git add experiments && git commit -m "lm1: FULL RUN <verdict> — mikro <exact/->, makro MAE=<x>, meter=<bits> bit (angka pertama 0and1)"`
+- [x] **Step 1:** `cargo build --release`
+- [x] **Step 2:** `python experiments/lm1/run_lm1.py` (full) — catat verdict + MAE + model_bits.
+- [x] **Step 3:** Pastikan `4_k1_cross` = PASS dari `pytest analysis -q` (test_cross).
+- [x] **Step 4:** Update `.agent-state/now.md` (status LM0, angka LM-1, next = M0 atau iterasi LM0).
+- [x] **Step 5:** Commit — `git add experiments && git commit -m "lm1: FULL RUN <verdict> — mikro <exact/->, makro MAE=<x>, meter=<bits> bit (angka pertama 0and1)"`
 
 ---
 

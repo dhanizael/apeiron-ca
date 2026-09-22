@@ -1,0 +1,12 @@
+{
+  "schema": "0and1-manifest",
+  "version": 1,
+  "rule_id": 184,
+  "n_cells": 4096,
+  "cars": 512,
+  "seed": 7,
+  "steps": 20000,
+  "window_states": 513,
+  "fnv_final": "721be9fc9297faa2",
+  "engine_version": "lm0.1"
+}
