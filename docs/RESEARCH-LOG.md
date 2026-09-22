@@ -50,3 +50,46 @@ cargo build --release          # di engine/
 .venv/bin/python experiments/lm1/run_lm1.py
 ```
 Manifest per-run: `experiments/lm1/result/` (seed 7, n 4096, 20000 langkah).
+
+---
+
+## 002 — M0: K2, angka throughput formal (2026-09-22)
+
+**Apa:** Engine NCCA tergeneralisasi (keluarga flow, k∈{1,2,4,8}) + benchmark formal
+sesuai protokol K2 yang dibekukan di spec §5.
+
+**Angka (protokol beku: k=4, n=2²⁷, 100 langkah, median 5 run setelah 1 warmup,
+jalur LUT generik, 20 thread, x86_64):**
+
+- **median_cell_updates_per_detik = 2.31e9** (min 2.24e9, max 2.45e9)
+- Target K2 ≥ 1e9 → **PASS** (2.3× di atas target)
+- table_fnv `b1f9b6ea85176634` (tabel acak seeded 20260922); fnv_final `634cbc0425e53c88`
+- Reproduksi: `engine/target/release/engine bench --protocol k2`
+
+**Jalan menuju angka itu (berharga untuk metodologi):**
+1. Angka jujur pertama: **5.39e8** — di bawah target. Diagnosis: hot loop melakukan
+   6 pembagian integer (modulo ring) per sel × 134 juta sel × 100 langkah.
+2. Restrukturisasi: per worker, lane dimaterialisasi sekali ke buffer lokal
+   (satu modulo di inisialisasi, lanjut dengan conditional wrap) → nol pembagian
+   di hot loop → **2.31e9** (4.3×), dengan `fnv_final` identik bit-per-bit.
+3. Pelajaran: pengukuran formal mengubah "kira-kira cukup cepat" menjadi
+   target yang bisa digagalkan — dan gagal dulu di muka monitor. Itu fungsinya.
+
+**Kontrak M0 yang terpenuhi:**
+- **K1′:** bit-identical lintas thread (1≡4; sweep 2,3,7,16) DAN lintas
+  implementasi (Rust ≡ Python, k=1/2/4).
+- **Regresi LM-1:** engine M0 mereproduksi fnv_final LM-1 ter-commit persis
+  (20000 langkah) — generalisasi tidak menyentuh semantika k=1.
+- Konservasi by construction teruji untuk k=1,2,4,8 (100 langkah × tabel acak).
+- Snapshot v2 + manifest v2 (rule.bin + rule_fnv) + window budget; v1 tetap terbaca.
+- Test suite: Rust 56 + Python 30, hijau.
+
+**Batas jujur:** angka K2 adalah untuk jalur generik LUT pada k=4 di satu node
+(i9-12900H, 20 thread); bukan klaim atas semua k/aturan, dan bukan jalur
+bit-parallel khusus (Rule 184 legacy: 2.6e10 cell-updates/detik, konteks saja).
+
+**Reproduksi:**
+```
+cd engine && cargo build --release && ./target/release/engine bench --protocol k2
+cargo test && ../.venv/bin/pytest ../analysis -q
+```
