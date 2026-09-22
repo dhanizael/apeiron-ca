@@ -70,8 +70,8 @@ fn cmd_run(args: &[String]) -> i32 {
         eprintln!("--n harus kelipatan 64 dan > 0");
         return 1;
     }
-    if window == 0 || (window as u64) >= steps {
-        eprintln!("--window harus > 0 dan < --steps");
+    if window == 0 || (window as u64) > steps {
+        eprintln!("--window harus > 0 dan <= --steps (window == steps → termasuk t=0)");
         return 1;
     }
     if std::fs::create_dir_all(&outdir).is_err() {
