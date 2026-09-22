@@ -235,3 +235,24 @@ lahir menempel kapasitas. Jika **slack** (entri F < cap) adalah prasyarat
 menjadi-baik, maka arm slack-rich (uniform [0, cap] per entri) harus menunjukkan
 pass-rate K3 lebih tinggi daripada arm slack-poor (generator lama) — dan juara
 slack-rich memberi loop v2 tuas level-tabel yang nyata.
+
+**Hasil M1v2 (12.000 kandidat, dua lengan):**
+
+- **Hipotesis slack: SUPPORTED.** Pass-rate tahap A: RICH 0,670 vs POOR 0,310
+  (2,16×). Penyintas: 4.017/6.000 vs 1.861/6.000.
+- **Dan strukturnya hidup-vs-mati di horizon 10⁶:**
+  - Juara RICH (slack 61,1%): partikel hidup di akhir horizon, lifetime
+    **1000/1000 observasi = seluruh 10⁶ langkah**, exclusion streak = **0**
+    (tak pernah sekali pun runtuh).
+  - Juara POOR (slack 2,1%): partikel masih ada, lifetime 999/1000 — tetapi
+    **exclusion streak = 995/1000**: semestanya RUNTUH ke ≤3 pola dan TIDAK
+    BANGUN lagi. Mati oleh competitive exclusion, persis pola pemakaman.
+- V1 (kedua lengan lolos horizon) = false, dan sebabnya adalah temuan itu
+  sendiri: lengan POOR PUNAH di horizon. Kriteria "kedua lengan" salah rangka —
+  asimetri itulah hasilnya.
+- **Gagang loop v2 kini ada:** juara RICH slack 61% → intervensi level-tabel
+  punya bahan. Kandidat baru: champ RICH k=2 (seed 5700010/11).
+
+**Kalimat penutup hari ini, kini dengan data:** ruangan hampa itu bukan tempat
+kontemplasi saja — dia adalah perbedaan antara semesta yang runtuh dan semesta
+yang bertahan. Slack = ruang untuk menjadi.

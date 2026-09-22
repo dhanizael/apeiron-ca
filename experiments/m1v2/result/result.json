@@ -1,0 +1,67 @@
+{
+  "experiment": "M1v2-slack-hypothesis",
+  "mode": "full",
+  "criteria": {
+    "V1_champions_both_arms_at_horizon": false,
+    "V2_slack_hypothesis": "supported"
+  },
+  "pass_rates": {
+    "POOR": 0.31016666666666665,
+    "RICH": 0.6695
+  },
+  "n_survivors": {
+    "POOR": 1861,
+    "RICH": 4017
+  },
+  "champions": [
+    {
+      "arm": "POOR",
+      "k": 4,
+      "seed": 700024,
+      "table_fnv": "2ffe23680916e8bb",
+      "slack_fraction": 0.0211,
+      "horizon": 1000000,
+      "particles_final": 8141,
+      "max_lifetime": 999,
+      "exclusion_streak_max": 995,
+      "passes_horizon": false
+    },
+    {
+      "arm": "POOR",
+      "k": 4,
+      "seed": 7800240,
+      "table_fnv": "69a4dde7b81bffc8",
+      "slack_fraction": 0.0214,
+      "horizon": 1000000,
+      "particles_final": 8165,
+      "max_lifetime": 998,
+      "exclusion_streak_max": 994,
+      "passes_horizon": false
+    },
+    {
+      "arm": "RICH",
+      "k": 2,
+      "seed": 5700010,
+      "table_fnv": "85eba35fbd113e83",
+      "slack_fraction": 0.6111,
+      "horizon": 1000000,
+      "particles_final": 1431,
+      "max_lifetime": 1000,
+      "exclusion_streak_max": 0,
+      "passes_horizon": true
+    },
+    {
+      "arm": "RICH",
+      "k": 2,
+      "seed": 5700011,
+      "table_fnv": "22901581fe9a6ec3",
+      "slack_fraction": 0.6111,
+      "horizon": 1000000,
+      "particles_final": 1402,
+      "max_lifetime": 1000,
+      "exclusion_streak_max": 0,
+      "passes_horizon": true
+    }
+  ],
+  "reproduce": "python experiments/m1v2/search.py"
+}
