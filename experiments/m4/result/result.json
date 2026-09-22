@@ -1,543 +1,332 @@
 {
-  "experiment": "M4-loop-v2",
+  "experiment": "M4-loop-v3",
   "mode": "full",
   "universe": "RICH",
   "criteria": {
-    "W3v2_feedback_directed_effect_rich": false,
-    "W3v2b_finding_lever_magnitude": true
+    "W3v3a_feedback_never_freezes": true,
+    "W3v3b_cumulative_performance": true
   },
-  "mean_delta_feedback": 0.061613619327545166,
-  "mean_delta_control": 0.06363299489021301,
+  "sum_j_feedback": 1.99658203125,
+  "sum_j_control": 1.49560546875,
+  "v2_baseline": {
+    "sum_fb": 1.3258,
+    "sum_ctrl": 1.9927,
+    "source": "log 007 (seed 2201-2205)"
+  },
+  "instrument": {
+    "kind": "short-horizon-full-scale",
+    "short_steps": 5000,
+    "r_min": 0.3,
+    "calibration": "freeze_miss=0/13 (GATE-PASS)"
+  },
   "iterations": 4,
   "trajectory": [
     {
       "iteration": 0,
+      "seed": 5502,
       "effect_cap": 1,
-      "seed": 2202,
+      "decision": {
+        "hold": false,
+        "committed": [
+          {
+            "entry": 20,
+            "delta": 1,
+            "short_j": 0.5009765625,
+            "short_delta": 0.27448034286499023,
+            "short_class": "raise"
+          },
+          {
+            "entry": 12,
+            "delta": -1,
+            "short_j": 0.2895801067352295,
+            "short_delta": 0.06308388710021973,
+            "short_class": "raise"
+          },
+          {
+            "entry": 24,
+            "delta": 1,
+            "short_j": 0.26696109771728516,
+            "short_delta": 0.04046487808227539,
+            "short_class": "raise"
+          },
+          {
+            "entry": 8,
+            "delta": 1,
+            "short_j": 0.25048828125,
+            "short_delta": 0.023992061614990234,
+            "short_class": "raise"
+          },
+          {
+            "entry": 25,
+            "delta": -1,
+            "short_j": 0.25048828125,
+            "short_delta": 0.023992061614990234,
+            "short_class": "raise"
+          },
+          {
+            "entry": 40,
+            "delta": 1,
+            "short_j": 0.25048828125,
+            "short_delta": 0.023992061614990234,
+            "short_class": "raise"
+          },
+          {
+            "entry": 44,
+            "delta": 1,
+            "short_j": 0.25048828125,
+            "short_delta": 0.023992061614990234,
+            "short_class": "raise"
+          },
+          {
+            "entry": 54,
+            "delta": 1,
+            "short_j": 0.24956214427947998,
+            "short_delta": 0.023065924644470215,
+            "short_class": "raise"
+          }
+        ],
+        "cocktail_trail": [
+          {
+            "size": 8,
+            "short_j": 0.5009765625,
+            "safe": true
+          }
+        ],
+        "n_pool": 43,
+        "n_rejected_unsafe": 21,
+        "n_positive": 8,
+        "j_parent_short": 0.22649621963500977
+      },
       "intervention": {
         "targeted": [
-          24,
+          20,
           12,
-          28,
-          41,
-          44,
+          24,
           8,
-          46,
-          57
+          25,
+          40,
+          44,
+          54
         ],
         "control": [
-          37,
-          61,
+          41,
           60,
-          20,
+          30,
           37,
-          20,
-          56,
-          45
+          62,
+          46,
+          60,
+          57
         ],
-        "m": 8
+        "m": 8,
+        "m_control": 8
       },
       "observation": {
-        "parent_stats_slack": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          2416,
-          538,
-          0,
-          0,
-          558507,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          602,
-          0,
-          0,
-          0,
-          635020,
-          0,
-          0,
-          0,
-          76443,
-          92,
-          121,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          306,
-          0,
-          0,
-          96,
-          30319,
-          0,
-          0,
-          3951,
-          372,
-          1648,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          46,
-          0,
-          1089,
-          1500,
-          0,
-          0,
-          958,
-          671,
-          679,
-          0
-        ],
         "loose_diagnostics": {
           "n_loose_observed": 20,
           "top_slack_observed": [
             [
               24,
-              635020
+              638738
             ],
             [
               12,
-              558507
+              559846
             ],
             [
               28,
-              76443
+              78845
             ],
             [
               41,
-              30319
+              29293
             ],
             [
               44,
-              3951
+              2714
             ],
             [
               8,
-              2416
+              1122
             ],
             [
               46,
-              1648
+              709
             ],
             [
               57,
-              1500
+              569
             ]
           ]
         }
       },
       "feedback": {
-        "j_parent": 0.24864184856414795,
+        "j_parent": 0.24922895431518555,
+        "j": 0.5009765625,
+        "delta_paired": 0.25174760818481445,
+        "j_by_cap": {
+          "1": 0.5009765625,
+          "3": 0.0
+        },
+        "table_fnv": "8114a4d3d01e5cb9"
+      },
+      "control": {
+        "j_parent": 0.24922895431518555,
         "j": 0.0,
-        "delta_paired": -0.24864184856414795,
+        "delta_paired": -0.24922895431518555,
         "j_by_cap": {
           "1": 0.0,
           "3": 0.0
         },
-        "table_fnv": "4f2f83084da03371"
-      },
-      "control": {
-        "j_parent": 0.24864184856414795,
-        "j": 0.503173828125,
-        "delta_paired": 0.25453197956085205,
-        "j_by_cap": {
-          "1": 0.503173828125,
-          "3": 0.0
-        },
-        "table_fnv": "a001306990870e03"
+        "table_fnv": "085a3e5089e6ba45"
       }
     },
     {
       "iteration": 1,
+      "seed": 5503,
       "effect_cap": 1,
-      "seed": 2203,
-      "intervention": {
-        "targeted": [
-          61,
-          52,
-          13,
-          54,
-          9
-        ],
-        "control": [],
-        "m": 5
+      "decision": {
+        "hold": true,
+        "committed": [],
+        "cocktail_trail": [],
+        "n_pool": 48,
+        "n_rejected_unsafe": 0,
+        "n_positive": 0,
+        "j_parent_short": 0.4957275390625
       },
-      "observation": {
-        "parent_stats_slack": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          512,
-          0,
-          0,
-          0,
-          3072,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          37376,
-          0,
-          512,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          65536,
-          0,
-          0
-        ],
-        "loose_diagnostics": {
-          "n_loose_observed": 5,
-          "top_slack_observed": [
-            [
-              61,
-              65536
-            ],
-            [
-              52,
-              37376
-            ],
-            [
-              13,
-              3072
-            ],
-            [
-              9,
-              512
-            ],
-            [
-              54,
-              512
-            ]
-          ]
-        }
-      },
-      "feedback": {
-        "j_parent": 0.0,
-        "j": 0.33034801483154297,
-        "delta_paired": 0.33034801483154297,
-        "j_by_cap": {
-          "1": 0.33034801483154297,
-          "3": 0.7599352598190308
-        },
-        "table_fnv": "afdc9d887fad280e"
-      },
-      "control": {
-        "j_parent": 0.4940185546875,
-        "j": 0.4940185546875,
-        "delta_paired": 0.0,
-        "j_by_cap": {
-          "1": 0.4940185546875,
-          "3": 0.0
-        },
-        "table_fnv": "a001306990870e03"
-      }
-    },
-    {
-      "iteration": 2,
-      "effect_cap": 1,
-      "seed": 2204,
-      "intervention": {
-        "targeted": [
-          9,
-          24,
-          37,
-          20,
-          13,
-          8,
-          57,
-          29
-        ],
-        "control": [],
-        "m": 8
-      },
-      "observation": {
-        "parent_stats_slack": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          18672,
-          165204,
-          0,
-          0,
-          0,
-          87945,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          125326,
-          0,
-          0,
-          0,
-          161752,
-          0,
-          0,
-          0,
-          0,
-          11494,
-          581,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          127868,
-          0,
-          0,
-          306,
-          0,
-          0,
-          0,
-          303,
-          148,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          17467,
-          0,
-          0,
-          0,
-          704,
-          481,
-          0
-        ],
-        "loose_diagnostics": {
-          "n_loose_observed": 14,
-          "top_slack_observed": [
-            [
-              9,
-              165204
-            ],
-            [
-              24,
-              161752
-            ],
-            [
-              37,
-              127868
-            ],
-            [
-              20,
-              125326
-            ],
-            [
-              13,
-              87945
-            ],
-            [
-              8,
-              18672
-            ],
-            [
-              57,
-              17467
-            ],
-            [
-              29,
-              11494
-            ]
-          ]
-        }
-      },
-      "feedback": {
-        "j_parent": 0.33348166942596436,
-        "j": 0.49822998046875,
-        "delta_paired": 0.16474831104278564,
-        "j_by_cap": {
-          "1": 0.49822998046875,
-          "3": 0.748504638671875
-        },
-        "table_fnv": "81f32bc7f3707024"
-      },
-      "control": {
-        "j_parent": 0.49822998046875,
-        "j": 0.49822998046875,
-        "delta_paired": 0.0,
-        "j_by_cap": {
-          "1": 0.49822998046875,
-          "3": 0.0
-        },
-        "table_fnv": "a001306990870e03"
-      }
-    },
-    {
-      "iteration": 3,
-      "effect_cap": 1,
-      "seed": 2205,
       "intervention": {
         "targeted": [],
-        "control": [],
-        "m": 0
+        "control": [
+          44,
+          24,
+          54,
+          8,
+          61,
+          44,
+          8
+        ],
+        "m": 0,
+        "m_control": 7
       },
       "observation": {
-        "parent_stats_slack": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
         "loose_diagnostics": {
           "n_loose_observed": 0,
           "top_slack_observed": []
         }
       },
       "feedback": {
-        "j_parent": 0.49725341796875,
-        "j": 0.49725341796875,
+        "j_parent": 0.4957275390625,
+        "j": 0.4957275390625,
         "delta_paired": 0.0,
         "j_by_cap": {
-          "1": 0.49725341796875,
-          "3": 0.755096435546875
-        },
-        "table_fnv": "81f32bc7f3707024"
-      },
-      "control": {
-        "j_parent": 0.49725341796875,
-        "j": 0.49725341796875,
-        "delta_paired": 0.0,
-        "j_by_cap": {
-          "1": 0.49725341796875,
+          "1": 0.4957275390625,
           "3": 0.0
         },
-        "table_fnv": "a001306990870e03"
+        "table_fnv": "8114a4d3d01e5cb9"
+      },
+      "control": {
+        "j_parent": 0.0,
+        "j": 0.4957275390625,
+        "delta_paired": 0.4957275390625,
+        "j_by_cap": {
+          "1": 0.4957275390625,
+          "3": 1.487866759300232
+        },
+        "table_fnv": "2788ddf17b22a4aa"
+      }
+    },
+    {
+      "iteration": 2,
+      "seed": 5504,
+      "effect_cap": 1,
+      "decision": {
+        "hold": true,
+        "committed": [],
+        "cocktail_trail": [],
+        "n_pool": 48,
+        "n_rejected_unsafe": 0,
+        "n_positive": 0,
+        "j_parent_short": 0.49993896484375
+      },
+      "intervention": {
+        "targeted": [],
+        "control": [],
+        "m": 0,
+        "m_control": 0
+      },
+      "observation": {
+        "loose_diagnostics": {
+          "n_loose_observed": 0,
+          "top_slack_observed": []
+        }
+      },
+      "feedback": {
+        "j_parent": 0.49993896484375,
+        "j": 0.49993896484375,
+        "delta_paired": 0.0,
+        "j_by_cap": {
+          "1": 0.49993896484375,
+          "3": 0.0
+        },
+        "table_fnv": "8114a4d3d01e5cb9"
+      },
+      "control": {
+        "j_parent": 0.49993896484375,
+        "j": 0.49993896484375,
+        "delta_paired": 0.0,
+        "j_by_cap": {
+          "1": 0.49993896484375,
+          "3": 1.49114990234375
+        },
+        "table_fnv": "2788ddf17b22a4aa"
+      }
+    },
+    {
+      "iteration": 3,
+      "seed": 5505,
+      "effect_cap": 1,
+      "decision": {
+        "hold": true,
+        "committed": [],
+        "cocktail_trail": [],
+        "n_pool": 48,
+        "n_rejected_unsafe": 0,
+        "n_positive": 0,
+        "j_parent_short": 0.49993896484375
+      },
+      "intervention": {
+        "targeted": [],
+        "control": [],
+        "m": 0,
+        "m_control": 0
+      },
+      "observation": {
+        "loose_diagnostics": {
+          "n_loose_observed": 0,
+          "top_slack_observed": []
+        }
+      },
+      "feedback": {
+        "j_parent": 0.49993896484375,
+        "j": 0.49993896484375,
+        "delta_paired": 0.0,
+        "j_by_cap": {
+          "1": 0.49993896484375,
+          "3": 0.0
+        },
+        "table_fnv": "8114a4d3d01e5cb9"
+      },
+      "control": {
+        "j_parent": 0.49993896484375,
+        "j": 0.49993896484375,
+        "delta_paired": 0.0,
+        "j_by_cap": {
+          "1": 0.49993896484375,
+          "3": 1.4799349308013916
+        },
+        "table_fnv": "2788ddf17b22a4aa"
       }
     }
   ],
-  "reproduce": "python experiments/m4/loop2.py"
+  "reproduce": "python experiments/m4/loop3.py"
 }
