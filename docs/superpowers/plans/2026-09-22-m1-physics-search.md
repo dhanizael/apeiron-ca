@@ -14,7 +14,7 @@
 
 - Definisi operasional K3 sesuai spec amendemen M1 (dibekukan sebelum pencarian).
 - Tanpa float di substrat & metrik Rust (fraksi = pasangan integer [pembilang, penyebut]; entropi hanya di Python untuk juara).
-- Ruang pencarian M1: k∈{2,3} (k=4 disiapkan tapi belum dipakai — tabel 4096 entri, tahap C saja bila perlu).
+- Ruang pencarian M1: k∈{2,4}.
 - Setiap kandidat/hasil wajib manifest + perintah reproduksi; hasil nihil = temuan negatif terdokumentasi.
 - Seed hand-designed (sandpile, lapisan-184) dijalankan selalu sebagai baseline kalibrasi.
 
