@@ -327,3 +327,14 @@ membuat +1 pada entri tertentu menciptakan fixed point global sementara
 entri lain tidak — kandidat: rantai kunci flow-nol (FM-E) kini mengunci
 MEDAN KE NOL, dan konservasi menyebarkan kebekuan ke seluruh ring. Uji
 sebelum klaim.
+
+**Verifikasi independen (sesi review, 2026-09-23):** rerun loop2 → result.json
+identik byte-per-byte (determinisme ✓). Angka inti cocok (mean Δ 0,0616/0,0636;
+|Δ| 0,186 vs 0,064 ≈ 3×). Klaim beku & kebangkitan kini DIVERIFIKASI dari arsip
+bersih: **beku = 0/512 transisi berubah, J=0.0000, ambigu 0** (fixed point
+dinamis sungguhan — FM-E resmi ditolak); **kebangkitan 3 seed segar =
+0,3372/0,3386/0,3309** (~0,33 ✓). Satu bug infrastruktur ditemukan & diperbaiki
+review: dir arsip `u_{seed}_{cap}` dipakai bergantian parent/child fb & ctrl
+(last-writer-wins → arsip tak reproducible; pengukuran AMAN — terbukti
+result.json identik pasca-fix, kini dir unik per peran). Klaim beku/kebangkitan
+semula probe ad-hoc tanpa artefak — kini terarsip + terverifikasi.

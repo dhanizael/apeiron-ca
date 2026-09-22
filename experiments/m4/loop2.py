@@ -79,9 +79,11 @@ def observed_slack_coverage(stats):
             "top_slack_observed": [[i, s[i]] for i in top]}
 
 
-def observe_and_j(engine, table, k, seed, n, caps, steps, window, workdir, init_cap):
-    """Observasi medan pada init_cap yang diintervensi + J per cap (atribusi)."""
-    d = Path(workdir) / f"u_{seed}_{init_cap}"
+def observe_and_j(engine, table, k, seed, n, caps, steps, window, workdir, init_cap, role):
+    """Observasi medan pada init_cap yang diintervensi + J per cap (atribusi).
+    role = fb_parent|fb_child|ctrl_parent|ctrl_child — dir unik per peran
+    (kolisi arsip lama: satu rule.bin ditimpa 4 kali per iterasi)."""
+    d = Path(workdir) / f"u_{role}_{seed}_{init_cap}"
     d.mkdir(parents=True, exist_ok=True)
     (d / "rule.bin").write_bytes(bytes(table))
     states = run_window(engine, n, k, seed, steps, window, d / "rule.bin", d / "w",
@@ -145,21 +147,25 @@ def main() -> int:
     for it in range(K):
         seed_i = base_seed + 1 + it  # pasangan seed-sama (efek mutasi murni)
         stats_fb, jcap_parent = observe_and_j(
-            a.engine, F_fb, k, seed_i, n, caps, steps, window, workdir, cap_lin)
+            a.engine, F_fb, k, seed_i, n, caps, steps, window, workdir, cap_lin,
+            role="fb_parent")
         tgt = select_targeted(stats_fb, m_entries)
         F_fb_new = mutate(F_fb, k, tgt)
         _s, jcap_fb = observe_and_j(
-            a.engine, F_fb_new, k, seed_i, n, caps, steps, window, workdir, cap_lin)
+            a.engine, F_fb_new, k, seed_i, n, caps, steps, window, workdir, cap_lin,
+            role="fb_child")
         F_fb = F_fb_new
 
         s_ctrl, jcap_parent_c = observe_and_j(
-            a.engine, F_ctrl, k, seed_i, n, caps, steps, window, workdir, cap_lin)
+            a.engine, F_ctrl, k, seed_i, n, caps, steps, window, workdir, cap_lin,
+            role="ctrl_parent")
         ctl_set = set(tgt)
         ctl = [e for e in select_control(s_ctrl, m_entries * 3, seed=base_seed + 300 + it)
                if e not in ctl_set][:m_entries]
         F_ctrl_new = mutate(F_ctrl, k, ctl)
         _s2, jcap_ctrl = observe_and_j(
-            a.engine, F_ctrl_new, k, seed_i, n, caps, steps, window, workdir, cap_lin)
+            a.engine, F_ctrl_new, k, seed_i, n, caps, steps, window, workdir, cap_lin,
+            role="ctrl_child")
         F_ctrl = F_ctrl_new
 
         d_fb = jcap_fb[cap_lin] - jcap_parent[cap_lin]
