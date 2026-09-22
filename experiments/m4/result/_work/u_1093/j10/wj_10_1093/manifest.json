@@ -2,7 +2,7 @@
   "schema": "0and1-manifest",
   "version": 2,
   "rule": "flow-table",
-  "rule_fnv": "a0ea26a5d82188b3",
+  "rule_fnv": "7882486e45e99dda",
   "k": 4,
   "n_cells": 16384,
   "init_cap": 10,
@@ -12,6 +12,6 @@
   "window_states": 513,
   "window_budget": 268435456,
   "threads": 1,
-  "fnv_final": "a16bdeca1cba6447",
+  "fnv_final": "d38773785ab4171d",
   "engine_version": "m0.1"
 }

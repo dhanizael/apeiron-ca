@@ -2,7 +2,7 @@
   "schema": "0and1-manifest",
   "version": 2,
   "rule": "flow-table",
-  "rule_fnv": "a0ea26a5d82188b3",
+  "rule_fnv": "7882486e45e99dda",
   "k": 4,
   "n_cells": 16384,
   "init_cap": 6,

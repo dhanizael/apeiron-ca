@@ -69,12 +69,14 @@ def mutate(table, k, entries):
     return ca.clip_table(t, k)
 
 
-def observe_and_j(engine, table, k, seed, n, caps, steps, window, workdir):
-    """Observasi medan (untuk stats) + J per cap (untuk efek). Kembalikan (stats, J_max, J_by_cap)."""
-    d = Path(workdir) / f"u_{seed}"
+def observe_and_j(engine, table, k, seed, n, caps, steps, window, workdir, init_cap=0):
+    """Observasi medan + J per cap pada init_cap yang SAMA (amati rezim yang
+    kau intervensi). Kembalikan (stats, J_max, J_by_cap)."""
+    d = Path(workdir) / f"u_{seed}_{init_cap}"
     d.mkdir(parents=True, exist_ok=True)
     (d / "rule.bin").write_bytes(bytes(table))
-    states = run_window(engine, n, k, seed, steps, window, d / "rule.bin", d / "w")
+    states = run_window(engine, n, k, seed, steps, window, d / "rule.bin", d / "w",
+                        init_cap=init_cap)
     pairs = [(list(states[i]), list(states[i + 1])) for i in range(len(states) - 1)]
     stats = binding_stats(pairs, k)
     j_by_cap = {}
@@ -124,28 +126,33 @@ def main() -> int:
     trajectory = []
     F_fb, F_ctrl = list(F0), list(F0)
     deltas_fb, deltas_ctrl = [], []
+    # Rezim efek: LINIER (cap rendah) — di rezim jenuh medan aliran diklip
+    # kapasitas, J tak peka terhadap mutasi tabel (pelajaran run-2).
+    cap_lin = caps[0]
     for it in range(K):
         # PASANGAN SEED-SAMA (pelajaran run-1): J(F', s) − J(F, s) mengisolasi
         # efek mutasi murni — semesta deterministik, nol derau seed.
         seed_i = base_seed + 1 + it
-        stats_fb, J_parent_fb, jcap_parent = observe_and_j(a.engine, F_fb, k, seed_i, n, caps, steps, window, workdir)
-        tgt = select_targeted(stats_fb, m_entries)[:m_entries]
-        F_fb = mutate(F_fb, k, tgt)
-        _s, J_fb, jcap_fb = observe_and_j(a.engine, F_fb, k, seed_i, n, caps, steps, window, workdir)
-        s_ctrl, J_parent_ctrl, _ = observe_and_j(a.engine, F_ctrl, k, seed_i, n, caps, steps, window, workdir)
-        ctl = select_control(s_ctrl, m_entries, seed=base_seed + 300 + it)
+        stats_fb, J_parent_fb, jcap_parent = observe_and_j(a.engine, F_fb, k, seed_i, n, caps, steps, window, workdir, init_cap=cap_lin)
+        tgt = set(select_targeted(stats_fb, m_entries)[:m_entries])
+        F_fb = mutate(F_fb, k, list(tgt))
+        _s, J_fb, jcap_fb = observe_and_j(a.engine, F_fb, k, seed_i, n, caps, steps, window, workdir, init_cap=cap_lin)
+        s_ctrl, J_parent_ctrl, _ = observe_and_j(a.engine, F_ctrl, k, seed_i, n, caps, steps, window, workdir, init_cap=cap_lin)
+        ctl = [e for e in select_control(s_ctrl, m_entries * 3, seed=base_seed + 300 + it)
+               if e not in tgt][:m_entries]  # kontrol ≠ terarah (disjoint)
         F_ctrl = mutate(F_ctrl, k, ctl)
-        _s2, J_ctrl1, jcap_ctrl = observe_and_j(a.engine, F_ctrl, k, seed_i, n, caps, steps, window, workdir)
+        _s2, J_ctrl1, jcap_ctrl = observe_and_j(a.engine, F_ctrl, k, seed_i, n, caps, steps, window, workdir, init_cap=cap_lin)
         d_fb = J_fb - J_parent_fb
         d_ctrl = J_ctrl1 - J_parent_ctrl
         deltas_fb.append(d_fb)
         deltas_ctrl.append(d_ctrl)
         trajectory.append({
             "iteration": it,
-            "feedback": {"j_max_parent": J_parent_fb, "j_max": J_fb, "delta_paired": d_fb,
+            "effect_cap": cap_lin,
+            "feedback": {"j_parent": J_parent_fb, "j": J_fb, "delta_paired": d_fb,
                          "j_by_cap": jcap_fb,
                          "table_fnv": f"{ca.table_fnv(F_fb):016x}"},
-            "control": {"j_max_parent": J_parent_ctrl, "j_max": J_ctrl1, "delta_paired": d_ctrl,
+            "control": {"j_parent": J_parent_ctrl, "j": J_ctrl1, "delta_paired": d_ctrl,
                         "j_by_cap": jcap_ctrl,
                         "table_fnv": f"{ca.table_fnv(F_ctrl):016x}"},
         })

@@ -1,117 +1,113 @@
 {
-  "experiment": "M4-growth",
+  "experiment": "M4-loop",
   "mode": "full",
   "criteria": {
-    "K5_curve_measured": true
+    "W3_feedback_directed_effect": false
   },
-  "regimes_measured": [
-    "champ_k4_s12710955",
-    "champ_k4_s12710967",
-    "rule184_k1"
-  ],
-  "curves": {
-    "champ_k4_s12710955": [
-      {
-        "t": 1000,
-        "model_bits": 16360,
-        "coverage": 4090,
-        "table_size": 4096,
-        "compressed": 900990,
-        "raw": 8200192,
-        "ratio": 0.10987425660277222
+  "mean_delta_feedback": 0.2783527374267578,
+  "mean_delta_control": 0.2783527374267578,
+  "iterations": 4,
+  "trajectory": [
+    {
+      "iteration": 0,
+      "feedback": {
+        "j_max_parent": 5.873344421386719,
+        "j_max": 6.98675537109375,
+        "delta_paired": 1.1134109497070312,
+        "j_by_cap": {
+          "6": 3.028564453125,
+          "10": 4.98321533203125,
+          "14": 6.98675537109375
+        },
+        "table_fnv": "a0ea26a5d82188b3"
       },
-      {
-        "t": 10000,
-        "model_bits": 1604,
-        "coverage": 401,
-        "table_size": 4096,
-        "compressed": 1673602,
-        "raw": 16785408,
-        "ratio": 0.09970576824823084
-      },
-      {
-        "t": 1000000,
-        "model_bits": 1604,
-        "coverage": 401,
-        "table_size": 4096,
-        "compressed": 1672508,
-        "raw": 16785408,
-        "ratio": 0.099640592590898
+      "control": {
+        "j_max_parent": 5.873344421386719,
+        "j_max": 6.98675537109375,
+        "delta_paired": 1.1134109497070312,
+        "j_by_cap": {
+          "6": 3.028564453125,
+          "10": 4.98321533203125,
+          "14": 6.98675537109375
+        },
+        "table_fnv": "7882486e45e99dda"
       }
-    ],
-    "champ_k4_s12710967": [
-      {
-        "t": 1000,
-        "model_bits": 16360,
-        "coverage": 4090,
-        "table_size": 4096,
-        "compressed": 900986,
-        "raw": 8200192,
-        "ratio": 0.10987376880931568
-      },
-      {
-        "t": 10000,
-        "model_bits": 1604,
-        "coverage": 401,
-        "table_size": 4096,
-        "compressed": 1673602,
-        "raw": 16785408,
-        "ratio": 0.09970576824823084
-      },
-      {
-        "t": 1000000,
-        "model_bits": 1604,
-        "coverage": 401,
-        "table_size": 4096,
-        "compressed": 1672508,
-        "raw": 16785408,
-        "ratio": 0.099640592590898
-      }
-    ],
-    "rule184_k1": [
-      {
-        "t": 1000,
-        "model_bits": 8,
-        "coverage": 8,
-        "table_size": 8,
-        "compressed": 93475,
-        "raw": 2050048,
-        "ratio": 0.0455964933503996
-      },
-      {
-        "t": 10000,
-        "model_bits": 8,
-        "coverage": 8,
-        "table_size": 8,
-        "compressed": 8258,
-        "raw": 4196352,
-        "ratio": 0.0019678997376769156
-      },
-      {
-        "t": 1000000,
-        "model_bits": 2,
-        "coverage": 2,
-        "table_size": 8,
-        "compressed": 6910,
-        "raw": 4196352,
-        "ratio": 0.0016466683443142997
-      }
-    ]
-  },
-  "reading": {
-    "champ_k4_s12710955": {
-      "delta_model_bits": -14756,
-      "reading": "saturated"
     },
-    "champ_k4_s12710967": {
-      "delta_model_bits": -14756,
-      "reading": "saturated"
+    {
+      "iteration": 1,
+      "feedback": {
+        "j_max_parent": 6.96929931640625,
+        "j_max": 6.96929931640625,
+        "delta_paired": 0.0,
+        "j_by_cap": {
+          "6": 3.0030517578125,
+          "10": 4.98931884765625,
+          "14": 6.96929931640625
+        },
+        "table_fnv": "a0ea26a5d82188b3"
+      },
+      "control": {
+        "j_max_parent": 6.96929931640625,
+        "j_max": 6.96929931640625,
+        "delta_paired": 0.0,
+        "j_by_cap": {
+          "6": 3.0030517578125,
+          "10": 4.98931884765625,
+          "14": 6.96929931640625
+        },
+        "table_fnv": "7882486e45e99dda"
+      }
     },
-    "rule184_k1": {
-      "delta_model_bits": -6,
-      "reading": "saturated"
+    {
+      "iteration": 2,
+      "feedback": {
+        "j_max_parent": 6.9873046875,
+        "j_max": 6.9873046875,
+        "delta_paired": 0.0,
+        "j_by_cap": {
+          "6": 3.0,
+          "10": 4.97265625,
+          "14": 6.9873046875
+        },
+        "table_fnv": "a0ea26a5d82188b3"
+      },
+      "control": {
+        "j_max_parent": 6.9873046875,
+        "j_max": 6.9873046875,
+        "delta_paired": 0.0,
+        "j_by_cap": {
+          "6": 3.0,
+          "10": 4.97265625,
+          "14": 6.9873046875
+        },
+        "table_fnv": "7882486e45e99dda"
+      }
+    },
+    {
+      "iteration": 3,
+      "feedback": {
+        "j_max_parent": 6.98040771484375,
+        "j_max": 6.98040771484375,
+        "delta_paired": 0.0,
+        "j_by_cap": {
+          "6": 2.99053955078125,
+          "10": 4.98931884765625,
+          "14": 6.98040771484375
+        },
+        "table_fnv": "a0ea26a5d82188b3"
+      },
+      "control": {
+        "j_max_parent": 6.98040771484375,
+        "j_max": 6.98040771484375,
+        "delta_paired": 0.0,
+        "j_by_cap": {
+          "6": 2.99053955078125,
+          "10": 4.98931884765625,
+          "14": 6.98040771484375
+        },
+        "table_fnv": "7882486e45e99dda"
+      }
     }
-  },
-  "note_macro_bits": "bit makro \u2248 konstanta kecil (136 bit pada M3) \u2014 diukur terpisah",
-  "reproduce": "python experiments/m4/growth.py"
+  ],
+  "reproduce": "python experiments/m4/loop.py"
 }
