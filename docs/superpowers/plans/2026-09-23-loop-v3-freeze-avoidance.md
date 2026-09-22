@@ -1,6 +1,8 @@
 # Plan — Loop v3: intervensi penghindar-fixed-point (W3 round-3)
 
-Tanggal: 2026-09-23. Log riset: 008 (dibuka pra-run, kriteria dibekukan).
+Tanggal: 2026-09-23. Log riset: 009 (dibuka pra-run sebagai "008"; dinomori
+ulang saat rekonsiliasi dengan entri 008 sesi review — mekanisme kristal;
+kriteria tidak diubah, didisklosikan di log 009).
 Branch: `loop-v3` → merge main. Doktrin: GeniusMind + meta-quality Tier 3. TDD ketat.
 
 ## Latar (mengapa v3, dan urutan ilmiahnya)

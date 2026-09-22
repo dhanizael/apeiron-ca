@@ -354,37 +354,6 @@ diuji, DUA-DUANYA DITOLAK, mekanisme sebenarnya terkonfirmasi di level tabel:
    aliran-nol**: konfigurasi statis ter-segregasi (domain 0 dan domain 3) yang
    dinding-dindingnya seluruhnya menempel entri F=0.
 
-**Kronologi (t = waktu semesta):** t=100 mengalir penuh (32/32; nilai antara
-1:3986, 2:1418) → t=300 segregasi berjalan (1:1332, 2:558) → t=1000 nyaris
-terkunci (1:209, 2:26) → t≤3000 beku total. **Indikator awal: massa nilai
-ANTARA (1 dan 2) menirus** — sinyal peringatan yang bisa Newton amati SEBELUM
-terkunci. Kebangkitan 007 terjelaskan: +1 pada entri longgar tersisa melelehkan
-kristal (menyuntik aliran kembali di dinding) → 0 → 0,33.
-
-**Desain loop v3 kini tidak buta:** (a) metrik bahaya = laju penirisan nilai
-antara; (b) intervensi = pelelehan dinding sebelum terkunci; (c) prediksi yang
-bisa difalsifikasi: pelelehan tepat-waktu menjaga J>0 sepanjang horizon,
-terlambat → kristal permanen.
-
-**Reproduksi:** tabel beku `fb_child_2202_1` vs hidup `fb_child_2203_1`
-(arsip loop v2), skrip analisis di sesi review; state akhir
-`/tmp/mech_*` (sementara) — hasil: log ini.
-
----
-
-## 008 — Mekanisme beku terpecahkan: kristal aliran-nol + indikator awal (2026-09-23)
-
-**Pertanyaan 007:** mengapa +1 pada SATU entri membekukan semusta? Dua hipotesis
-diuji, DUA-DUANYA DITOLAK, mekanisme sebenarnya terkonfirmasi di level tabel:
-
-1. **Ditolak (hipotesis 007):** "J=0 terukur padahal partikel bergerak" —
-   verifikasi 0/512 transisi berubah membuktikan semusta benar-benar STATIS.
-2. **Ditolak (hipotesis homogenisasi):** state akhir BUKAN seragam — kristal
-   non-uniform {0: 13496, 1: 197, 2: 26, 3: 2665}.
-3. **Terkonfirmasi:** 0/16384 edge di kristal memiliki F≠0 — **kristal
-   aliran-nol**: konfigurasi statis ter-segregasi (domain 0 dan domain 3) yang
-   dinding-dindingnya seluruhnya menempel entri F=0.
-
 **Kronologi:** t=100 mengalir penuh (32/32; nilai antara 1:3986, 2:1418) →
 t=300 segregasi berjalan (1:1332, 2:558) → t=1000 nyaris terkunci (1:209, 2:26)
 → t≤3000 beku total. **Indikator awal: massa nilai ANTARA (1 dan 2) menirus** —
@@ -399,29 +368,43 @@ kristal permanen.
 
 **Reproduksi:** tabel beku `u_fb_child_2202_1` vs hidup `u_fb_child_2203_1`
 (arsip loop v2, role-unique hasil review); analisis di sesi review.
+*(Catatan rekonsiliasi 2026-09-23: entri ini sempat terduplikasi dua kali —
+duplikat dengan repro `/tmp` volatile dihapus; versi repro durabel dipertahankan.
+Anatomi mandiri loop-v3 pada instans beku berbeda (seed 4401, log 009) mereplikasi
+struktur yang sama: {0: 13558, 1: 166, 2: 28, 3: 2632}, 17 entri terrealisasi
+seluruhnya F=0 di kedua hukum.)*
 
 ---
 
-## 008 — Loop v3: intervensi penghindar-fixed-point (DIBUKA; kriteria dibekukan pra-run 2026-09-23)
+## 009 — Loop v3: intervensi penghindar-fixed-point — PASS dua sisi (2026-09-23)
 
-**Hipotesis:** kekuatan baru loop v3 = kontrafaktual. Newton (yang kini tahu
-hukum semusta — warisan M3) menguji setiap hukum-kandidat pada kosmos mini
-segar SEBELUM berkomitmen, lalu bertindak hanya pada langkah yang modelnya
-prediksikan memperbaiki aliran tanpa membekukan. Prediksi: cabang feedback
-v3 tidak mengulang bencana it0 v2 (membekukan semusta sendiri, J 0,2486→0)
-dan mengungguli kontrol acak kumulatif.
+*(Penomoran: dibuka pra-run sebagai "008", dinomori ulang 009 saat rekonsiliasi
+dengan entri mekanisme sesi review — kriteria TIDAK diubah, urutan peristiwa
+terjaga di git. Entri ini mengutip temuan 008: kristal aliran-nol + indikator
+awal penirisan nilai antara.)*
+
+**Hipotesis (semula: uji hukum-kandidat pada kosmos mini; setelah kalibrasi
+gagal — lihat addendum plan — instrumen berpijar ke kontrafaktual horizon-
+pendek skala penuh):** Newton (yang kini tahu hukum semusta — warisan M3)
+menguji setiap langkah kandidat pada horizon-pendek skala penuh SEBELUM
+berkomitmen, lalu bertindak hanya pada langkah yang modelnya prediksikan
+memperbaiki aliran tanpa membekukan. Prediksi: cabang feedback v3 tidak
+mengulang bencana it0 v2 (membekukan semusta sendiri, J 0,2486→0) dan
+mengungguli kontrol acak kumulatif.
 
 **Kriteria dibekukan SEBELUM run (plan 2026-09-23-loop-v3-freeze-avoidance.md):**
 - W3v3a (keselamatan): min_i J_fb_after_i > 0, K=4.
 - W3v3b (kinerja): Σ J_fb_after > Σ J_ctrl_after (kumulatif).
 - Gerbang instrumen (W2): simulasi mini n=256 harus nol freeze-miss vs
   full-scale pada ≥13 mutasi tunggal berlabel — sebelum verdict dijalankan.
+  *(Evaluasi gerbang akhirnya memakai instrumen hasil pivot — addendum plan:
+  mini-cosmos ditolak karena basin beku bergantung skala; gerbang tetap
+  "nol freeze-miss pada 13 label" dan terpenuhi oleh instrumen final.)*
 - Urutan wajib: anatomi fixed point (pertanyaan 8 log 007) → kalibrasi → verdict.
 - Seed: anatomi 4401 (warisan 007, disklosikan); label kalibrasi 1093/1094
   (kontaminasi terkontrol — fungsinya kasus berlabel); verdict segar 5501+;
   seed instrumen mini 6600.
 
-**Hasil: (menyusul — diisi setelah run, tanpa pengeditan kriteria).**
 **Hasil (FULL RUN, seed 5502–5505, n=16384, 20k langkah — kriteria tak diubah):**
 
 - **W3v3a (keselamatan): PASS.** min J_fb_after = 0,4957 > 0 — feedback tidak

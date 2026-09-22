@@ -64,9 +64,11 @@ def safe(verdict, j_parent):
     return True
 
 
-def observe_and_j(engine, table, k, seed, n, caps, steps, window, workdir, init_cap):
-    """Sama dengan loop2 (protokol v2): stats + J per cap pada init_cap sama."""
-    d = Path(workdir) / f"u_{seed}_{init_cap}"
+def observe_and_j(engine, table, k, seed, n, caps, steps, window, workdir, init_cap, role):
+    """Sama dengan loop2 (protokol v2, termasuk fix review: dir unik per
+    peran — fb_parent|fb_child|ctrl_parent|ctrl_child — satu rule.bin tak
+    boleh ditimpa antar-peran): stats + J per cap pada init_cap sama."""
+    d = Path(workdir) / f"u_{role}_{seed}_{init_cap}"
     d.mkdir(parents=True, exist_ok=True)
     (d / "rule.bin").write_bytes(bytes(table))
     states = run_window(engine, n, k, seed, steps, window, d / "rule.bin", d / "w",
@@ -165,7 +167,8 @@ def main() -> int:
         seed_i = base_seed + 1 + it  # pasangan seed-sama (efek mutasi murni)
 
         stats_fb, jcap_parent = observe_and_j(
-            a.engine, F_fb, k, seed_i, n, caps, steps, window, workdir, cap_lin)
+            a.engine, F_fb, k, seed_i, n, caps, steps, window, workdir, cap_lin,
+            role="fb_parent")
         decision = decide(a.engine, F_fb, k, n, seed_i, short_steps, short_window,
                           cap_lin, workdir, m_entries, it)
         tgt = [c["entry"] for c in decision["committed"]]
@@ -177,16 +180,19 @@ def main() -> int:
                 F_fb_new[c["entry"]] += c["delta"]
             F_fb_new = ca.clip_table(F_fb_new, k)
         _s, jcap_fb = observe_and_j(
-            a.engine, F_fb_new, k, seed_i, n, caps, steps, window, workdir, cap_lin)
+            a.engine, F_fb_new, k, seed_i, n, caps, steps, window, workdir, cap_lin,
+            role="fb_child")
         F_fb = F_fb_new
 
         s_ctrl, jcap_parent_c = observe_and_j(
-            a.engine, F_ctrl, k, seed_i, n, caps, steps, window, workdir, cap_lin)
+            a.engine, F_ctrl, k, seed_i, n, caps, steps, window, workdir, cap_lin,
+            role="ctrl_parent")
         ctl = [e for e in select_control(s_ctrl, m_entries * 3, seed=base_seed + 300 + it)
                if e not in set(tgt)][:m_entries]
         F_ctrl_new = mutate(F_ctrl, k, ctl) if ctl else list(F_ctrl)
         _s2, jcap_ctrl = observe_and_j(
-            a.engine, F_ctrl_new, k, seed_i, n, caps, steps, window, workdir, cap_lin)
+            a.engine, F_ctrl_new, k, seed_i, n, caps, steps, window, workdir, cap_lin,
+            role="ctrl_child")
         F_ctrl = F_ctrl_new
 
         d_fb = jcap_fb[cap_lin] - jcap_parent[cap_lin]
