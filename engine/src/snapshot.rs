@@ -56,7 +56,11 @@ pub fn read_snapshot(path: &Path) -> Result<Snapshot, String> {
     for j in 0..nw {
         words.push(q(need(34 + j * 8, 8)?));
     }
-    let w = World { n: n_cells, k: 1, words }; // v1 = k implisit 1
+    let w = World {
+        n: n_cells,
+        k: 1,
+        words,
+    }; // v1 = k implisit 1
     if w.fnv1a() != fnv {
         return Err("checksum fnv tidak cocok".into());
     }

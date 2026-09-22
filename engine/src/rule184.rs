@@ -45,7 +45,11 @@ pub fn step(w: &World) -> World {
     for j in 0..c.len() {
         out.push((l[j] & r[j]) | (l[j] & !c[j] & !r[j]) | (!l[j] & c[j] & r[j]));
     }
-    World { n: w.n, k: 1, words: out }
+    World {
+        n: w.n,
+        k: 1,
+        words: out,
+    }
 }
 
 #[cfg(test)]
@@ -71,7 +75,10 @@ mod tests {
         w.set_cell(10, 1);
         w.set_cell(11, 1);
         let n1 = step_scalar(&w);
-        assert_eq!((n1.get_cell(10), n1.get_cell(11), n1.get_cell(12)), (1, 0, 1));
+        assert_eq!(
+            (n1.get_cell(10), n1.get_cell(11), n1.get_cell(12)),
+            (1, 0, 1)
+        );
     }
 
     #[test]
