@@ -256,3 +256,62 @@ slack-rich memberi loop v2 tuas level-tabel yang nyata.
 **Kalimat penutup hari ini, kini dengan data:** ruangan hampa itu bukan tempat
 kontemplasi saja — dia adalah perbedaan antara semesta yang runtuh dan semesta
 yang bertahan. Slack = ruang untuk menjadi.
+## 007 — W3 round-2: loop v2 di semesta RICH — tuas eksistensial, kebangkitan dari beku (2026-09-23)
+
+**Setup:** loop v2 (`experiments/m4/loop2.py`) pada juara RICH k=2 seed
+5700010 (slack 61%, FNV 85eba35fbd113e83 — tak pernah runtuh di horizon 10⁶,
+log 006). Per iterasi K=4: Newton mengamati medan aliran pada init_cap=1
+(rezim linier) → intervensi terarah +1 pada M=8 longgar tersibuk; kontrol
++1 pada 8 longgar acak disjoint → pasangan seed-sama (ΔJ = J(F′,s) − J(F,s),
+nol derau seed). Juga J di cap=3 (atribusi rezim jenuh). Harness mini
+deterministik byte-identik; guard `init_cap < 2^k` ditambahkan (kegagalan
+run-1 full: caps v1 [6,14] tidak valid untuk k=2 → engine exit 101 — atribusi:
+planning, bukan requirement).
+
+**Kontaminasi kalibrasi, didisklosikan:** sebelum kriteria dibekukan, probe
+pada seed 1093/1094 menemukan mutasi tunggal dapat MEMBEKUKAN semesta
+(J → 0.0000 eksak, amb=0/512 — aliran sungguhan, bukan artefak FM-E).
+Seed verdict digeser ke 2201+. Kriteria dibekukan dua-sisi: W3v2a (arah:
+mean ΔJ_fb > ΔJ_ctrl, semua ΔJ_fb ≥ 0) dan W3v2b (magnitudo: mean |ΔJ_fb| >
+mean |ΔJ_ctrl|).
+
+**Hasil FULL RUN (seed 2201–2205, n=16384, 20.000 langkah):**
+
+- **W3v2a: NULL.** mean ΔJ_fb 0,0616 vs ctrl 0,0636. Arah naive "busiest-slack
+  +1 menaikkan J" TERBANTAHKAN — di it0, intervensi terarah Justru MEMBEKUKAN
+  semesta: J 0,2486 → 0.0000 eksak.
+- **W3v2b: PASS.** mean |Δ| fb 0,186 vs ctrl 0,064 (≈3×): tuas turunan-temuan
+  jauh lebih berdampak daripada acak.
+- **Temuan sentral — dua mekanisme eksistensial di level tabel:**
+  1. **Beku oleh satu entri:** +1 pada entri busiest (mis. idx 12/28/41) →
+     semesta berhenti mengalir TOTAL (J=0, 512/512, nol ambiguitas). Beku
+     tidak terprediksi dari margin hukum: +60 (margin 2, tetap slack) dan
+     +9 (0→1, tetap slack) juga membekukan (probe seed 1093/1094); +20
+     (0→1, menyentuh cap) justru +0,25. Keamanan mutasi tak lokal — aljabar
+     konservasi mengkopel seluruh tabel.
+  2. **Kebangkitan oleh loop:** it1 — Newton mengamati semesta BEKU hasil
+     intervensinya sendiri, menemukan 5 entri longgar yang tersisa, +1 pada
+     kelimanya → J 0 → 0,3303 (diverifikasi 3 seed segar: 0,3315/0,3366/
+     0,3360). it2 melanjutkan 0,3335 → 0,4982.
+- **Konvergensi:** kedua cabang (fb & ctrl) menuju atraktor J≈0,50 — sama
+  dengan atraktor cocktail-20 (J 0,25→0,50) yang juga MEMBUKA rezim jenuh
+  (J cap=3: 0 → 1,49). Intervensi tabel besar membuka dinamika yang tadinya
+  terkunci.
+
+**Koreksi framing log 006:** "tuas level-tabel hidup kembali" benar, tetapi
+karakternya bukan penyetel halus (fine-tuning) — dia **tuas eksistensial**:
+mutasi bit-level tunggal dapat memindahkan semesta antara tiga fase (mengalir,
+terdorong, beku), dan pemetaan mutasi→fase TIDAK terbaca dari hukum margin
+lokal — hanya dari observasi Newton pada semesta itu sendiri. Ini memperkuat
+alasan loop tertutup: keputusan intervensi harus lahir dari pengamatan.
+
+**Status kontrak:** W3 round-2 selesai — NULL pada arah (jujur dilaporkan),
+PASS pada magnitudo + dua temuan mekanistik baru (beku-eksak; kebangkitan
+terarah dari kebekuan). Loop v2 terbukti punya tuas nyata; pertanyaan berikut
+(8): mengapa satu entri membekukan — hipotesis kerja: entri +1 merusak rantai
+kunci aliran-nol (referensi FM-E), membunuh kunci konstanta → medan tak
+lagi solvable → J=0 terukur padahal partikel masih bergerak. UJI SEBELUM
+DIKLAIM: cek particles_final / dinamika beku vs solvable.
+
+**Reproduksi:** `python experiments/m4/loop2.py` (full), `--mini` (harness),
+test: `pytest analysis/tests/test_m4_loop2.py`.
