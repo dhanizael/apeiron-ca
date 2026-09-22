@@ -17,13 +17,14 @@ sys.path.insert(0, str(ROOT / "analysis"))
 from semesta import ca  # noqa: E402
 
 
-def probe_candidate(engine, n, k, seed, steps, probe_every, table, workdir, threads=4):
-    rule_bin = workdir / "rule.bin"
-    rule_bin.write_bytes(bytes(table))
+def probe_candidate(engine, n, k, seed, steps, probe_every, rule_path, threads=None):
+    """rule_path: file tabel yang SUDAH ditulis unik per kandidat (bebas balapan)."""
+    if threads is None:
+        threads = 4 if n > 65536 else 1  # n kecil: overhead spawn thread/langkah > manfaat
     out = subprocess.run(
         [engine, "probe", "--n", str(n), "--k", str(k), "--seed", str(seed),
          "--steps", str(steps), "--probe-every", str(probe_every),
-         "--rule-table", str(rule_bin), "--threads", str(threads)],
+         "--rule-table", str(rule_path), "--threads", str(threads)],
         check=True, capture_output=True, text=True,
     )
     return json.loads(out.stdout.strip())
@@ -67,6 +68,16 @@ def hand_seeds():
     return {"sandpile_k2": ca.clip_table(sand, 2), "layer184_k2": ca.clip_table(layer, 2)}
 
 
+def _probe_one(task):
+    """Worker pool: (engine, n, k, seed, steps, every, table_bytes, workdir) → report JSON."""
+    engine, n, k, seed, steps, every, table_bytes, workdir = task
+    wd = Path(workdir)
+    wd.mkdir(parents=True, exist_ok=True)
+    rule_path = wd / f"rule_{k}_{seed}.bin"
+    rule_path.write_bytes(table_bytes)
+    return probe_candidate(engine, n, k, seed, steps, every, rule_path, threads=1)
+
+
 def score_of(rep):
     _t, top, total = rep["top3_series"][-1]
     frac = (top / total) if total else 1.0
@@ -101,7 +112,9 @@ def main() -> int:
     # ---------- Baseline kalibrasi ----------
     baselines = {}
     for name, table in hand_seeds().items():
-        rep = probe_candidate(a.engine, n_a, 2, 1, steps_a, every_a, table, workdir)
+        rp = workdir / f"rule_base_{name}.bin"
+        rp.write_bytes(bytes(table))
+        rep = probe_candidate(a.engine, n_a, 2, 1, steps_a, every_a, rp)
         baselines[name] = {
             "table_fnv": rep["rule_fnv"],
             "top3_final": rep["top3_series"][-1],
@@ -109,30 +122,40 @@ def main() -> int:
             "max_lifetime": rep["max_lifetime"],
         }
 
-    # ---------- Tahap A: saringan acak ----------
-    jsonl = outdir / "results.jsonl"
-    with open(jsonl, "w") as fh:
-        pass  # truncate
-    survivors = []
+    # ---------- Tahap A: saringan acak (paralel ANTAR kandidat) ----------
+    import multiprocessing as mp
+
     n_k2 = nA // 2
+    args_list = []
     for i in range(nA):
         k = 2 if i < n_k2 else 4
         seed = i + 1
         table = ca.clip_table(ca.random_table(k, seed), k)
-        rep = probe_candidate(a.engine, n_a, k, seed, steps_a, every_a, table, workdir)
-        row = {
-            "stage": "A", "k": k, "seed": seed,
-            "table_fnv": rep["rule_fnv"],
-            "particles_final": rep["particles_final"],
-            "max_lifetime": rep["max_lifetime"],
-            "top3_final": rep["top3_series"][-1],
-            "mass_final": rep["mass_final"],
-            "passes": passes_a(rep, min_life, streak_cap),
-        }
-        with open(jsonl, "a") as fh:
+        args_list.append((a.engine, n_a, k, seed, steps_a, every_a, bytes(table), str(workdir)))
+
+    workers = min(12, mp.cpu_count() or 1)
+    if workers > 1:
+        with mp.Pool(workers) as pool:
+            reps = pool.map(_probe_one, args_list)
+    else:
+        reps = [_probe_one(t) for t in args_list]
+
+    jsonl = outdir / "results.jsonl"
+    survivors = []
+    with open(jsonl, "w") as fh:
+        for (k, seed), rep in zip([(x[2], x[3]) for x in args_list], reps):
+            row = {
+                "stage": "A", "k": k, "seed": seed,
+                "table_fnv": rep["rule_fnv"],
+                "particles_final": rep["particles_final"],
+                "max_lifetime": rep["max_lifetime"],
+                "top3_final": rep["top3_series"][-1],
+                "mass_final": rep["mass_final"],
+                "passes": passes_a(rep, min_life, streak_cap),
+            }
             fh.write(json.dumps(row) + "\n")
-        if row["passes"]:
-            survivors.append({"k": k, "seed": seed, "score": score_of(rep)})
+            if row["passes"]:
+                survivors.append({"k": k, "seed": seed, "score": score_of(rep)})
 
     # ---------- Tahap B: mutasi re-clip hill-climbing ----------
     pool = list(survivors)
@@ -148,7 +171,9 @@ def main() -> int:
                     table[pos] = rng.next_u64() & 0xFF
                 table = ca.clip_table(table, s["k"])
                 seed_m = 900000 + rnd * 100000 + s["seed"] * 10 + m
-                rep = probe_candidate(a.engine, n_b, s["k"], seed_m % 100000, steps_b, every_a, table, workdir)
+                rp = workdir / f"rule_B_{rnd}_{s['seed']}_{m}.bin"
+                rp.write_bytes(bytes(table))
+                rep = probe_candidate(a.engine, n_b, s["k"], seed_m % 100000, steps_b, every_a, rp)
                 candidates.append({"k": s["k"], "seed": seed_m, "table": table,
                                    "rep": rep, "score": score_of(rep)})
         pool = sorted(pool + candidates, key=lambda x: -x["score"])[:top_keep]
@@ -156,11 +181,15 @@ def main() -> int:
     # ---------- Tahap C: horizon + verdict ----------
     champions = []
     for s in pool[:top_keep]:
-        rep = s.get("rep") or probe_candidate(a.engine, n_b, s["k"], s["seed"], steps_b, every_a,
-                                              ca.clip_table(ca.random_table(s["k"], s["seed"]), s["k"]), workdir)
         table = s.get("table") or ca.clip_table(ca.random_table(s["k"], s["seed"]), s["k"])
+        if "rep" not in s:
+            rp = workdir / f"rule_C_{s['seed']}.bin"
+            rp.write_bytes(bytes(table))
+            rep = probe_candidate(a.engine, n_b, s["k"], s["seed"], steps_b, every_a, rp)
+        else:
+            rep = s["rep"]
         # horizon penuh
-        rule_bin = workdir / "rule_champ.bin"
+        rule_bin = workdir / f"rule_champ_{s['k']}_{s['seed']}.bin"
         rule_bin.write_bytes(bytes(table))
         run_dir = outdir / f"champ_k{s['k']}_s{s['seed']}"
         subprocess.run(
