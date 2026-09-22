@@ -166,7 +166,9 @@ def main() -> int:
     for rnd in range(rounds):
         candidates = []
         for s in pool[:top_keep]:
-            base = ca.clip_table(ca.random_table(s["k"], s["seed"]), s["k"])
+            # mutasi tabel ASLI induknya (bug silsilah dulu: regenerasi dari seed
+            # menghasilkan base tak terkait → semua juara runtuh ke satu hukum)
+            base = s.get("table") or ca.clip_table(ca.random_table(s["k"], s["seed"]), s["k"])
             for m in range(mutants):
                 table = list(base)
                 for _ in range(1 + rng.next_u64() % 2):  # 1-2 entri berubah
