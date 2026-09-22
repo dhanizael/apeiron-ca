@@ -113,6 +113,19 @@ impl World {
         w
     }
 
+    /// Tiap sel uniform [0, cap] — kerapatan terkendali untuk sweep makro.
+    /// cap = 0 → semua nol; mirror persis ca.py::from_seed_uniform_capped.
+    pub fn from_seed_uniform_capped(n: u32, k: u8, seed: u64, cap: u8) -> World {
+        assert!(cap < (1u16 << k) as u8, "cap harus < 2^k");
+        let mut rng = crate::rng::Rng::new(seed);
+        let mut w = World::zeros(n, k);
+        for i in 0..n {
+            let v = (rng.next_u64() % (cap as u64 + 1)) as u8;
+            w.set_cell(i, v);
+        }
+        w
+    }
+
     /// FNV-1a 64 atas byte word (LE) — identitas snapshot.
     pub fn fnv1a(&self) -> u64 {
         let mut h: u64 = 0xcbf2_9ce4_8422_2325;
@@ -206,6 +219,18 @@ mod tests {
         }
         let c = World::from_seed_uniform(64, 4, 10);
         assert_ne!(a.fnv1a(), c.fnv1a());
+    }
+
+    #[test]
+    fn capped_init_deterministic_in_range() {
+        let a = World::from_seed_uniform_capped(64, 4, 9, 5);
+        let b = World::from_seed_uniform_capped(64, 4, 9, 5);
+        assert_eq!(a.words, b.words);
+        for i in 0..64 {
+            assert!(a.get_cell(i) <= 5);
+        }
+        let z = World::from_seed_uniform_capped(64, 4, 9, 0);
+        assert_eq!(z.cell_sum(), 0);
     }
 
     #[test]

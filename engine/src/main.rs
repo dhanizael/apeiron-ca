@@ -56,6 +56,7 @@ fn cmd_run(args: &[String]) -> i32 {
     let k: u8 = flag(args, "--k", "1").parse().unwrap();
     let cars: u32 = flag(args, "--cars", "2048").parse().unwrap();
     let uniform = has_flag(args, "--uniform");
+    let init_cap: u8 = flag(args, "--init-cap", "0").parse().unwrap();
     let seed: u64 = flag(args, "--seed", "1").parse().unwrap();
     let steps: u64 = flag(args, "--steps", "20000").parse().unwrap();
     let window: usize = flag(args, "--window", "512").parse().unwrap();
@@ -94,7 +95,9 @@ fn cmd_run(args: &[String]) -> i32 {
     };
     std::fs::write(Path::new(&outdir).join("rule.bin"), &rule.table).unwrap();
 
-    let mut cur = if uniform || k > 1 {
+    let mut cur = if init_cap > 0 {
+        lattice::World::from_seed_uniform_capped(n, k, seed, init_cap)
+    } else if uniform || k > 1 {
         lattice::World::from_seed_uniform(n, k, seed)
     } else {
         lattice::World::from_seed_exact(n, cars, seed)
@@ -133,9 +136,12 @@ fn cmd_run(args: &[String]) -> i32 {
         ("rule_fnv", format!("\"{:016x}\"", rule.table_fnv())),
         ("k", k.to_string()),
         ("n_cells", n.to_string()),
+        ("init_cap", init_cap.to_string()),
         (
             "init",
-            if uniform || k > 1 {
+            if init_cap > 0 {
+                format!("\"capped:{}\"", init_cap)
+            } else if uniform || k > 1 {
                 "\"uniform\"".into()
             } else {
                 format!("\"cars:{}\"", cars0)

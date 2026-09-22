@@ -38,6 +38,28 @@ def test_rust_python_flow_k2(engine_bin, tmp_path):
     assert ca.pack_cells(cells, k) == states[-1], "state akhir Rust ≠ Python (k=2)"
 
 
+def test_rust_python_capped_init_k4(engine_bin, tmp_path):
+    n, k, seed, cap, steps = 256, 4, 44, 5, 200
+    raw = ca.random_table(k, seed + 1)
+    table = ca.clip_table(raw, k)
+    rule_bin = tmp_path / "rule.bin"
+    rule_bin.write_bytes(bytes(table))
+    out = tmp_path / "run"
+    subprocess.run(
+        [engine_bin, "run", "--n", str(n), "--k", str(k), "--init-cap", str(cap),
+         "--seed", str(seed), "--steps", str(steps), "--window", "8",
+         "--rule-table", str(rule_bin), "--threads", "1", "--outdir", str(out)],
+        check=True, capture_output=True,
+    )
+    m = io.read_manifest(out / "manifest.json")
+    assert m["init_cap"] == cap
+    states = io.read_window(out / "window.bin", n, m["window_states"], k)
+    cells = ca.from_seed_uniform_capped(n, k, seed, cap)
+    for _ in range(steps):
+        cells = ca.step_flow(cells, k, table)
+    assert ca.pack_cells(cells, k) == states[-1], "capped init: Rust ≠ Python"
+
+
 def test_python_conservation_k_bits():
     for k in (2, 4, 8):
         table = ca.clip_table(ca.random_table(k, 11), k)

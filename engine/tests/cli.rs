@@ -110,6 +110,7 @@ fn run_v2_flow_table_manifest_and_rule_bin() {
     let m = std::fs::read_to_string(out.join("manifest.json")).unwrap();
     assert!(m.contains("\"rule\": \"flow-table\""));
     assert!(m.contains("\"k\": 2"));
+    assert!(m.contains("\"init_cap\": 0"));
     assert!(m.contains("\"threads\": 2"));
     assert!(out.join("rule.bin").exists());
     let expect = engine::flow::FlowRule::from_table(2, &raw).table_fnv();
