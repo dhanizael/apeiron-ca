@@ -315,3 +315,15 @@ DIKLAIM: cek particles_final / dinamika beku vs solvable.
 
 **Reproduksi:** `python experiments/m4/loop2.py` (full), `--mini` (harness),
 test: `pytest analysis/tests/test_m4_loop2.py`.
+
+**Koreksi pasca-penulisan (hipotesis kerja "beku = FM-E" DITOLAK):** run
+verifikasi pada semesta beku (tabel FNV 4f2f83084da03371, seed 4401, 20.000
+langkah, init_cap=1): seluruh 512/512 window state IDENTIK — semesta mencapai
+fixed point dinamis dan diam total (ρ=0,165; bandingkan F0 pada cap=1 yang
+mengalir J=0,25 pada ρ serupa). Jadi J=0 bukan "partikel bergerak tanpa
+solusi medan" — partikel benar-benar BERHENTI. Satu entri tabel +1 mendorong
+semesta ke fixed point absolut. Pertanyaan (8) direvisi: MEKANISME apa yang
+membuat +1 pada entri tertentu menciptakan fixed point global sementara
+entri lain tidak — kandidat: rantai kunci flow-nol (FM-E) kini mengunci
+MEDAN KE NOL, dan konservasi menyebarkan kebekuan ke seluruh ring. Uji
+sebelum klaim.
