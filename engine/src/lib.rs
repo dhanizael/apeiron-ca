@@ -1,3 +1,4 @@
+pub mod detect;
 pub mod flow;
 pub mod hash;
 pub mod lattice;
