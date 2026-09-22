@@ -181,7 +181,11 @@ def main() -> int:
         "micro": micro,
         "macro": macro_res,
         "config": {"n": n, "steps": steps, "window": window,
-                   "champions": [c[0] for c in champs]},
+                   "champions": [
+                       str(Path(c[0]).relative_to(outdir))
+                       if Path(c[0]).is_relative_to(outdir) else Path(c[0]).name
+                       for c in champs
+                   ]},
         "reproduce": (
             f"python experiments/m3/recover.py{' --mini' if a.mini else ''} "
             "(butuh hasil M1 untuk champion rule.bin)"
