@@ -338,3 +338,64 @@ review: dir arsip `u_{seed}_{cap}` dipakai bergantian parent/child fb & ctrl
 (last-writer-wins → arsip tak reproducible; pengukuran AMAN — terbukti
 result.json identik pasca-fix, kini dir unik per peran). Klaim beku/kebangkitan
 semula probe ad-hoc tanpa artefak — kini terarsip + terverifikasi.
+
+---
+
+## 008 — Mekanisme beku terpecahkan: kristal aliran-nol + indikator awal (2026-09-23)
+
+**Pertanyaan 007:** mengapa +1 pada SATU entri membekukan semusta? Dua hipotesis
+diuji, DUA-DUANYA DITOLAK, mekanisme sebenarnya terkonfirmasi di level tabel:
+
+1. **Ditolak (hipotesis 007):** "J=0 terukur padahal partikel bergerak" —
+   verifikasi 0/512 transisi berubah membuktikan semusta benar-benar STATIS.
+2. **Ditolak (hipotesis homogenisasi):** state akhir BUKAN seragam — kristal
+   non-uniform {0: 13496, 1: 197, 2: 26, 3: 2665}.
+3. **Terkonfirmasi:** 0/16384 edge di kristal memiliki F≠0 — **kristal
+   aliran-nol**: konfigurasi statis ter-segregasi (domain 0 dan domain 3) yang
+   dinding-dindingnya seluruhnya menempel entri F=0.
+
+**Kronologi (t = waktu semesta):** t=100 mengalir penuh (32/32; nilai antara
+1:3986, 2:1418) → t=300 segregasi berjalan (1:1332, 2:558) → t=1000 nyaris
+terkunci (1:209, 2:26) → t≤3000 beku total. **Indikator awal: massa nilai
+ANTARA (1 dan 2) menirus** — sinyal peringatan yang bisa Newton amati SEBELUM
+terkunci. Kebangkitan 007 terjelaskan: +1 pada entri longgar tersisa melelehkan
+kristal (menyuntik aliran kembali di dinding) → 0 → 0,33.
+
+**Desain loop v3 kini tidak buta:** (a) metrik bahaya = laju penirisan nilai
+antara; (b) intervensi = pelelehan dinding sebelum terkunci; (c) prediksi yang
+bisa difalsifikasi: pelelehan tepat-waktu menjaga J>0 sepanjang horizon,
+terlambat → kristal permanen.
+
+**Reproduksi:** tabel beku `fb_child_2202_1` vs hidup `fb_child_2203_1`
+(arsip loop v2), skrip analisis di sesi review; state akhir
+`/tmp/mech_*` (sementara) — hasil: log ini.
+
+---
+
+## 008 — Mekanisme beku terpecahkan: kristal aliran-nol + indikator awal (2026-09-23)
+
+**Pertanyaan 007:** mengapa +1 pada SATU entri membekukan semusta? Dua hipotesis
+diuji, DUA-DUANYA DITOLAK, mekanisme sebenarnya terkonfirmasi di level tabel:
+
+1. **Ditolak (hipotesis 007):** "J=0 terukur padahal partikel bergerak" —
+   verifikasi 0/512 transisi berubah membuktikan semusta benar-benar STATIS.
+2. **Ditolak (hipotesis homogenisasi):** state akhir BUKAN seragam — kristal
+   non-uniform {0: 13496, 1: 197, 2: 26, 3: 2665}.
+3. **Terkonfirmasi:** 0/16384 edge di kristal memiliki F≠0 — **kristal
+   aliran-nol**: konfigurasi statis ter-segregasi (domain 0 dan domain 3) yang
+   dinding-dindingnya seluruhnya menempel entri F=0.
+
+**Kronologi:** t=100 mengalir penuh (32/32; nilai antara 1:3986, 2:1418) →
+t=300 segregasi berjalan (1:1332, 2:558) → t=1000 nyaris terkunci (1:209, 2:26)
+→ t≤3000 beku total. **Indikator awal: massa nilai ANTARA (1 dan 2) menirus** —
+sinyal yang bisa Newton amati SEBELUM terkunci. Kebangkitan 007 terjelaskan:
++1 pada entri longgar tersisa melelehkan kristal (menyuntik aliran kembali di
+dinding) → 0 → 0,33.
+
+**Desain loop v3 kini tidak buta:** (a) metrik bahaya = laju penirisan nilai
+antara; (b) intervensi = pelelehan dinding sebelum terkunci; (c) prediksi
+falsifiabel: pelelehan tepat-waktu menjaga J>0 sepanjang horizon; terlambat →
+kristal permanen.
+
+**Reproduksi:** tabel beku `u_fb_child_2202_1` vs hidup `u_fb_child_2203_1`
+(arsip loop v2, role-unique hasil review); analisis di sesi review.
