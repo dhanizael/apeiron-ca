@@ -120,3 +120,15 @@ def step_flow(cells: list[int], k: int, table: list[int]) -> list[int]:
         return table[idx]
 
     return [cells[i] - f(i) + f(i - 1) for i in range(n)]
+
+
+def unpack_cells(state: int, n: int, k: int) -> list[int]:
+    """Bongkar state bit-packed → daftar sel (cell i di bit [i·k, (i+1)·k))."""
+    mask = (1 << k) - 1
+    return [(state >> (i * k)) & mask for i in range(n)]
+
+
+def from_seed_uniform_capped(n: int, k: int, seed: int, cap: int) -> list[int]:
+    """Mirror World::from_seed_uniform_capped — sel uniform [0, cap]."""
+    rng = Rng(seed)
+    return [rng.next_u64() % (cap + 1) for _ in range(n)]
