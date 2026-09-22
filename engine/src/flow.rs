@@ -94,6 +94,45 @@ fn cell_bits(w: &World, cell: usize) -> u8 {
     (v as u8) & w.mask()
 }
 
+/// Badan satu worker: hitung word [w0, w1) dari state lama. Edge yang dibutuhkan:
+/// [start−1, end); tiap edge e membaca sel e−1, e, e+1 → sel [start−2, end] → halo 3.
+/// Lane dimaterialisasi sekali (modulo hanya di inisialisasi, lalu jalan maju dengan
+/// conditional wrap) → nol pembagian integer di hot loop.
+fn run_chunk(w: &World, rule: &FlowRule, w0: usize, w1: usize, head: &mut [u64], n: usize, lpw: usize) {
+    let start = w0 * lpw;
+    let end = w1 * lpw;
+    let len = (end - start) + 3;
+    let mut local = vec![0u8; len];
+    let mut cell_idx = (start + n - 2) % n; // start − 2 (mod n, sekali saja)
+    for slot in local.iter_mut() {
+        *slot = cell_bits(w, cell_idx);
+        cell_idx += 1;
+        if cell_idx == n {
+            cell_idx = 0;
+        }
+    }
+    // local[x] = cell(start−2+x) → edge i (aliran i→i+1) memakai local[i−start+1 .. i−start+3]
+    let lut = &rule.table;
+    let ks = w.k as usize;
+    let mut fprev = lut[edge_index(rule.k, local[0], local[1], local[2])]; // edge start−1
+    for wi in 0..(w1 - w0) {
+        let mut acc: u64 = 0;
+        for lane in 0..lpw {
+            let i = start + wi * lpw + lane;
+            let li = i - start + 1;
+            let fi = lut[edge_index(rule.k, local[li], local[li + 1], local[li + 2])];
+            let val = if i < n {
+                local[li + 1] - fi + fprev
+            } else {
+                0 // padding lattice
+            };
+            fprev = fi;
+            acc |= (val as u64) << (lane * ks);
+        }
+        head[wi] = acc;
+    }
+}
+
 /// Jalur utama: partisi statis per word-range, satu worker per chunk, nol sinkronisasi
 /// di hot loop (input read-only; output = rentang word disjoint). threads ≥ 1.
 /// Hasil independen jumlah thread (K1′) karena tiap cell baru adalah fungsi murni state lama.
@@ -117,51 +156,21 @@ pub fn step_words(w: &World, rule: &FlowRule, threads: usize) -> World {
     let mut outw = vec![0u64; nw];
     let ks = w.k as usize;
 
+    // Satu range → jalan inline (tanpa spawn): n kecil × langkah banyak,
+    // biaya spawn per langkah melahap semuanya (pelajaran M1).
+    if ranges.len() == 1 {
+        let (w0, w1) = ranges[0];
+        run_chunk(w, rule, w0, w1, &mut outw[w0..w1], n, lpw);
+        return World { n: w.n, k: w.k, words: outw };
+    }
+
     std::thread::scope(|s| {
         let mut rest: &mut [u64] = &mut outw;
         for &(w0, w1) in &ranges {
             let (head, tail) = rest.split_at_mut(w1 - w0);
             rest = tail;
             s.spawn(move || {
-                // Worker menangani sel [start, end). Edge yang dibutuhkan: [start−1, end),
-                // tiap edge e membaca sel e−1, e, e+1 → sel [start−2, end] → buffer halo 3.
-                // Lane dimaterialisasi sekali (modulo hanya di inisialisasi, lalu jalan maju
-                // dengan conditional wrap) → nol pembagian integer di hot loop.
-                let start = w0 * lpw;
-                let end = w1 * lpw;
-                let len = (end - start) + 3;
-                let mut local = vec![0u8; len];
-                let mut cell_idx = (start + n - 2) % n; // start − 2 (mod n, sekali saja)
-                for slot in local.iter_mut() {
-                    *slot = cell_bits(w, cell_idx);
-                    cell_idx += 1;
-                    if cell_idx == n {
-                        cell_idx = 0;
-                    }
-                }
-                // lookup(li) = F(cell li−2, cell li−1, cell li) di mana local[x] = cell(start−2+x)
-                // → edge i (aliran i→i+1) memakai local[i−start+1 .. i−start+3]
-                let lut = &rule.table;
-                let mut fprev = {
-                    let li = 0; // edge start−1
-                    lut[edge_index(rule.k, local[li], local[li + 1], local[li + 2])]
-                };
-                for wi in 0..(w1 - w0) {
-                    let mut acc: u64 = 0;
-                    for lane in 0..lpw {
-                        let i = start + wi * lpw + lane;
-                        let li = i - start + 1;
-                        let fi = lut[edge_index(rule.k, local[li], local[li + 1], local[li + 2])];
-                        let val = if i < n {
-                            local[li + 1] - fi + fprev
-                        } else {
-                            0 // padding lattice
-                        };
-                        fprev = fi;
-                        acc |= (val as u64) << (lane * ks);
-                    }
-                    head[wi] = acc;
-                }
+                run_chunk(w, rule, w0, w1, head, n, lpw);
             });
         }
     });
