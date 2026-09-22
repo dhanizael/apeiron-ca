@@ -44,12 +44,14 @@ def _fit_segment(pts: list[tuple[float, float]]):
     return (a, b, sse)
 
 
-def fit_pw_linear(xs: list[float], ys: list[float], max_segments: int = 3) -> dict:
+def fit_pw_linear(xs: list[float], ys: list[float], max_segments: int = 3,
+                  grid: list[float] | None = None) -> dict:
     pts = sorted(zip(xs, ys))
     n = len(pts)
     best = None
+    grid = grid or GRID
     for k in range(1, max_segments + 1):
-        for bps in itertools.combinations(GRID, k - 1):
+        for bps in itertools.combinations(grid, k - 1):
             cuts = [0.0, *bps, 1.0]
             segs, sse = [], 0.0
             for lo, hi in zip(cuts, cuts[1:]):

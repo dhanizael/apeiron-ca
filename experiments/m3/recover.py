@@ -41,13 +41,17 @@ def recover_micro(engine, champ_dir, n, k, seed, steps_late, window_late, workdi
     mereproduksi dinamika termal bit-identik."""
     gt = list(Path(champ_dir, "rule.bin").read_bytes())
     name = Path(champ_dir).name
-    # recovery: transien penuh — window mencakup t=0..steps_rec
-    steps_rec, win_rec = 512, 512  # window == steps → t=0 tercakup (transien penuh)
+    # recovery: transien penuh dari TIGA seed (hukum sama, transien berbeda →
+    # union observasi menutup entri langka; konflik antar-seed tetap = kegagalan keras)
+    steps_rec, win_rec = 4096, 4096
     if k == 2:
         steps_rec, win_rec = 32, 32
-    states_rec = run_window(engine, n, k, seed, steps_rec, win_rec,
-                            Path(champ_dir, "rule.bin"), workdir / f"wr_{name}")
-    rec = flowrecover.recover_table(pairs_from_states(states_rec), k)
+    pairs = []
+    for s0 in (seed + 1, seed + 2, seed + 3):
+        states_rec = run_window(engine, n, k, s0, steps_rec, win_rec,
+                                Path(champ_dir, "rule.bin"), workdir / f"wr_{name}_{s0}")
+        pairs += pairs_from_states(states_rec)
+    rec = flowrecover.recover_table(pairs, k)
     # 3a: eksak pada semua entri ter-amati (dan wajib penuh untuk gerbang lanjut)
     exact_observed = all(rec["table"][i] == gt[i]
                          for i in range(len(gt)) if rec["table"][i] is not None)
@@ -127,7 +131,7 @@ def main() -> int:
         champs = [(str(m1 / "champ_k4_s1161092"), 4, 1092),
                   (str(m1 / "champ_k4_s1161095"), 4, 1095)]
         n, steps, window = 16384, 20000, 64
-        caps_train, caps_hold = [2, 4, 8, 12, 14], [6, 10]
+        caps_train, caps_hold = [1, 2, 3, 4, 5, 8, 11, 12, 13, 14], [6, 10]
 
     # ---------- Mikro: 3 gerbang + counterfactual ----------
     micro = {}
@@ -154,7 +158,10 @@ def main() -> int:
                 reps[cap] = abs(r1["J"] - r2["J"])
         eps = 2.0 * max(reps.values()) if reps else 1e-3
         train = [(pts[c]["rho"], pts[c]["J"]) for c in caps_train]
-        model = macro.fit_pw_linear([x for x, _ in train], [y for _, y in train])
+        xs = [x for x, _ in train]
+        # GRID dibatasi rentang data train (segmen kosong merusak prediksi)
+        grid_local = [g for g in macro.GRID if min(xs) <= g <= max(xs)]
+        model = macro.fit_pw_linear(xs, [y for _, y in train], grid=grid_local)
         ho = [(pts[c]["rho"], pts[c]["J"]) for c in caps_hold]
         errs = [abs(macro.predict(model, x) - y) for x, y in ho]
         mae = sum(errs) / len(errs)

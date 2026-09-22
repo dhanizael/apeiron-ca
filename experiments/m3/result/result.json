@@ -1,0 +1,97 @@
+{
+  "experiment": "M3-percepatan",
+  "mode": "full",
+  "criteria": {
+    "3a_micro_exact_observed": false,
+    "3b_micro_reproduces_heldout": false,
+    "3c_counterfactual_shift": false,
+    "macro_heldout_mae_lt_eps": false
+  },
+  "verdict_micro": false,
+  "micro": {
+    "champ_k4_s1161092": {
+      "gate_3a_exact_observed": true,
+      "unconstrained": 6,
+      "observed": 4090,
+      "pairs_ambiguous": 0,
+      "table_complete": false,
+      "gate_3b_reproduces_heldout": null,
+      "recovered_table_fnv": null,
+      "matches_gt_full": false
+    },
+    "champ_k4_s1161095": {
+      "gate_3a_exact_observed": true,
+      "unconstrained": 6,
+      "observed": 4090,
+      "pairs_ambiguous": 0,
+      "table_complete": false,
+      "gate_3b_reproduces_heldout": null,
+      "recovered_table_fnv": null,
+      "matches_gt_full": false
+    }
+  },
+  "macro": {
+    "attempted": true,
+    "points": {
+      "2": {
+        "rho": 0.06666666666666667,
+        "J": 1.0,
+        "ambiguous_pairs": 0,
+        "pairs": 64
+      },
+      "4": {
+        "rho": 0.13267822265625,
+        "J": 1.99017333984375,
+        "ambiguous_pairs": 0,
+        "pairs": 64
+      },
+      "8": {
+        "rho": 0.26697184244791666,
+        "J": 4.00457763671875,
+        "ambiguous_pairs": 0,
+        "pairs": 64
+      },
+      "12": {
+        "rho": 0.39961344401041665,
+        "J": 5.749275207519531,
+        "ambiguous_pairs": 0,
+        "pairs": 64
+      },
+      "14": {
+        "rho": 0.46944986979166664,
+        "J": 5.880218505859375,
+        "ambiguous_pairs": 0,
+        "pairs": 64
+      },
+      "6": {
+        "rho": 0.19886067708333333,
+        "J": 2.98291015625,
+        "ambiguous_pairs": 0,
+        "pairs": 64
+      },
+      "10": {
+        "rho": 0.33544921875,
+        "J": 5.03173828125,
+        "ambiguous_pairs": 0,
+        "pairs": 64
+      }
+    },
+    "noise_floor": {
+      "4": 0.0093994140625
+    },
+    "eps": 0.018798828125,
+    "n_segments": 2,
+    "holdout_mae": 0.2986145019531252,
+    "pass": false
+  },
+  "config": {
+    "n": 16384,
+    "steps": 20000,
+    "window": 64,
+    "champions": [
+      "champ_k4_s1161092",
+      "champ_k4_s1161095"
+    ]
+  },
+  "reproduce": "python experiments/m3/recover.py (butuh hasil M1 untuk champion rule.bin)"
+}
