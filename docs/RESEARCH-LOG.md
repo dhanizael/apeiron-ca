@@ -181,3 +181,40 @@ M4 (loop tertutup + kurva growth-rate lintas rezim) tinggal satu milestone.
 **Batas jujur:** pemulihan mikro memanfaatkan struktur keluarga flow (teleskop
 konservasi) — keunggulan eksak ini spesifik-keluarga, bukan penginderaan umum;
 makro diukur pada satu juara; H tetap 10⁶ langkah.
+
+---
+
+## 005 — M4: kurva growth-rate terukur (K5-PASS) + loop tiga run yang jujur (W3-NULL teratribusi) (2026-09-22)
+
+**K5 — PASS.** model_bits(t) = k × entri teramati diukur pada t ∈ {10³, 10⁴, 10⁶}
+untuk TIGA rezim (juara A, juara B, 184-k=1). Pembacaan jujur instrumen:
+**ketiga rezim SATURASI** — model Newton mengunci seluruh hukum (4.096 entri /
+8 entri) jauh sebelum 10⁶ dan tak bertambah: semesta flow finit adalah
+kelas-2-like menurut definisi operasional kita. R1 tetap terbuka — kini DENGAN
+alat ukurnya. Kompresi window (zlib) dilaporkan per checkpoint (W4).
+
+**W3 — tiga run, tiga atribusi, satu temuan struktural:**
+1. Run 1 (W3-NULL): ΔJ membandingkan seed init BERBEDA — derau seed (±0,27)
+   menelan efek mutasi (~0,02). Perbaikan: pasangan seed-sama (semusta
+   deterministik → efek mutasi murni, nol derau).
+2. Run 2 (W3-NULL, Δ fb = Δ ctrl identik): hanya **14 dari 4.096 entri** punya
+   longgar; M=256 dengan pengembalian → kontrol ≈ terarah (himpunan sama).
+   Ditambah: J diukur di rezim jenuh (cap 14) — medan aliran diklip kapasitas,
+   **J tak peka terhadap mutasi tabel apa pun**.
+3. Run 3 (W3-NULL, Δ = 0.0000 eksak): entri longgar yang teramati pada init
+   rentang-penuh TAK PERNAH teramati pada dinamika init-cap-6 → mutasi tak
+   pernah menembak; kontrol disjoint dari terarah = kosong.
+
+**Temuan struktural (hasil ilmiah sah):** semesta juara berjalan ~100% pada
+kapasitas — perilaku makronya ditentukan GEOMETRI KAPASITAS (pola min(c, max−r)),
+bukan nilai tabel di bawah cap. Konsekuensi: tuas loop di level nilai tabel
+hampir kosong; umpan balik yang berarti harus bertindak pada struktur kapasitas
+sendiri (ubah k/topologi/kapasitas-b bergantung-state) — di luar parameter beku
+keluarga saat ini. Loop terbangun, berjalan, terukur; benda kerjanya sudah
+teridentifikasi persis. W3 dilaporkan NULL-teratribusi — bukan dipoles.
+
+**Reproduksi:** `python experiments/m4/loop.py` + `python experiments/m4/growth.py`.
+
+**Status kontrak:** K1–K5 PASS; W3 null-teratribusi dengan tuas teridentifikasi
+(satu-satunya klaim spec yang tetap terbuka — dan kini kita tahu persis MENGAPA
+dan DI MANA gagangnya). M2 (replikator) menyusul di luar sesi ini.
