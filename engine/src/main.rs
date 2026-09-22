@@ -1,6 +1,9 @@
+mod detect;
 mod flow;
 mod hash;
 mod lattice;
+mod metrics;
+mod probe;
 mod rng;
 mod rule184;
 mod snapshot;
@@ -22,6 +25,32 @@ fn has_flag(args: &[String], name: &str) -> bool {
     args.iter().any(|a| a == name)
 }
 
+fn resolve_rule(
+    args: &[String],
+    k: u8,
+    seed: u64,
+) -> Result<(flow::FlowRule, &'static str, u32), String> {
+    let rule_spec = flag(args, "--rule", "builtin:184");
+    let rule_table_path = flag(args, "--rule-table", "");
+    if !rule_table_path.is_empty() {
+        let bytes = std::fs::read(&rule_table_path)
+            .map_err(|e| format!("rule-table tidak terbaca: {}", e))?;
+        Ok((flow::FlowRule::from_table(k, &bytes), "flow-table", 0))
+    } else if rule_spec == "builtin:184" {
+        if k != 1 {
+            return Err("builtin:184 butuh --k 1".into());
+        }
+        Ok((flow::FlowRule::builtin184(), "builtin:184", 184))
+    } else if rule_spec == "random" {
+        Ok((flow::FlowRule::random(k, seed), "random", 0))
+    } else {
+        Err(format!(
+            "--rule tidak dikenal: {} (pakai builtin:184|random|--rule-table)",
+            rule_spec
+        ))
+    }
+}
+
 fn cmd_run(args: &[String]) -> i32 {
     let n: u32 = flag(args, "--n", "4096").parse().unwrap();
     let k: u8 = flag(args, "--k", "1").parse().unwrap();
@@ -34,8 +63,6 @@ fn cmd_run(args: &[String]) -> i32 {
         .parse()
         .unwrap();
     let threads_req: usize = flag(args, "--threads", "0").parse().unwrap();
-    let rule_spec = flag(args, "--rule", "builtin:184");
-    let rule_table_path = flag(args, "--rule-table", "");
     let outdir = flag(args, "--outdir", "run");
 
     if n == 0 || n % 64 != 0 {
@@ -58,30 +85,12 @@ fn cmd_run(args: &[String]) -> i32 {
         threads_req
     };
 
-    let (rule, rule_label, rule_id) = if !rule_table_path.is_empty() {
-        match std::fs::read(&rule_table_path) {
-            Ok(bytes) => match flow::FlowRule::from_table(k, &bytes) {
-                r => (r, "flow-table", 0u32),
-            },
-            Err(e) => {
-                eprintln!("rule-table tidak terbaca: {}", e);
-                return 1;
-            }
-        }
-    } else if rule_spec == "builtin:184" {
-        if k != 1 {
-            eprintln!("builtin:184 butuh --k 1");
+    let (rule, rule_label, rule_id) = match resolve_rule(args, k, seed) {
+        Ok(r) => r,
+        Err(e) => {
+            eprintln!("{}", e);
             return 1;
         }
-        (flow::FlowRule::builtin184(), "builtin:184", 184u32)
-    } else if rule_spec == "random" {
-        (flow::FlowRule::random(k, seed), "random", 0u32)
-    } else {
-        eprintln!(
-            "--rule tidak dikenal: {} (pakai builtin:184 atau --rule-table)",
-            rule_spec
-        );
-        return 1;
     };
     std::fs::write(Path::new(&outdir).join("rule.bin"), &rule.table).unwrap();
 
@@ -244,6 +253,7 @@ fn main() {
     let code = match args.get(1).map(|s| s.as_str()) {
         Some("run") => cmd_run(&args),
         Some("bench") => cmd_bench(&args),
+        Some("probe") => cmd_probe(&args),
         _ => {
             eprintln!(
                 "pemakaian: engine run --n N [--k K] [--cars K|--uniform] --seed S --steps T \
@@ -254,4 +264,39 @@ fn main() {
         }
     };
     std::process::exit(code);
+}
+
+fn cmd_probe(args: &[String]) -> i32 {
+    let n: u32 = flag(args, "--n", "4096").parse().unwrap();
+    let k: u8 = flag(args, "--k", "2").parse().unwrap();
+    let seed: u64 = flag(args, "--seed", "1").parse().unwrap();
+    let steps: u64 = flag(args, "--steps", "20000").parse().unwrap();
+    let probe_every: u64 = flag(args, "--probe-every", "1000").parse().unwrap();
+    let w_max: usize = flag(args, "--w-max", "8").parse().unwrap();
+    let threads_req: usize = flag(args, "--threads", "0").parse().unwrap();
+    if n == 0 || n % 64 != 0 {
+        eprintln!("--n harus kelipatan 64 dan > 0");
+        return 1;
+    }
+    if probe_every == 0 {
+        eprintln!("--probe-every harus > 0");
+        return 1;
+    }
+    let threads = if threads_req == 0 {
+        std::thread::available_parallelism().map(|v| v.get()).unwrap_or(1)
+    } else {
+        threads_req
+    };
+    let rule = match resolve_rule(args, k, seed) {
+        Ok((r, _, _)) => r,
+        Err(e) => {
+            eprintln!("{}", e);
+            return 1;
+        }
+    };
+    let w0 = lattice::World::from_seed_uniform(n, k, seed);
+    let mut rep = probe::run(w0, &rule, threads, steps, probe_every, w_max);
+    rep.seed = seed;
+    println!("{}", rep.to_json());
+    0
 }
