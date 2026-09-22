@@ -154,8 +154,6 @@ pub fn step_words(w: &World, rule: &FlowRule, threads: usize) -> World {
     }
 
     let mut outw = vec![0u64; nw];
-    let ks = w.k as usize;
-
     // Satu range → jalan inline (tanpa spawn): n kecil × langkah banyak,
     // biaya spawn per langkah melahap semuanya (pelajaran M1).
     if ranges.len() == 1 {
