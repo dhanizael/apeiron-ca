@@ -136,3 +136,48 @@ by construction + komponen bergantung-state (Adams 2017) yang inheren di F.
 background mode yang tak pernah merge/pisasah), bukan klaim struktur ala computational mechanics — itu kerja Newton di M3
 computational mechanics; H = 10⁶ langkah terukur, bukan keabadian. M2 (replikator)
 dan M3 (Newton memulihkan hukum semesta juara) adalah ujian berikutnya.
+
+---
+
+## 004 — M3-percepatan: Newton memulihkan hukum semesta yang tidak ditanam (2026-09-22)
+
+**Apa:** Newton v0 diarahkan ke dua juara M1 (k=4, tabel 4.096 entri, hukum hanya
+pegangan kita sebagai rule.bin). Mikro via **aljabar teleskop konservasi**
+(dᵢ = vᵢ − newᵢ = fᵢ − fᵢ₋₁ → prefix-sum, konstanta dikunci edge aliran-nol) —
+bukan enumerasi.
+
+**Verdict: MICRO-PASS 3/3 + makro PASS.**
+
+- **3a:** tabel pulihan ≡ GT **eksak 4.096/4.096 entri** di KEDUA juara
+  (observasi lintas-3-seed; nol ambigu; nol konflik).
+- **3b:** tabel pulihan mereproduksi dinamika RELAKSASI (t=20.000) bit-identik —
+  hukum yang dipelajari dari transien t=0 memprediksi termal.
+- **3c:** counterfactual law shift — dua semesta → dua tabel berbeda, masing-masing
+  cocok GT-nya. Hafalan mustahil.
+- **Makro:** J(ρ) juara #1 dari sweep --init-cap: tumbuh linier J≈15ρ (rezim bebas)
+  lalu **jenuh ~5,9** (onset kemacetan) — diagram fundamental emergen; fit
+  piecewise-linear MDL 2 segmen, **hold-out MAE = 0.0** (ε dari lantai derau
+  terukur 0,011).
+- Reproduksi: `python experiments/m3/recover.py` (butuh hasil M1).
+
+**Cerita metodologi (semua tertangkap gerbang, bukan keberuntungan):**
+1. Coverage 4090/4096 dua run berturut — 6 entri langka tak dikunjungi satu
+   transien → solusi jujur: observasi lintas-3-seed (hukum sama, transien beda).
+2. **Counterfactual gate menangkap bug silsilah M1:** kelima "juara" ternyata
+   SATU hukum (tahap B meregenerasi base dari seed, bukan tabel induk). Gerbang
+   anti-hafalan menolak — bukti ia bekerja. M1 diperbaiki + diulang; kini ≥2
+   hukum berbeda. (Koreksi entri 003: klaim "5 juara" berlaku sebagai ≥1 hukum
+   lolos horizon; keragaman lintas-juara baru nyata pasca-fix.)
+3. Fit makro pertama gagal karena GRID [0..1] vs data [0.07..0.47] → grid
+   dibatasi rentang data train + 10 kap (MDL dengan 5 titik tak sanggup membeli
+   segmen kedua — data diperbanyak, bukan kriteria dilonggarkan).
+
+**Makna:** kriteria W2 spec — "Newton memulihkan aturan mikro, diverifikasi eksak
+vs source code" — **terpenuhi di semesta yang tidak kita tanam**, dengan
+counterfactual. Bandingkan AutomataGPT (82% exact, aturan biner 2D tetap): kita
+100% eksak pada 4.096 entri k=4 dengan aturan BERGERAK (juara hasil pencarian).
+M4 (loop tertutup + kurva growth-rate lintas rezim) tinggal satu milestone.
+
+**Batas jujur:** pemulihan mikro memanfaatkan struktur keluarga flow (teleskop
+konservasi) — keunggulan eksak ini spesifik-keluarga, bukan penginderaan umum;
+makro diukur pada satu juara; H tetap 10⁶ langkah.
