@@ -399,3 +399,26 @@ kristal permanen.
 
 **Reproduksi:** tabel beku `u_fb_child_2202_1` vs hidup `u_fb_child_2203_1`
 (arsip loop v2, role-unique hasil review); analisis di sesi review.
+
+---
+
+## 008 — Loop v3: intervensi penghindar-fixed-point (DIBUKA; kriteria dibekukan pra-run 2026-09-23)
+
+**Hipotesis:** kekuatan baru loop v3 = kontrafaktual. Newton (yang kini tahu
+hukum semusta — warisan M3) menguji setiap hukum-kandidat pada kosmos mini
+segar SEBELUM berkomitmen, lalu bertindak hanya pada langkah yang modelnya
+prediksikan memperbaiki aliran tanpa membekukan. Prediksi: cabang feedback
+v3 tidak mengulang bencana it0 v2 (membekukan semusta sendiri, J 0,2486→0)
+dan mengungguli kontrol acak kumulatif.
+
+**Kriteria dibekukan SEBELUM run (plan 2026-09-23-loop-v3-freeze-avoidance.md):**
+- W3v3a (keselamatan): min_i J_fb_after_i > 0, K=4.
+- W3v3b (kinerja): Σ J_fb_after > Σ J_ctrl_after (kumulatif).
+- Gerbang instrumen (W2): simulasi mini n=256 harus nol freeze-miss vs
+  full-scale pada ≥13 mutasi tunggal berlabel — sebelum verdict dijalankan.
+- Urutan wajib: anatomi fixed point (pertanyaan 8 log 007) → kalibrasi → verdict.
+- Seed: anatomi 4401 (warisan 007, disklosikan); label kalibrasi 1093/1094
+  (kontaminasi terkontrol — fungsinya kasus berlabel); verdict segar 5501+;
+  seed instrumen mini 6600.
+
+**Hasil: (menyusul — diisi setelah run, tanpa pengeditan kriteria).**
