@@ -124,8 +124,6 @@ pub fn step_words(w: &World, rule: &FlowRule, threads: usize) -> World {
             rest = tail;
             s.spawn(move || {
                 // edge e = aliran (e → e+1), e ∈ [0, n); worker butuh edge [start−1, end)
-                let start = w0 * lpw;
-                let end = w1 * lpw;
                 let f = |edge: usize| -> u8 {
                     let e = edge % n;
                     let l = cell_bits(w, (e + n - 1) % n);

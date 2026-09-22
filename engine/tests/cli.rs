@@ -38,8 +38,8 @@ fn run_produces_seam_files_deterministic() {
     }
     let ma = std::fs::read_to_string(a.join("manifest.json")).unwrap();
     let mb = std::fs::read_to_string(b.join("manifest.json")).unwrap();
-    assert_eq!(read_field(&ma, "rule_id"), "184");
-    assert_eq!(read_field(&ma, "n_cells"), "64");
+    assert!(ma.contains("\"rule\": \"builtin:184\""));
+    assert!(ma.contains("\"n_cells\": 64"));
     assert_eq!(read_field(&ma, "window_states"), "17");
     assert_eq!(read_field(&ma, "fnv_final"), read_field(&mb, "fnv_final"));
     // window: 17 state × 1 word × 8 byte
@@ -72,4 +72,87 @@ fn bad_args_rejected() {
         .status()
         .unwrap();
     assert!(!s.success(), "n bukan kelipatan 64 harus ditolak");
+}
+
+#[test]
+fn run_v2_flow_table_manifest_and_rule_bin() {
+    // tabel k=2: 64 entri deterministik; jalur --rule-table
+    let base = std::env::temp_dir().join(format!("m0_cli_v2_{}", std::process::id()));
+    std::fs::create_dir_all(&base).unwrap();
+    let rule_path = base.join("rule.bin");
+    let raw: Vec<u8> = (0..64u32).map(|i| (i * 7 + 3) as u8).collect();
+    std::fs::write(&rule_path, &raw).unwrap();
+    let out = base.join("run");
+    let s = Command::new(env!("CARGO_BIN_EXE_engine"))
+        .args([
+            "run",
+            "--n",
+            "256",
+            "--k",
+            "2",
+            "--uniform",
+            "--seed",
+            "3",
+            "--steps",
+            "64",
+            "--window",
+            "8",
+            "--rule-table",
+            rule_path.to_str().unwrap(),
+            "--threads",
+            "2",
+            "--outdir",
+            out.to_str().unwrap(),
+        ])
+        .status()
+        .unwrap();
+    assert!(s.success());
+    let m = std::fs::read_to_string(out.join("manifest.json")).unwrap();
+    assert!(m.contains("\"rule\": \"flow-table\""));
+    assert!(m.contains("\"k\": 2"));
+    assert!(m.contains("\"threads\": 2"));
+    assert!(out.join("rule.bin").exists());
+    let expect = engine::flow::FlowRule::from_table(2, &raw).table_fnv();
+    assert!(m.contains(&format!("{:016x}", expect)));
+}
+
+#[test]
+fn run_v2_window_budget_clamps() {
+    // n=256 k=4 → 16 word = 128 byte/state; budget 384 byte → muat 3 state
+    let base = std::env::temp_dir().join(format!("m0_cli_bud_{}", std::process::id()));
+    let out = base.join("run");
+    let s = Command::new(env!("CARGO_BIN_EXE_engine"))
+        .args([
+            "run",
+            "--n",
+            "256",
+            "--k",
+            "4",
+            "--uniform",
+            "--rule",
+            "random",
+            "--seed",
+            "1",
+            "--steps",
+            "32",
+            "--window",
+            "16",
+            "--window-budget-bytes",
+            "384",
+            "--outdir",
+            out.to_str().unwrap(),
+        ])
+        .status()
+        .unwrap();
+    assert!(s.success());
+    let m = std::fs::read_to_string(out.join("manifest.json")).unwrap();
+    assert!(
+        m.contains("\"window_states\": 3"),
+        "budget harus memotong window: {}",
+        m
+    );
+    assert_eq!(
+        std::fs::metadata(out.join("window.bin")).unwrap().len(),
+        3 * 128
+    );
 }
