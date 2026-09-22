@@ -120,12 +120,18 @@ def main() -> int:
     else:
         champ = ROOT / "experiments" / "m1v2" / "result" / "_work" / "rule_H_RICH_5700010.bin"
         F0 = list(champ.read_bytes())
-        k, n, caps = 2, 16384, [6, 14]  # 6: rezim linier (intervensi); 14: jenuh (atribusi)
+        # k=2 → cell maks 3: init_cap WAJIB < 2^k (guard di bawah; pelajaran
+        # kegagalan run-1 full: caps v1 k=4 [6,14] tidak valid untuk k=2).
+        k, n, caps = 2, 16384, [1, 3]  # 1: rezim linier (intervensi); 3: jenuh (atribusi)
         steps, window = 20000, 512
-        K, m_entries = 4, 256
-        base_seed = 1092
+        # Tabel k=2 hanya 64 entri — m=256 warisan v1 (k=4) degenerate;
+        # m=8 terkalibrasi probe (busiest-8 vs random-8 terpisah 100×).
+        K, m_entries = 4, 8
+        # Seed verdict segar (2201+): seed 1093/1094 terpakai probe kalibrasi.
+        base_seed = 2201
     if a.iterations:
         K = a.iterations
+    assert all(0 < c < (1 << k) for c in caps), f"init_cap wajib di (0, 2^k−1): caps={caps} k={k}"
 
     outdir = Path(a.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
@@ -184,12 +190,20 @@ def main() -> int:
     mean_fb = sum(deltas_fb) / len(deltas_fb)
     mean_ctrl = sum(deltas_ctrl) / len(deltas_ctrl)
     w3v2 = bool(mean_fb > mean_ctrl and all(d >= 0 for d in deltas_fb))
+    # W3v2b — konsekuensi: intervensi turunan-temuan berdampak lebih besar
+    # daripada acak (|Δ| fb > |Δ| ctrl per iterasi, mean). Probe kalibrasi
+    # (seed 1093/1094) menunjukkan +1 busiest-slack cenderung MEMBEKUKAN
+    # semesta (Δ = −J0); kriteria ini menangkap "tuas kuat" apa pun arahnya,
+    # dan arah dilaporkan terpisah oleh W3v2a di atas.
+    w3v2b = bool(sum(abs(d) for d in deltas_fb) / len(deltas_fb)
+                 > sum(abs(d) for d in deltas_ctrl) / len(deltas_ctrl))
 
     result = {
         "experiment": "M4-loop-v2",
         "mode": "mini" if a.mini else "full",
         "universe": "RICH" if not a.mini else "rich-mini",
-        "criteria": {"W3v2_feedback_directed_effect_rich": w3v2},
+        "criteria": {"W3v2_feedback_directed_effect_rich": w3v2,
+                     "W3v2b_finding_lever_magnitude": w3v2b},
         "mean_delta_feedback": mean_fb,
         "mean_delta_control": mean_ctrl,
         "iterations": K,
