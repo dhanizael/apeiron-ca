@@ -210,4 +210,42 @@ mod tests {
         assert_eq!(rule.table[idx(0, 0, 0)], 0); // ≤ c=0
         assert_eq!(rule.table[idx(3, 3, 3)], 0); // penuh, tak ada ruang
     }
+
+    #[test]
+    fn k1_prime_identical_across_thread_counts() {
+        for k in [1u8, 2, 4] {
+            let rule = FlowRule::random(k, 99);
+            let mut one = World::from_seed_uniform(4096, k, 99);
+            let mut many = one.clone();
+            for _ in 0..100 {
+                one = step_words(&one, &rule, 1);
+                many = step_words(&many, &rule, 4);
+            }
+            assert_eq!(one.words, many.words, "K1′ rusak k={}", k);
+        }
+    }
+
+    #[test]
+    fn thread_count_sweep() {
+        let rule = FlowRule::random(4, 5);
+        let refw = World::from_seed_uniform(8192, 4, 5);
+        let refw = step_words(&refw, &rule, 1);
+        for t in [2usize, 3, 7, 16] {
+            let w = World::from_seed_uniform(8192, 4, 5);
+            let w = step_words(&w, &rule, t);
+            assert_eq!(w.words, refw.words, "threads={} ≠ 1", t);
+        }
+    }
+
+    #[test]
+    fn odd_size_no_padding_wrap() {
+        // n bukan kelipatan cells_per_word: padding + wrap ring di ujung
+        for k in [1u8, 2, 4] {
+            let rule = FlowRule::random(k, 13);
+            let w = World::from_seed_uniform(300, k, 13); // 300 bukan kelipatan 64/k
+            let a = step_scalar(&w, &rule);
+            let b = step_words(&w, &rule, 3);
+            assert_eq!(a.words, b.words, "odd-size k={} scalar≠lane", k);
+        }
+    }
 }
