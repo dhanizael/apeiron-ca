@@ -127,9 +127,20 @@ def main() -> int:
         n, steps, window = 256, 1000, 16
         caps_train, caps_hold = [], []
     else:
+        # pilih dua juara M1 dengan rule_fnv BERBEDA (counterfactual butuh dua hukum)
         m1 = ROOT / "experiments" / "m1" / "result"
-        champs = [(str(m1 / "champ_k4_s1161092"), 4, 1092),
-                  (str(m1 / "champ_k4_s1161095"), 4, 1095)]
+        r1 = json.loads((m1 / "result.json").read_text())
+        champs = []
+        seen_fnv = set()
+        for c in r1["champions"]:
+            d = m1 / f"champ_k{c['k']}_s{c['seed']}"
+            fnv = json.loads((d / "manifest.json").read_text())["rule_fnv"]
+            if fnv not in seen_fnv:
+                seen_fnv.add(fnv)
+                champs.append((str(d), c["k"], c["seed"]))
+            if len(champs) == 2:
+                break
+        assert len(champs) == 2, "butuh dua juara dengan hukum berbeda"
         n, steps, window = 16384, 20000, 64
         caps_train, caps_hold = [1, 2, 3, 4, 5, 8, 11, 12, 13, 14], [6, 10]
 
