@@ -422,3 +422,47 @@ dan mengungguli kontrol acak kumulatif.
   seed instrumen mini 6600.
 
 **Hasil: (menyusul — diisi setelah run, tanpa pengeditan kriteria).**
+**Hasil (FULL RUN, seed 5502–5505, n=16384, 20k langkah — kriteria tak diubah):**
+
+- **W3v3a (keselamatan): PASS.** min J_fb_after = 0,4957 > 0 — feedback tidak
+  pernah membekukan semusta (bencana it0 v2 tak terulang).
+- **W3v3b (kinerja): PASS.** ΣJ fb 1,9966 > ΣJ ctrl 1,4956.
+- **it0 — prediksi kontrafaktunal akurat nyaris eksak:** filter menolak
+  21/43 kandidat berbahaya; komit 8 (termasuk **(12,−1)** — loop MENURUNKAN
+  entri pembeku v2, dan (20,+1) Δshort +0,274); validasi koktail lolos
+  langsung (J_short 0,501) → J_20k sungguhan **0,5010**. Kontrol acak-8
+  → BEKU (J→0) — mode gagal v2-fb kini dialami cabang buta.
+- **it1–3 — hold rasional:** slack habis (loose=0), seluruh 48 langkah
+  sisa (semua −1) tak ada yang positif → loop menahan diri. Kedua cabang
+  konvergen ke atraktor keluarga **J≈0,50** (fb J 3 seed segar:
+  0,4944/0,5018/0,4997; tabel final fb & ctrl setara J-nya).
+- **Atribusi jujur kemenangan (dua komponen):** (1) keterampilan model —
+  lompatan langsung ke atraktor dengan prediksi tervalidasi; (2) kontrol
+  sial (koktail buta mengenai kombinasi pembeku — varian). Pembanding
+  bersih lintas-versi: v3-fb 1,9966 vs v2-fb 1,3258 (+0,67) dengan risiko
+  beku nol vs bencana nyata.
+- **Temuan baru — instrumen kontrafaktunal LOKAL-REZIM:** hukum v3 unggul
+  di cap=1 tetapi J(cap=3) = 0,0000 (koktail v2: 1,49) — kontrafaktual
+  hanya mengevaluasi rezim intervensi; konsekuensi rezim lain tak terlihat.
+  Perluasan pelajaran run-2 v2 ("amati rezim yang kau intervensi") →
+  "simulasi rezim yang kau putuskan; rezim lain tetap gelap".
+- **Jawaban pertanyaan (8) level state:** beku = KONDENSASI menjadi parkiran
+  sel-3 eternal; 82,8% nol + 16,1% tiga; waktu beku langkah (1250, 2500];
+  seluruh 17 entri terrealisasi bernilai F=0 di KEDUA hukum (kristal =
+  fixed point umum pra-ada; dinamika termutasi jatuh ke dalamnya). Struktur
+  fundamental: r = max_cell ⟹ cap = 0 ⟹ F ≡ 0 pada SEMUA tabel flow —
+  sel penuh absolut abadi (tak bisa pernah menerima). Peta kausal level
+  hukum (mutasi mana memicu kondensasi) tetap terbuka.
+- **Batas tercapai:** dengan kelas intervensi ±1 pada tabel dan slack
+  habis, J≈0,50 adalah optimum lokal — loop menahan diri saat tak ada
+  langkah positif (bukan berhenti diam-diam; keputusan hold TERSIMPAN di
+  trajectory). R1 tetap terbuka, konsisten dengan K5 (saturasi).
+
+**Reproduksi:** `python experiments/m4/frozen_anatomy.py`;
+`python experiments/m4/calibrate_freeze.py --instrument short`;
+`python experiments/m4/loop3.py`; test `pytest analysis/tests/`.
+
+**Status kontrak:** W3v3a + W3v3b PASS; instrumen tervalidasi (freeze_miss
+0/13); batas instrumen (lokal-rezim, validasi tunggal-per-kandidat, koktail
+divalidasi terpisah) didisklosikan. Loop v3 menutup singkat: aman, terarah,
+dan jujur tentang batasnya.
