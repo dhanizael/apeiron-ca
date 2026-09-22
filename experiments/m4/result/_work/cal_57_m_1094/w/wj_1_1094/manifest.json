@@ -1,0 +1,17 @@
+{
+  "schema": "0and1-manifest",
+  "version": 2,
+  "rule": "flow-table",
+  "rule_fnv": "39d0982a9ab57ef8",
+  "k": 2,
+  "n_cells": 16384,
+  "init_cap": 1,
+  "init": "capped:1",
+  "seed": 1094,
+  "steps": 20000,
+  "window_states": 513,
+  "window_budget": 268435456,
+  "threads": 1,
+  "fnv_final": "6c270d6a429a4ba6",
+  "engine_version": "m0.1"
+}

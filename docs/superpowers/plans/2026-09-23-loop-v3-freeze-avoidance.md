@@ -100,3 +100,20 @@ nilai tabel ±1 per entri; observasi & intervensi di rezim linier init_cap=1
 
 Task 1 anatomi → Task 2 kalibrasi (GATE) → Task 3 loop3 TDD → Task 4 FULL
 RUN → Task 5 log/now/memory/merge. Commit per checkpoint di branch loop-v3.
+
+## Addendum kalibrasi (2026-09-23, dieksekusi sesuai pre-mortem #1 — didisklosikan)
+
+Evolusi instrumen counterfactual, tiga langkah berbasis data:
+1. mini n=256/2000-langkah: GATE-FAIL (4 freeze-miss).
+2. mini n=1024/500k-langkah/3-seed: GATE-FAIL (2 freeze-miss, e=9/41) —
+   temuan ilmiah: BASIN ATRAKTOR BEKU BERGANTUNG SKALA (e=9/41 metastabil
+   mengalir J≈0,09 di n=1024 walau beku di n=16384). Mengecilkan semesta
+   mengubah fisika → instrumen mini-cosmos DITOLAK.
+3. PIVOT (Langkah 4): kontrafaktual horizon-pendek SKALA PENUH (n=16384,
+   5000 langkah, seed = seed label — prefeks deterministik run 20k) +
+   detektor kolaps (J/J_parent < 0,3; kondensasi berlangsung bertahap —
+   J≈0,05 di 5k untuk kasus yang nol eksak di 20k; threshold dari set
+   kalibrasi, didisklosikan). Hasil: GATE-PASS — freeze_miss=0/13,
+   agreement 0,85; sisa ketidaksesuaian hanya kelas jinak (flat↔raise).
+Batas validasi: instrumen tervalidasi pada MUTASI TUNGGAL; kandidat koktail
+divalidasi terpisah oleh loop (uji koktail + fallback prefix — lihat loop3).

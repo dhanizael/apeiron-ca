@@ -1,0 +1,398 @@
+{
+  "experiment": "freeze-calibration",
+  "instrument": {
+    "kind": "short-full-scale",
+    "n": 16384,
+    "steps": 5000,
+    "seeds": [
+      1093,
+      1094
+    ],
+    "window": 512,
+    "r_min": 0.3,
+    "note": "kontrafaktual horizon-pendek skala penuh; seed = seed label; reject = freeze eksak ATAU kolaps J/J_parent < r_min (threshold dari set kalibrasi)"
+  },
+  "gate_freeze_miss_zero": true,
+  "freeze_miss": 0,
+  "agreement": 0.8461538461538461,
+  "cases": [
+    {
+      "entry": 8,
+      "class_full": "flat",
+      "source": "measured",
+      "mini": {
+        "class": "raise",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.252105712890625,
+            "static": false,
+            "amb": 0,
+            "class": "raise"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.24639892578125,
+            "static": false,
+            "amb": 0,
+            "class": "raise"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.249252
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 9,
+      "class_full": "freeze",
+      "source": "log007",
+      "mini": {
+        "class": "freeze",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.06498432159423828,
+            "static": false,
+            "amb": 0,
+            "class": "collapse"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.032678842544555664,
+            "static": false,
+            "amb": 0,
+            "class": "collapse"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.048832
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 12,
+      "class_full": "freeze",
+      "source": "log007",
+      "mini": {
+        "class": "freeze",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.0,
+            "static": true,
+            "amb": 0,
+            "class": "freeze"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.0,
+            "static": true,
+            "amb": 0,
+            "class": "freeze"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.0
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 20,
+      "class_full": "raise",
+      "source": "log007",
+      "mini": {
+        "class": "raise",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.50421142578125,
+            "static": false,
+            "amb": 0,
+            "class": "raise"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.4927978515625,
+            "static": false,
+            "amb": 0,
+            "class": "raise"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.498505
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 24,
+      "class_full": "raise",
+      "source": "log007",
+      "mini": {
+        "class": "raise",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.3448216915130615,
+            "static": false,
+            "amb": 0,
+            "class": "raise"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.30453288555145264,
+            "static": false,
+            "amb": 0,
+            "class": "raise"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.324677
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 29,
+      "class_full": "freeze",
+      "source": "log007",
+      "mini": {
+        "class": "freeze",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.02789306640625,
+            "static": false,
+            "amb": 0,
+            "class": "collapse"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.09172499179840088,
+            "static": false,
+            "amb": 0,
+            "class": "drop"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.059809
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 41,
+      "class_full": "freeze",
+      "source": "measured",
+      "mini": {
+        "class": "freeze",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.07669699192047119,
+            "static": false,
+            "amb": 0,
+            "class": "drop"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.03373408317565918,
+            "static": false,
+            "amb": 0,
+            "class": "collapse"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.055216
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 44,
+      "class_full": "drop",
+      "source": "measured",
+      "mini": {
+        "class": "flat",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.20837068557739258,
+            "static": false,
+            "amb": 0,
+            "class": "flat"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.24639892578125,
+            "static": false,
+            "amb": 0,
+            "class": "raise"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.227385
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 45,
+      "class_full": "drop",
+      "source": "log007",
+      "mini": {
+        "class": "drop",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.11047399044036865,
+            "static": false,
+            "amb": 0,
+            "class": "drop"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.10554325580596924,
+            "static": false,
+            "amb": 0,
+            "class": "drop"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.108009
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 46,
+      "class_full": "freeze",
+      "source": "measured",
+      "mini": {
+        "class": "freeze",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.0,
+            "static": true,
+            "amb": 0,
+            "class": "freeze"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.0,
+            "static": true,
+            "amb": 0,
+            "class": "freeze"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.0
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 56,
+      "class_full": "drop",
+      "source": "log007",
+      "mini": {
+        "class": "drop",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.0905916690826416,
+            "static": false,
+            "amb": 0,
+            "class": "drop"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.08956289291381836,
+            "static": false,
+            "amb": 0,
+            "class": "drop"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.090077
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 57,
+      "class_full": "freeze",
+      "source": "measured",
+      "mini": {
+        "class": "freeze",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.0,
+            "static": true,
+            "amb": 0,
+            "class": "freeze"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.0,
+            "static": true,
+            "amb": 0,
+            "class": "freeze"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.0
+      },
+      "freeze_miss": false
+    },
+    {
+      "entry": 60,
+      "class_full": "freeze",
+      "source": "log007",
+      "mini": {
+        "class": "freeze",
+        "per_seed": [
+          {
+            "seed": 1093,
+            "j_parent": 0.22314441204071045,
+            "j": 0.0,
+            "static": true,
+            "amb": 0,
+            "class": "freeze"
+          },
+          {
+            "seed": 1094,
+            "j_parent": 0.21564137935638428,
+            "j": 0.0,
+            "static": true,
+            "amb": 0,
+            "class": "freeze"
+          }
+        ],
+        "j_parent_mean": 0.219393,
+        "j_mean": 0.0
+      },
+      "freeze_miss": false
+    }
+  ],
+  "reproduce": "python experiments/m4/calibrate_freeze.py"
+}
