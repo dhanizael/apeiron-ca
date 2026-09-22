@@ -218,3 +218,20 @@ teridentifikasi persis. W3 dilaporkan NULL-teratribusi — bukan dipoles.
 **Status kontrak:** K1–K5 PASS; W3 null-teratribusi dengan tuas teridentifikasi
 (satu-satunya klaim spec yang tetap terbuka — dan kini kita tahu persis MENGAPA
 dan DI MANA gagangnya). M2 (replikator) menyusul di luar sesi ini.
+
+
+---
+
+## 006 — M1v2: hipotesis slack (dari ilham W3-NULL) + koreksi 003 (2026-09-22)
+
+**Koreksi 003 (ditangkap saat merancang v2):** kriteria juara M1 dinilai pada
+probe 10⁵ langkah, bukan horizon 10⁶ (run 10⁶ hanya menghasilkan manifest/window).
+Klaim "lolos horizon penuh" dikoreksi menjadi "lolos probe 10⁵ + run 10⁶";
+M1v2 menilai kriteria LANGSUNG di horizon 10⁶.
+
+**Hipotesis (vektor serang pertama R1):** akar capacity-bound bukan hanya arah
+mutasi — generator `random_table` menggambar 0..255 lalu clip ke cap → entri
+lahir menempel kapasitas. Jika **slack** (entri F < cap) adalah prasyarat
+menjadi-baik, maka arm slack-rich (uniform [0, cap] per entri) harus menunjukkan
+pass-rate K3 lebih tinggi daripada arm slack-poor (generator lama) — dan juara
+slack-rich memberi loop v2 tuas level-tabel yang nyata.
