@@ -149,7 +149,10 @@ fn cmd_run(args: &[String]) -> i32 {
 }
 
 fn cmd_bench(args: &[String]) -> i32 {
-    // mode legacy LM0 (bitwise k=1) — protokol K2 formal menyusul di --protocol k2
+    if has_flag(args, "--protocol") && flag(args, "--protocol", "") == "k2" {
+        return cmd_bench_k2(args);
+    }
+    // mode legacy LM0 (bitwise k=1)
     let n: u32 = flag(args, "--n", "65536").parse().unwrap();
     let steps: u64 = flag(args, "--steps", "200000").parse().unwrap();
     if n == 0 || n % 64 != 0 {
@@ -170,6 +173,69 @@ fn cmd_bench(args: &[String]) -> i32 {
         updates / dt,
         cur.fnv1a()
     );
+    0
+}
+
+/// Protokol K2 (dibekukan, spec §5 amendemen M0): jalur generik LUT, k=4,
+/// n=2^27, 100 langkah, median 5 run setelah 1 warmup, tabel acak seeded.
+/// Parameter override (--n/--steps/--runs) HANYA untuk smoke test.
+fn cmd_bench_k2(args: &[String]) -> i32 {
+    let k: u8 = flag(args, "--k", "4").parse().unwrap();
+    let n: u32 = flag(args, "--n", "134217728").parse().unwrap(); // 2^27
+    let steps: u64 = flag(args, "--steps", "100").parse().unwrap();
+    let runs: usize = flag(args, "--runs", "5").parse().unwrap();
+    let seed: u64 = flag(args, "--seed", "20260922").parse().unwrap();
+    let threads_req: usize = flag(args, "--threads", "0").parse().unwrap();
+    if n == 0 || n % 64 != 0 {
+        eprintln!("--n harus kelipatan 64 dan > 0");
+        return 1;
+    }
+    let threads = if threads_req == 0 {
+        std::thread::available_parallelism()
+            .map(|v| v.get())
+            .unwrap_or(1)
+    } else {
+        threads_req
+    };
+    let rule = flow::FlowRule::random(k, seed);
+
+    // warmup (1 run penuh, tidak diukur)
+    let mut cur = lattice::World::from_seed_uniform(n, k, seed);
+    for _ in 0..steps {
+        cur = flow::step_words(&cur, &rule, threads);
+    }
+
+    let mut ups: Vec<u64> = Vec::with_capacity(runs);
+    for _ in 0..runs {
+        let mut w = lattice::World::from_seed_uniform(n, k, seed);
+        let t0 = std::time::Instant::now();
+        for _ in 0..steps {
+            w = flow::step_words(&w, &rule, threads);
+        }
+        let dt = t0.elapsed().as_secs_f64();
+        let updates = n as u64 * steps;
+        ups.push((updates as f64 / dt) as u64);
+        cur = w;
+    }
+    ups.sort_unstable();
+    let median = ups[ups.len() / 2];
+    let min = ups[0];
+    let max = ups[ups.len() - 1];
+    println!(
+        "protocol=k2 k={} n={} steps={} runs={} threads={} arch={}",
+        k,
+        n,
+        steps,
+        runs,
+        threads,
+        std::env::consts::ARCH
+    );
+    println!("table_fnv={:016x} seed={}", rule.table_fnv(), seed);
+    println!(
+        "median_cell_updates_per_detik={} min={} max={}",
+        median, min, max
+    );
+    println!("fnv_final={:016x}", cur.fnv1a());
     0
 }
 
