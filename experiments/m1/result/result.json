@@ -1,0 +1,46 @@
+{
+  "experiment": "M1",
+  "mode": "full",
+  "criteria": {
+    "K3_particle_persistent_and_no_exclusion": false
+  },
+  "stages": {
+    "a": {
+      "n_candidates": 20000,
+      "n_survivors": 0
+    },
+    "b": {
+      "rounds": 3,
+      "mutants_per_survivor": 8
+    },
+    "c": {
+      "horizon_H": 1000000,
+      "n_champions": 0
+    }
+  },
+  "baselines": {
+    "sandpile_k2": {
+      "table_fnv": "76b0a7bd76427aa5",
+      "top3_final": [
+        20000,
+        943,
+        4096
+      ],
+      "particles_final": 881,
+      "max_lifetime": 20
+    },
+    "layer184_k2": {
+      "table_fnv": "b7ecd7b44d5890e5",
+      "top3_final": [
+        20000,
+        815,
+        4096
+      ],
+      "particles_final": 975,
+      "max_lifetime": 20
+    }
+  },
+  "n_survivors": 0,
+  "champions": [],
+  "reproduce": "cargo build --release (di engine/) && python experiments/m1/search.py"
+}

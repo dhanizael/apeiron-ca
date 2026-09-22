@@ -42,7 +42,7 @@ def exclusion_streak(rep, streak_needed):
     return longest
 
 
-def passes_a(rep, min_lifetime, streak_cap):
+def passes_a(rep, min_lifetime_steps, streak_cap, probe_every):
     _t, top, total = rep["top3_series"][-1]
     if total > 0 and top * 5 >= total * 4:
         return False  # sudah runtuh di akhir
@@ -50,7 +50,9 @@ def passes_a(rep, min_lifetime, streak_cap):
         return False
     if rep["particles_final"] < 1:
         return False
-    if rep["max_lifetime"] < min_lifetime:
+    # satuan langkah fisika: observasi berturut-turut × probe_every
+    life_obs_needed = max(1, -(-min_lifetime_steps // probe_every))
+    if rep["max_lifetime"] < life_obs_needed:
         return False
     return True
 
@@ -93,13 +95,13 @@ def main() -> int:
 
     if a.mini:
         n_a, steps_a, every_a = 256, 2000, 100
-        nA, min_life, streak_cap = 200, 20, 3
+        nA, min_life, streak_cap = 200, 500, 3  # min_life = langkah fisika
         n_b, steps_b, rounds, mutants = 256, 4000, 1, 4
         steps_c = 4000
         top_keep = 3
     else:
         n_a, steps_a, every_a = 4096, 20000, 1000
-        nA, min_life, streak_cap = 20000, 500, 10
+        nA, min_life, streak_cap = 20000, 50000, 10  # T_persist = 5×10⁴ langkah
         n_b, steps_b, rounds, mutants = 16384, 100000, 3, 8
         steps_c = 10 ** 6
         top_keep = 5
@@ -151,7 +153,8 @@ def main() -> int:
                 "max_lifetime": rep["max_lifetime"],
                 "top3_final": rep["top3_series"][-1],
                 "mass_final": rep["mass_final"],
-                "passes": passes_a(rep, min_life, streak_cap),
+                "max_lifetime_steps": rep["max_lifetime"] * every_a,
+            "passes": passes_a(rep, min_life, streak_cap, every_a),
             }
             fh.write(json.dumps(row) + "\n")
             if row["passes"]:
@@ -201,7 +204,8 @@ def main() -> int:
         )
         _t, top, total = rep["top3_series"][-1]
         no_exclusion = not (total > 0 and top * 5 >= total * 4) and exclusion_streak(rep, 0) <= streak_cap
-        particles = rep["particles_final"] >= 1 and rep["max_lifetime"] >= min_life
+        life_obs_needed = max(1, -(-min_life // every_a))
+        particles = rep["particles_final"] >= 1 and rep["max_lifetime"] >= life_obs_needed
         champions.append({
             "k": s["k"], "seed": s["seed"], "table_fnv": rep["rule_fnv"],
             "score": s["score"], "horizon_H": steps_c,
