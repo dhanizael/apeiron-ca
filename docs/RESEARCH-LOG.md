@@ -943,3 +943,32 @@ sebagai "aljabar reproduksi terpetakan + instrumen perburuan".
 **Reproduksi:** `python experiments/m2/m2_hunt.py`; skrip sensus dini &
 verifikasi (pola di sesi, hasil di `experiments/m2/result/`). Test:
 `pytest analysis/tests/` (72) + `cargo test` (80).
+
+---
+
+## 016 — M2 ronde 2: pencarian hukum-replikator, census-fitness (DIBUKA; 2026-09-24)
+
+**Misi:** instrumen log 015 (census) menjadi fungsi-fitness — sapu ruang hukum
+mencari hukum dengan event replikasi sesuai definisi beku 015. **Kanal yang
+ditarget (aljabar ronde 1): FUSI** — [2] lahir ketika sel-1 yang STALL
+(entri (l,1,r) dingin) menerima emisi tetangganya: 1+1→2. v6-final tak punya
+kanal ini (semua c=1 panas di config terrealisasi); hukum acak kaya-slack
+menyediakan entri dingin. Dua-spesies: laut [1] → fusi → populasi [2] tumbuh;
+[2]-count: 1 → ≥2 sustained 1000 langkah = event.
+
+**Kriteria dibekukan:** W-M2r1: ≥1 hukum dengan event [2]-replikasi
+(1→≥2, sustained, terverifikasi 3 seed) → PASS — dengan akuntansi jujur
+(copy lahir dari FUSI latar [1], bukan dari substansi induk; kriteria 015
+tak mensyaratkan substansi induk). W-M2r2: mekanisme hukum terpilih
+didokumentasi (entri panas/dingin fusi & decay). Null → catatan
+ketak-mungkinan subspace + peta pelebaran.
+
+**Protokol:** 300 hukum acak slack-rich k=2 (generator M1v2, seed 16001+);
+per hukum: tanam 1×[2] + latar difus (bg=819, ρ≈0,05), 2000 langkah,
+window=steps, sensus [2] & [1] tiap 10 sampel; fitness = trajektori [2]
+(max, sustained≥10 sampel). **Kalibrasi harness dulu pada v6-final: HARUS
+melihat transmutasi dikenal ([2] 1→0, [1] +2)** — sensitivitas presence &
+absence. Kandidat → verifikasi 3 seed + analisis entri. Anti-kuota; mini
+deterministik.
+
+**Hasil: (menyusul — tanpa pengeditan kriteria).**
