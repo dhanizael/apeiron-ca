@@ -1,0 +1,225 @@
+{
+  "experiment": "M4-loop-v6",
+  "mode": "full",
+  "lineage": "v5-final",
+  "criteria": {
+    "W3v6a_escape_or_ceiling": true
+  },
+  "verdict": {
+    "incumbent": {
+      "cap1_rate": 1.0,
+      "cap3_rate": 1.0,
+      "cap1_mean_J": 0.499581,
+      "cap3_mean_mob": 0.96425
+    },
+    "final": {
+      "cap1_rate": 1.0,
+      "cap3_rate": 1.0,
+      "cap1_mean_J": 0.499581,
+      "cap3_mean_mob": 0.993215
+    },
+    "cross_block_55001": {
+      "cap1_rate": 1.0,
+      "cap3_rate": 1.0,
+      "cap1_mean_J": 0.501378,
+      "cap3_mean_mob": 0.993874
+    },
+    "beat_incumbent": true,
+    "free_flow_bound": {
+      "incumbent": {
+        "J": 0.499267578125,
+        "rho": 0.16642252604166666,
+        "mass_over_n": 0.499268
+      },
+      "final": {
+        "J": 0.499267578125,
+        "rho": 0.16642252604166666,
+        "mass_over_n": 0.499268
+      }
+    }
+  },
+  "trajectory": [
+    {
+      "iteration": 0,
+      "n_moves": 41,
+      "parent": {
+        "cap1_J": 0.49713134765625,
+        "cap3_rate": 1.0,
+        "cap3_mean_mob": 0.9603449999999999
+      },
+      "selected": [
+        [
+          8,
+          -1,
+          0.031187
+        ],
+        [
+          24,
+          -1,
+          0.027212
+        ],
+        [
+          10,
+          -1,
+          0.025786
+        ],
+        [
+          37,
+          -1,
+          0.021138
+        ],
+        [
+          45,
+          -1,
+          0.020772
+        ],
+        [
+          60,
+          -1,
+          0.017082
+        ],
+        [
+          6,
+          -1,
+          0.011264
+        ],
+        [
+          28,
+          -1,
+          0.009927
+        ]
+      ],
+      "cocktails": [
+        {
+          "size": 8,
+          "cap1_J": 0.49603545665740967,
+          "cap3_rate": 1.0,
+          "cap3_mob": 0.606593,
+          "joint": -0.354848,
+          "safe": true,
+          "commit": false
+        },
+        {
+          "size": 4,
+          "cap1_J": 0.4955453872680664,
+          "cap3_rate": 1.0,
+          "cap3_mob": 0.685048,
+          "joint": -0.276883,
+          "safe": true,
+          "commit": false
+        },
+        {
+          "size": 2,
+          "cap1_J": 0.49713134765625,
+          "cap3_rate": 1.0,
+          "cap3_mob": 0.9658313333333334,
+          "joint": 0.005486,
+          "safe": true,
+          "commit": true
+        }
+      ],
+      "committed": [
+        [
+          8,
+          -1
+        ],
+        [
+          24,
+          -1
+        ]
+      ],
+      "committed_fnv": "19374a3fc9506d9d"
+    },
+    {
+      "iteration": 1,
+      "n_moves": 43,
+      "parent": {
+        "cap1_J": 0.5054931640625,
+        "cap3_rate": 1.0,
+        "cap3_mean_mob": 0.962972
+      },
+      "selected": [
+        [
+          24,
+          1,
+          0.028874
+        ],
+        [
+          58,
+          -1,
+          0.027233
+        ],
+        [
+          30,
+          -1,
+          0.026441
+        ],
+        [
+          14,
+          -1,
+          0.026434
+        ],
+        [
+          56,
+          -1,
+          0.026197
+        ],
+        [
+          13,
+          1,
+          0.025202
+        ],
+        [
+          8,
+          1,
+          0.024953
+        ],
+        [
+          60,
+          -1,
+          0.024882
+        ]
+      ],
+      "cocktails": [
+        {
+          "size": 8,
+          "cap1_J": 0.5054931640625,
+          "cap3_rate": 1.0,
+          "cap3_mob": 0.6856733333333334,
+          "joint": -0.277299,
+          "safe": true,
+          "commit": false
+        },
+        {
+          "size": 4,
+          "cap1_J": 0.5054931640625,
+          "cap3_rate": 1.0,
+          "cap3_mob": 0.9936026666666667,
+          "joint": 0.030631,
+          "safe": true,
+          "commit": true
+        }
+      ],
+      "committed": [
+        [
+          24,
+          1
+        ],
+        [
+          58,
+          -1
+        ],
+        [
+          30,
+          -1
+        ],
+        [
+          14,
+          -1
+        ]
+      ],
+      "committed_fnv": "078681c4035a7a23"
+    }
+  ],
+  "reproduce": "python experiments/m4/loop6.py"
+}
