@@ -582,3 +582,38 @@ hukum bistable). Eskalasi: metrik health cap3 v5 diukur di horizon penuh
 Catatan jujur: laju v4-final peka blok-seed (6/7 di 55001-blok vs 2/5 di
 9901-blok kemarin; satu seed kemarin ternyata tak terukur karena kuota) —
 sample kecil pada rezim bistable; karena itu kriteria laju + blok baru.
+**Hasil FULL RUN loop v5 (dari hukum final v4; trajectory seed 11002–11005):**
+
+- **W3v5a (kesehatan multi-rezim robust): PASS.** Hukum fb final
+  (FNV ee65c75045c607ad) pada blok verdict 11011–11017: **cap1 7/7**
+  (J 0,493–0,505) DAN **cap3 7/7 mengalir** (mobilitas 0,955–0,970 —
+  kelas aliran galak, setara cocktail20). Bistability cap3 TUNTAS:
+  v4-final 6/7 → v5-final 7/7.
+- **Verifikasi lintas-blok:** v5-final pada blok baseline 55001–55007
+  (tempat v4-final hanya 6/7): **cap1 7/7, cap3 7/7** (mob 0,955–0,966) —
+  obatnya tidak bergantung blok-seed. Dua blok independen, 14/14 instans
+  sehat di kedua rezim.
+- **W3v5b (kinerja): PASS.** ΣH fb 6,0089 > ctrl 5,0098. Atribusi jujur
+  (pelajaran berulang): selisih berasal dari kontrol yang kolap di it2
+  (cap3 [False,False,False] oleh moves acak) — varian aksi buta, bukan
+  keunggulan kumulatif fb yang besar; klaim utama ada di W3v5a.
+- **Kebijakan baru terbukti bekerja:** it1 — koktail ukuran-8 dengan skor
+  gabungan −0,475 DITOLAK (v4 akan mengommmitnya); fallback ke ukuran-4
+  (+0,05). Filter multi-seed menolak 19/41 kandidat di it0.
+- **Celah kebijakan baru (catatan untuk v6):** it0 mengommit (25,+1) DAN
+  (25,−1) sekaligus — kandidat dinilai independen sehingga dua arah pada
+  entri sama bisa masuk koktail (saling menetralkan; tak berbahaya, tapi
+  boros). Refinement: satu arah terbaik per entri.
+- Karakter hukum final: cap1 di atraktor 0,50; cap3 di kelas mobilitas
+  0,96 — kedua rezim kini di atraktor aliran galak; laju kesehatan 7/7
+  di 14 instans terukur.
+
+**Status kontrak:** W3v5a + W3v5b PASS; threshold terinstantiasi dari
+baseline (7/7) TERCAPAI persis; kebijakan skor-koktail > 0 tervalidasi
+(menolak koktail buruk); celah dedup-entri dicatat. Rangkaian loop kini:
+v1 buta → v2 melihat pasangan → v3 kontrafaktual 1 rezim → v4 dua rezim →
+**v5 menilai LAJU kesehatan dan menuntaskan bistability**.
+
+**Reproduksi:** `python experiments/m4/health_landscape.py`;
+`python experiments/m4/loop5.py` (hasil `result_loop5.json`). Test:
+`pytest analysis/tests/` (58) + `cargo test` (80).
