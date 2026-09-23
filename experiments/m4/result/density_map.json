@@ -1,0 +1,153 @@
+{
+  "experiment": "density-map",
+  "law": "v6-final",
+  "base_mass": 8116,
+  "seeds": [
+    13001
+  ],
+  "k": 2,
+  "n": 16384,
+  "thresholds": {
+    "uniform": 1.0,
+    "lane": 1.0
+  },
+  "rows": [
+    {
+      "policy": "uniform",
+      "level": 0.1,
+      "seed": 13001,
+      "mass_added": 812,
+      "mass_per_n": 0.544922,
+      "J": 0.544921875,
+      "static": false,
+      "ratio_free_flow": 1.0,
+      "n_realized": 5,
+      "new_realized": [],
+      "n3_final": 0,
+      "max_cell": 2
+    },
+    {
+      "policy": "uniform",
+      "level": 0.25,
+      "seed": 13001,
+      "mass_added": 2029,
+      "mass_per_n": 0.619202,
+      "J": 0.61920166015625,
+      "static": false,
+      "ratio_free_flow": 1.0,
+      "n_realized": 5,
+      "new_realized": [],
+      "n3_final": 0,
+      "max_cell": 2
+    },
+    {
+      "policy": "uniform",
+      "level": 0.5,
+      "seed": 13001,
+      "mass_added": 4058,
+      "mass_per_n": 0.743042,
+      "J": 0.7430419921875,
+      "static": false,
+      "ratio_free_flow": 1.0,
+      "n_realized": 5,
+      "new_realized": [],
+      "n3_final": 0,
+      "max_cell": 2
+    },
+    {
+      "policy": "uniform",
+      "level": 1.0,
+      "seed": 13001,
+      "mass_added": 8116,
+      "mass_per_n": 0.990723,
+      "J": 0.741805911064148,
+      "static": false,
+      "ratio_free_flow": 0.7488,
+      "n_realized": 17,
+      "new_realized": [
+        9,
+        10,
+        12,
+        21,
+        22,
+        25,
+        26,
+        36,
+        37,
+        38,
+        40
+      ],
+      "n3_final": 875,
+      "max_cell": 3
+    },
+    {
+      "policy": "lane",
+      "level": 0.1,
+      "seed": 13001,
+      "mass_added": 812,
+      "mass_per_n": 0.544922,
+      "J": 0.544921875,
+      "static": false,
+      "ratio_free_flow": 1.0,
+      "n_realized": 5,
+      "new_realized": [],
+      "n3_final": 0,
+      "max_cell": 2
+    },
+    {
+      "policy": "lane",
+      "level": 0.25,
+      "seed": 13001,
+      "mass_added": 2029,
+      "mass_per_n": 0.619202,
+      "J": 0.61920166015625,
+      "static": false,
+      "ratio_free_flow": 1.0,
+      "n_realized": 5,
+      "new_realized": [],
+      "n3_final": 0,
+      "max_cell": 2
+    },
+    {
+      "policy": "lane",
+      "level": 0.5,
+      "seed": 13001,
+      "mass_added": 4058,
+      "mass_per_n": 0.743042,
+      "J": 0.7430419921875,
+      "static": false,
+      "ratio_free_flow": 1.0,
+      "n_realized": 5,
+      "new_realized": [],
+      "n3_final": 0,
+      "max_cell": 2
+    },
+    {
+      "policy": "lane",
+      "level": 1.0,
+      "seed": 13001,
+      "mass_added": 8116,
+      "mass_per_n": 0.990723,
+      "J": 0.7434335947036743,
+      "static": false,
+      "ratio_free_flow": 0.7504,
+      "n_realized": 17,
+      "new_realized": [
+        9,
+        10,
+        12,
+        21,
+        22,
+        25,
+        26,
+        36,
+        37,
+        38,
+        40
+      ],
+      "n3_final": 750,
+      "max_cell": 3
+    }
+  ],
+  "reproduce": "python experiments/m4/density_map.py"
+}
