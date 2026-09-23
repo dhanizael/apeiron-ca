@@ -449,3 +449,31 @@ mengungguli kontrol acak kumulatif.
 0/13); batas instrumen (lokal-rezim, validasi tunggal-per-kandidat, koktail
 divalidasi terpisah) didisklosikan. Loop v3 menutup singkat: aman, terarah,
 dan jujur tentang batasnya.
+
+---
+
+## 010 — Loop v4: kontrafaktual multi-rezim + pelelehan dinding tepat-waktu (DIBUKA; kriteria dibekukan pra-run 2026-09-23)
+
+**Dua pilar (plan 2026-09-23-loop-v4-multi-regime.md):**
+1. **Part A — loop multi-rezim:** memperbaiki batas lokal-rezim v3 (hukum v3:
+   cap1 0,50 / cap3 0,00). Kontrafaktual tiap kandidat di KEDUA rezim;
+   keselamatan = tanpa kolaps di salah satu; skor = Δ(J_c1+J_c3); validasi
+   koktail dua-rezim + fallback. Mulai dari hukum final v3 (kontinuitas loop).
+2. **Part B — sweep jendela kritis:** mengadili prediksi falsifiabel 008
+   ("pelelehan tepat-waktu menjaga J>0; terlambat → kristal permanen") —
+   catatan: anekdot v2-it1 (melelehkan kristal penuh) bertentangan dengan
+   separuh kedua prediksi; sweep T ∈ {250..20000} dengan leleh dinding
+   terarah vs acak (paired via S_T) memutuskan dengan data. Butuh fitur
+   engine baru `--init-state` (identitas kelanjutan-prefiks bit-identik
+   sebagai verifikasi kekuatan).
+
+**Kriteria dibekukan SEBELUM run:**
+- W3v4a (perbaikan multi-rezim): hukum fb final J_cap1 > 0 DAN J_cap3 > 0.
+- W3v4b (kinerja multi-rezim): Σ(J_c1+J_c3)_fb > Σ(J_c1+J_c3)_ctrl, K=4.
+- Perubahan kontrol didisklosikan pra-run: v3-induk tak punya loose-observed
+  (kontrol v2-style degenerate) → kontrol v4 = 8 acak uniform dari pool
+  legal yang sama dengan feedback (kelas aksi sama, tanpa kontrafaktual).
+- Seed: verdict Part A segar 8802+; Part B seed 4401 (silsilah anatomi,
+  disklosikan); instrumen warisan 009 (r_min=0,3, horizon-pendek 5000).
+
+**Hasil: (menyusul — diisi setelah run, tanpa pengeditan kriteria).**
