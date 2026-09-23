@@ -1,0 +1,239 @@
+{
+  "experiment": "M4-loop-v7",
+  "mode": "full",
+  "criteria": {
+    "W3v7a_density_control": true,
+    "rate": 1.0
+  },
+  "policy": {
+    "level": 0.5,
+    "name": "lane"
+  },
+  "rows": [
+    {
+      "seed": 13011,
+      "baseline": {
+        "policy": "lane",
+        "level": 0.0,
+        "seed": 13011,
+        "mass_added": 0,
+        "mass_per_n": 0.499329,
+        "J": 0.49932861328125,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "injected": {
+        "policy": "lane",
+        "level": 0.5,
+        "seed": 13011,
+        "mass_added": 4090,
+        "mass_per_n": 0.748962,
+        "J": 0.74896240234375,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "pass": true
+    },
+    {
+      "seed": 13012,
+      "baseline": {
+        "policy": "lane",
+        "level": 0.0,
+        "seed": 13012,
+        "mass_added": 0,
+        "mass_per_n": 0.50293,
+        "J": 0.5029296875,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "injected": {
+        "policy": "lane",
+        "level": 0.5,
+        "seed": 13012,
+        "mass_added": 4120,
+        "mass_per_n": 0.754395,
+        "J": 0.75439453125,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "pass": true
+    },
+    {
+      "seed": 13013,
+      "baseline": {
+        "policy": "lane",
+        "level": 0.0,
+        "seed": 13013,
+        "mass_added": 0,
+        "mass_per_n": 0.498657,
+        "J": 0.4986572265625,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "injected": {
+        "policy": "lane",
+        "level": 0.5,
+        "seed": 13013,
+        "mass_added": 4085,
+        "mass_per_n": 0.747986,
+        "J": 0.74798583984375,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "pass": true
+    },
+    {
+      "seed": 13014,
+      "baseline": {
+        "policy": "lane",
+        "level": 0.0,
+        "seed": 13014,
+        "mass_added": 0,
+        "mass_per_n": 0.502991,
+        "J": 0.50299072265625,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "injected": {
+        "policy": "lane",
+        "level": 0.5,
+        "seed": 13014,
+        "mass_added": 4120,
+        "mass_per_n": 0.754456,
+        "J": 0.75445556640625,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "pass": true
+    },
+    {
+      "seed": 13015,
+      "baseline": {
+        "policy": "lane",
+        "level": 0.0,
+        "seed": 13015,
+        "mass_added": 0,
+        "mass_per_n": 0.502258,
+        "J": 0.50225830078125,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "injected": {
+        "policy": "lane",
+        "level": 0.5,
+        "seed": 13015,
+        "mass_added": 4114,
+        "mass_per_n": 0.753357,
+        "J": 0.75335693359375,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "pass": true
+    },
+    {
+      "seed": 13016,
+      "baseline": {
+        "policy": "lane",
+        "level": 0.0,
+        "seed": 13016,
+        "mass_added": 0,
+        "mass_per_n": 0.498779,
+        "J": 0.498779296875,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "injected": {
+        "policy": "lane",
+        "level": 0.5,
+        "seed": 13016,
+        "mass_added": 4086,
+        "mass_per_n": 0.748169,
+        "J": 0.7481689453125,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "pass": true
+    },
+    {
+      "seed": 13017,
+      "baseline": {
+        "policy": "lane",
+        "level": 0.0,
+        "seed": 13017,
+        "mass_added": 0,
+        "mass_per_n": 0.501831,
+        "J": 0.5018310546875,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "injected": {
+        "policy": "lane",
+        "level": 0.5,
+        "seed": 13017,
+        "mass_added": 4111,
+        "mass_per_n": 0.752747,
+        "J": 0.75274658203125,
+        "static": false,
+        "ratio_free_flow": 1.0,
+        "n_realized": 5,
+        "new_realized": [],
+        "n3_final": 0,
+        "max_cell": 2
+      },
+      "pass": true
+    }
+  ],
+  "reproduce": "python experiments/m4/loop7.py"
+}
