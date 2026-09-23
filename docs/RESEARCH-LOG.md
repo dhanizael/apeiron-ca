@@ -788,3 +788,45 @@ max-cell > 3 DAN entri terrealisasi > 6 @20k; kontrol embedding berdampingan
 mobilitas (warisan 010); anti-kuota.
 
 **Hasil: (menyusul — tanpa pengeditan kriteria).**
+**Hasil (FULL RUN loop v8 + dua eksperimen lanjutan):**
+
+- **W3v8a (migrasi utuh): PASS 7/7.** Massa eksak, tak statis @20k,
+  rasio J/(massa/n) = 1,0 semua — migrasi k=2→k=4 menyimpan semusta utuh,
+  aliran bebas bertahan (J ≈ 0,493–0,504 = densitas, sesuai batas 012).
+- **W3v8b (strata baru): FAIL 0/7 — dan mekanismenya temuan:** max-cell = 2
+  di SEMUA instans (bahkan 3 tak muncul). Atraktor aliran-bebas adalah
+  dinamika TRANSLASI murni (v′ᵢ = fᵢ₋₁ = vᵢ₋₁ — pola bergeser, nilai tak
+  pernah bercampur) → headroom kapasitas INERT di sana. Hipotesis strata
+  saya salah tempat; dilaporkan gagal apa adanya.
+- **Eksperimen komposisi (v8b, post-hoc non-gated): REFUTED 0/7** — pada
+  instans +100% (735–1122 sel-3 parkir), lengan receipt TIDAK memanjat.
+  Diagnosis empiris: pasangan (l&3, c&3) di depan 1104 sel-3 = (3,0)×750,
+  (2,0)×342, (1,0)×12 — **receipt-fireable 0/1104**. Hukum yang terbuka:
+  **penerimaan adalah sisi lain dari emisi — dan di depan parkiran tidak ada
+  yang memancar.** Sel-3 adalah sisa tererosi di lapangan kosong (kiri fase-0
+  struktural, kanan terkikis); mengubah entri penerimaan tak pernah cukup —
+  geometri lalu-lintas menahan. Koreksi eksekusi dicatat: commit "mini hijau"
+  prematur (test merah saat commit — dikoreksi commit berikut), bug state.bin
+  (dihapus anti-kuota), bug assert lift_state (nilai terdorong >3 divalidasi
+  sebagai k=2) — tiga-tiganya stage tool-execution, tertangkap < 1 jam.
+- **v8c — komposisi yang BENAR (eksploratif 3 instans): SUNTIK-KE-PARKIRAN ×
+  MIGRASI-K: pendakian 3/3.** Suntik +1 langsung ke sel-3 (3→4, kelas
+  ruang-keadaan) di semusta k=4 receipt: 20k → **max-cell 6/7/7** (histogram
+  berpenghuni di 4–7), **entri terrealisasi 5 → 39/94/94** (ruang model
+  tumbuh — mini-R1 terukur), **J 0,763–0,779 > 0,7434 (padat k=2)** — strata
+  tinggi = BUFFER: massa memanjat keluar lapisan lalu-lintas, jalan
+  kembali mengalir lebih bebas. Tak statis, n15=0 (pendakian lambat di bawah
+  plafon baru).
+- **Sintesis ronde:** tiga kelas intervensi KOMPOSING — tabel (migrasi kapasitas)
+  × keadaan (suntik ke parkiran) × struktur (receipt) — membuka strata yang
+  tak terjangkau kelas tunggal mana pun. R1 tetap jujur: pertumbuhan model
+  di sini digerakkan intervensi berjenjang, bukan spontan; tapi 17→94 entri
+  dalam satu ronde adalah lompatan cakupan terbesar proyek.
+
+**Reproduksi:** `python experiments/m4/loop8.py`; `loop8b.py`; skrip v8c
+(diarsip di sesi; pola = loop8b + suntik sel-3). Test: `pytest` (71) +
+`cargo test` (80).
+
+**Status kontrak:** W3v8a PASS; W3v8b FAIL jujur + dua eksplorasi lanjutan
+dengan mekanisme terbaca. Kelas kapasitas-struktur kini terbuka — dan komposisi
+kelas adalah temuan strukturnya.
