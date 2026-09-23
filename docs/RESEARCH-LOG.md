@@ -725,3 +725,42 @@ Level: {10%, 25%, 50%, 100%} × massa. Hukum v6-final (assert FNV 078681c4…
 — rekonstruksi dari silsilah). Hukum TIDAK diubah.
 
 **Hasil: (menyusul — tanpa pengeditan kriteria).**
+**Hasil (peta densitas + FULL RUN verdict loop v7):**
+
+- **Peta densitas (kurva J(ρ) digambar intervensi, seed 13001, massa induk
+  8116 = 0,4954/cell):** +10% → J 0,5449; +25% → 0,6192; +50% → 0,7430;
+  +100% → 0,7418 (uniform) / 0,7434 (lane). **Rasio J/(massa/n) = 1,0000
+  EKSAK di +10%, +25%, +50%** — semesta menyerap setengah-densitas tambahan
+  TANPA satu pun kemacetan; identitas aliran-bebas (log 012) bertahan di
+  seluruh rentang. **Tikungan di +100%:** rasio jatuh ke 0,7488/0,7504 —
+  dan mekanismenya terbaca: himpunan entri terrealisasi meledak 5 → 17
+  (11 entri baru — dinamika memasuki wilayah hukum yang belum pernah
+  dijalankan), dan **875/750 sel bernilai 3 MUNCUL DARI DINAMIKA** (sel-2
+  menerima inflow → 3 → parkir; entri outflow-3 dingin) — mekanisme kristal
+  masuk kembali lewat pintu densitas tinggi. **W3v7b: ambang = level +100%
+  (kedua kebijakan; antara +50% dan +100%).**
+- **W3v7a: PASS, rate 7/7.** Kebijakan lane-targeted +50% pada 7 instans
+  segar (13011–17): J 0,4993–0,5030 → **0,7480–0,7545**, rasio 1,0 di semua,
+  tak statis — **loop mengatur densitas semestanya: J naik +50% dengan
+  aliran bebas sempurna, robust lintas instans.**
+- **Kejujuran framing:** kenaikan J via suntik massa "mudah" DIBERI teori
+  batas 012 (J = massa/n) — substansi ilmiahnya bukan kenaikannya, melainkan
+  (a) identitas BERTAHAN sampai +50% (tak dijamin a priori: entri emisi-
+  parsial 2-cells bisa membengkokkan kurva lebih awal), (b) lokasi tikungan
+  + mekanisme masuk-kembali kristal, (c) ekspansi himpunan entri terrealisasi
+  — intervensi mendorong semesta ke wilayah yang butuh entri model BARU
+  (sinyal mini-R1: ruang model k=2 terpakai lebih penuh; 17/64 entri).
+- Kebijakan: uniform ≡ lane di bawah ambang (aliran bebas menyerap apa pun);
+  lane unggul tipis di tikungan. Kontrol-butir dilaporkan berdampingan.
+
+**Reproduksi:** `python experiments/m4/density_map.py`;
+`python experiments/m4/loop7.py` (hasil `result_loop7.json`). Test:
+`pytest analysis/tests/` (69) + `cargo test` (80).
+
+**Status kontrak:** W3v7a PASS + W3v7b (ambang +100%, dua kebijakan).
+Ronde pertama kelas ruang-keadaan tuntas: loop kini bisa mengatur densitas
+semestanya. Batas berikutnya terpetakan: di atas +50%, sel-3 dinamis
+mengintai — kelas kapasitas-struktur (k-lift dengan hukum penerimaan)
+adalah kandidat ronde berikutnya (membubarkan keabadian sel-penuh), atau
+regulasi densitas tertutup-loop (umpan-balik J→suntik) sebagai kontrol
+kontinu.
