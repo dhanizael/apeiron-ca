@@ -567,3 +567,18 @@ sebelum verdict, disklosikan):**
   segera pasca-pengukuran.
 
 **Hasil: (menyusul — tanpa pengeditan kriteria).**
+
+**Baseline lanskap (dieksekusi; instantiasi threshold — sesuai aturan
+pre-frozen plan):** 4 hukum × 7 seed (55001–55007) × 2 rezim × {5000, 20000}:
+F0 cap1 7/7 / cap3 **0/7**; cocktail20 cap1 7/7 / cap3 **7/7** (mob 0,99);
+v3-final cap1 7/7 / cap3 **0/7**; v4-final cap1 7/7 / cap3 **6/7** (20k).
+**Gerbang instrumen: cap1 lolos (5000≡20000 semua hukum); cap3 GAGAL —
+v4-final 7/7@5000 tapi 6/7@20000: ada kristalisasi LAMBAT (blind spot
+horizon-pendek — menjelaskan mengapa komit v4 yang valid-5000 menghasilkan
+hukum bistable). Eskalasi: metrik health cap3 v5 diukur di horizon penuh
+20000 (mobilitas murah — tanpa derive_field); cap1 tetap 5000.**
+**Instantiasi W3v5a: cap1 7/7 DAN cap3 7/7 pada blok verdict 11011–11017**
+(threshold = max(6/7, terbaik-baseline 7/7) = 7/7; > laju v4-final 6/7 ✓).
+Catatan jujur: laju v4-final peka blok-seed (6/7 di 55001-blok vs 2/5 di
+9901-blok kemarin; satu seed kemarin ternyata tak terukur karena kuota) —
+sample kecil pada rezim bistable; karena itu kriteria laju + blok baru.

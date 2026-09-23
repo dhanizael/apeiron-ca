@@ -1,0 +1,826 @@
+{
+  "experiment": "health-landscape",
+  "seeds": [
+    55001,
+    55002,
+    55003,
+    55004,
+    55005,
+    55006,
+    55007
+  ],
+  "k": 2,
+  "n": 16384,
+  "gate_5000_equals_20000": false,
+  "gate_mismatches": [
+    {
+      "law": "v4_final",
+      "cap": 3,
+      "rate5000": 1.0,
+      "rate20000": 0.8571428571428571
+    }
+  ],
+  "rows": [
+    {
+      "law": "F0",
+      "cap": 1,
+      "steps": 5000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.28441,
+          "J": 0.22348356246948242
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.291286,
+          "J": 0.22984158992767334
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.281596,
+          "J": 0.22341513633728027
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.279086,
+          "J": 0.21922564506530762
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.285294,
+          "J": 0.22591745853424072
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.283237,
+          "J": 0.22492456436157227
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.287842,
+          "J": 0.22493529319763184
+        }
+      ]
+    },
+    {
+      "law": "F0",
+      "cap": 1,
+      "steps": 20000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.312613,
+          "J": 0.24885809421539307
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.30782,
+          "J": 0.24998605251312256
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.304969,
+          "J": 0.24490201473236084
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.30327,
+          "J": 0.2420501708984375
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.308982,
+          "J": 0.24738430976867676
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.308736,
+          "J": 0.24769806861877441
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.311155,
+          "J": 0.24813103675842285
+        }
+      ]
+    },
+    {
+      "law": "F0",
+      "cap": 3,
+      "steps": 5000,
+      "rate": 0.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55002,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55003,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55004,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55005,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55006,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55007,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        }
+      ]
+    },
+    {
+      "law": "F0",
+      "cap": 3,
+      "steps": 20000,
+      "rate": 0.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55002,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55003,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55004,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55005,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55006,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55007,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        }
+      ]
+    },
+    {
+      "law": "cocktail20",
+      "cap": 1,
+      "steps": 5000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.50293,
+          "J": 0.5052490234375
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.502441,
+          "J": 0.50311279296875
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.498901,
+          "J": 0.49981689453125
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.497314,
+          "J": 0.4964599609375
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.497437,
+          "J": 0.5015869140625
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.498657,
+          "J": 0.50225830078125
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.503174,
+          "J": 0.50115966796875
+        }
+      ]
+    },
+    {
+      "law": "cocktail20",
+      "cap": 1,
+      "steps": 20000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.50293,
+          "J": 0.5052490234375
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.502441,
+          "J": 0.50311279296875
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.498901,
+          "J": 0.49981689453125
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.497314,
+          "J": 0.4964599609375
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.497437,
+          "J": 0.5015869140625
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.498657,
+          "J": 0.50225830078125
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.503174,
+          "J": 0.50115966796875
+        }
+      ]
+    },
+    {
+      "law": "cocktail20",
+      "cap": 3,
+      "steps": 5000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.992277,
+          "J": 1.4924614429473877
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.988037,
+          "J": 1.48809814453125
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.991638,
+          "J": 1.49188232421875
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.992554,
+          "J": 1.4921875
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.985535,
+          "J": 1.484375
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.986084,
+          "J": 1.48504638671875
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.991211,
+          "J": 1.49053955078125
+        }
+      ]
+    },
+    {
+      "law": "cocktail20",
+      "cap": 3,
+      "steps": 20000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.993591,
+          "J": 1.493896484375
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.988037,
+          "J": 1.48809814453125
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.991638,
+          "J": 1.49188232421875
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.992554,
+          "J": 1.4921875
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.985535,
+          "J": 1.484375
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.986084,
+          "J": 1.48504638671875
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.991211,
+          "J": 1.49053955078125
+        }
+      ]
+    },
+    {
+      "law": "v3_final",
+      "cap": 1,
+      "steps": 5000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.50293,
+          "J": 0.5052490234375
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.502441,
+          "J": 0.50311279296875
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.498901,
+          "J": 0.49981689453125
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.497314,
+          "J": 0.4964599609375
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.497437,
+          "J": 0.5015869140625
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.498657,
+          "J": 0.50225830078125
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.503174,
+          "J": 0.50115966796875
+        }
+      ]
+    },
+    {
+      "law": "v3_final",
+      "cap": 1,
+      "steps": 20000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.50293,
+          "J": 0.5052490234375
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.502441,
+          "J": 0.50311279296875
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.498901,
+          "J": 0.49981689453125
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.497314,
+          "J": 0.4964599609375
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.497437,
+          "J": 0.5015869140625
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.498657,
+          "J": 0.50225830078125
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.503174,
+          "J": 0.50115966796875
+        }
+      ]
+    },
+    {
+      "law": "v3_final",
+      "cap": 3,
+      "steps": 5000,
+      "rate": 0.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55002,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55003,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55004,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55005,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55006,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55007,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        }
+      ]
+    },
+    {
+      "law": "v3_final",
+      "cap": 3,
+      "steps": 20000,
+      "rate": 0.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55002,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55003,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55004,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55005,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55006,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55007,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        }
+      ]
+    },
+    {
+      "law": "v4_final",
+      "cap": 1,
+      "steps": 5000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.50293,
+          "J": 0.5052490234375
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.502441,
+          "J": 0.50311279296875
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.498901,
+          "J": 0.49981689453125
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.497314,
+          "J": 0.4964599609375
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.497437,
+          "J": 0.5015869140625
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.498657,
+          "J": 0.50225830078125
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.503174,
+          "J": 0.50115966796875
+        }
+      ]
+    },
+    {
+      "law": "v4_final",
+      "cap": 1,
+      "steps": 20000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.50293,
+          "J": 0.5052490234375
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.502441,
+          "J": 0.50311279296875
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.498901,
+          "J": 0.49981689453125
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.497314,
+          "J": 0.4964599609375
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.497437,
+          "J": 0.5015869140625
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.498657,
+          "J": 0.50225830078125
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.503174,
+          "J": 0.50115966796875
+        }
+      ]
+    },
+    {
+      "law": "v4_final",
+      "cap": 3,
+      "steps": 5000,
+      "rate": 1.0,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.161978,
+          "J": 1.0199724435806274
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.249573,
+          "J": 1.0238037109375
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.169189,
+          "J": 1.0162353515625
+        },
+        {
+          "seed": 55004,
+          "flowing": true,
+          "mobility": 0.061707,
+          "J": 1.00152587890625
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.205933,
+          "J": 1.03125
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.331787,
+          "J": 1.0299072265625
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.127319,
+          "J": 1.0189208984375
+        }
+      ]
+    },
+    {
+      "law": "v4_final",
+      "cap": 3,
+      "steps": 20000,
+      "rate": 0.8571428571428571,
+      "per_seed": [
+        {
+          "seed": 55001,
+          "flowing": true,
+          "mobility": 0.123962,
+          "J": 1.01220703125
+        },
+        {
+          "seed": 55002,
+          "flowing": true,
+          "mobility": 0.249573,
+          "J": 1.0238037109375
+        },
+        {
+          "seed": 55003,
+          "flowing": true,
+          "mobility": 0.169189,
+          "J": 1.0162353515625
+        },
+        {
+          "seed": 55004,
+          "flowing": false,
+          "mobility": 0.0,
+          "J": null
+        },
+        {
+          "seed": 55005,
+          "flowing": true,
+          "mobility": 0.205933,
+          "J": 1.03125
+        },
+        {
+          "seed": 55006,
+          "flowing": true,
+          "mobility": 0.331787,
+          "J": 1.0299072265625
+        },
+        {
+          "seed": 55007,
+          "flowing": true,
+          "mobility": 0.127319,
+          "J": 1.0189208984375
+        }
+      ]
+    }
+  ],
+  "reproduce": "python experiments/m4/health_landscape.py"
+}
