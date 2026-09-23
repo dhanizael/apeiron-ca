@@ -24,3 +24,4 @@ experiments/**/*.snap
 # Artefak biner regenerable (deterministik dari kode+seed) — kuota disk
 experiments/**/result/_work/**/window.bin
 experiments/**/result/_work/**/final.bin
+experiments/**/result/_work/
