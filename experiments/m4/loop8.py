@@ -120,8 +120,8 @@ def main() -> int:
         fr = r["receipt"]["full"]
         mn = r["mass_source"] / n
         ratio = fr["J"] / mn if fr["J"] is not None else None
-        r["receipt"]["mass_ok"] = mass_ok
-        r["receipt"]["ratio_free_flow"] = round(ratio, 4) if ratio else None
+        fr["mass_ok"] = mass_ok
+        fr["ratio_free_flow"] = round(ratio, 4) if ratio else None
         rows.append(r)
         print(f"seed {s}: receipt J={fr['J']!r} rasio={r['receipt']['ratio_free_flow']} "
               f"max={fr['max_cell']} realized={fr['n_realized']} n15={fr['n15']} "
