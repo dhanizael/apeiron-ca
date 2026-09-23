@@ -123,7 +123,7 @@ def main() -> int:
         fr["mass_ok"] = mass_ok
         fr["ratio_free_flow"] = round(ratio, 4) if ratio else None
         rows.append(r)
-        print(f"seed {s}: receipt J={fr['J']!r} rasio={r['receipt']['ratio_free_flow']} "
+        print(f"seed {s}: receipt J={fr['J']!r} rasio={fr['ratio_free_flow']} "
               f"max={fr['max_cell']} realized={fr['n_realized']} n15={fr['n15']} "
               f"| embedding: max={r['embedding']['full']['max_cell']} "
               f"realized={r['embedding']['full']['n_realized']}")
