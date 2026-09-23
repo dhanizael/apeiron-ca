@@ -692,3 +692,15 @@ intervensi berikutnya.
 **Reproduksi:** `python experiments/m4/mutation_map.py`;
 `python experiments/m4/loop6.py` (hasil `result_loop6.json`). Test:
 `pytest analysis/tests/` (62) + `cargo test` (80).
+
+**Koreksi presisi (pasca-penulisan 012):** kalimat "40/41 no-op eksak
+meski trajectory mikro terbukti berubah" mencampur dua kelas bukti.
+Pembagian yang tepat: (a) **35 langkah pada entri TAK TERREALISASI** —
+no-op sempurna by determinism (trajectory pun identik); (b) **5 langkah
+pada entri terrealisasi ber-ΔJ=0** ([5,6,8,20,24] arah −1) — invarian-J
+dijelaskan pin konservasi (rerouting aliran di bawah batas aliran-bebas:
+total flux per langkah = massa, konstan, apa pun detail mikronya) —
+perubahan mikro untuk kelima langkah ini BELUM diverifikasi satu-satu
+(hanya e=4, si pengubah-J, yang terverifikasi berubah). Klaim robustness-J
+berlaku sebagaimana terukur; verifikasi mikro per-entri tersisa sebagai
+pekerjaan kecil terbuka.
