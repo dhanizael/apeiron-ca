@@ -1,0 +1,250 @@
+{
+  "experiment": "crystallization-critical-window",
+  "freeze_table_fnv": "4f2f83084da03371",
+  "seed": 4401,
+  "k": 2,
+  "n": 16384,
+  "grid": [
+    250,
+    500,
+    1000,
+    2000,
+    3000,
+    5000,
+    10000,
+    20000
+  ],
+  "policy": {
+    "m": "min(8, walls//2)",
+    "targeted": "top realized-cap>0 by freq",
+    "control": "random disjoint walls"
+  },
+  "rows": [
+    {
+      "T": 250,
+      "mid_values": 3029,
+      "n_wall_entries": 26,
+      "m": 8,
+      "targeted": [
+        4,
+        25,
+        20,
+        5,
+        8,
+        38,
+        36,
+        6
+      ],
+      "control": [
+        14,
+        14,
+        22,
+        28,
+        56,
+        52,
+        14,
+        12
+      ],
+      "melt_targeted": {
+        "J": 0.0,
+        "amb": 0,
+        "static": true
+      },
+      "melt_random": {
+        "J": 0.2486475706100464,
+        "amb": 0,
+        "static": false
+      }
+    },
+    {
+      "T": 500,
+      "mid_values": 1125,
+      "n_wall_entries": 25,
+      "m": 8,
+      "targeted": [
+        8,
+        20,
+        5,
+        61,
+        4,
+        25,
+        52,
+        38
+      ],
+      "control": [
+        9,
+        21,
+        12,
+        13,
+        10,
+        53,
+        57,
+        13
+      ],
+      "melt_targeted": {
+        "J": 0.4954833984375,
+        "amb": 0,
+        "static": false
+      },
+      "melt_random": {
+        "J": 0.0,
+        "amb": 0,
+        "static": true
+      }
+    },
+    {
+      "T": 1000,
+      "mid_values": 294,
+      "n_wall_entries": 8,
+      "m": 4,
+      "targeted": [
+        61,
+        52,
+        8,
+        20
+      ],
+      "control": [
+        53,
+        5,
+        13,
+        53
+      ],
+      "melt_targeted": {
+        "J": 0.4954833984375,
+        "amb": 0,
+        "static": false
+      },
+      "melt_random": {
+        "J": 0.0,
+        "amb": 0,
+        "static": true
+      }
+    },
+    {
+      "T": 2000,
+      "mid_values": 194,
+      "n_wall_entries": 4,
+      "m": 2,
+      "targeted": [
+        61,
+        52
+      ],
+      "control": [
+        54,
+        13
+      ],
+      "melt_targeted": {
+        "J": 0.4954833984375,
+        "amb": 0,
+        "static": false
+      },
+      "melt_random": {
+        "J": 0.0,
+        "amb": 0,
+        "static": true
+      }
+    },
+    {
+      "T": 3000,
+      "mid_values": 194,
+      "n_wall_entries": 4,
+      "m": 2,
+      "targeted": [
+        61,
+        52
+      ],
+      "control": [
+        13,
+        54
+      ],
+      "no_melt": {
+        "J": 0.0,
+        "amb": 0,
+        "static": true
+      },
+      "melt_targeted": {
+        "J": 0.4954833984375,
+        "amb": 0,
+        "static": false
+      },
+      "melt_random": {
+        "J": 0.0,
+        "amb": 0,
+        "static": true
+      }
+    },
+    {
+      "T": 5000,
+      "mid_values": 194,
+      "n_wall_entries": 4,
+      "m": 2,
+      "targeted": [
+        61,
+        52
+      ],
+      "control": [
+        13,
+        13
+      ],
+      "melt_targeted": {
+        "J": 0.4954833984375,
+        "amb": 0,
+        "static": false
+      },
+      "melt_random": {
+        "J": 0.0,
+        "amb": 0,
+        "static": true
+      }
+    },
+    {
+      "T": 10000,
+      "mid_values": 194,
+      "n_wall_entries": 4,
+      "m": 2,
+      "targeted": [
+        61,
+        52
+      ],
+      "control": [
+        13,
+        13
+      ],
+      "melt_targeted": {
+        "J": 0.4954833984375,
+        "amb": 0,
+        "static": false
+      },
+      "melt_random": {
+        "J": 0.0,
+        "amb": 0,
+        "static": true
+      }
+    },
+    {
+      "T": 20000,
+      "mid_values": 194,
+      "n_wall_entries": 4,
+      "m": 2,
+      "targeted": [
+        61,
+        52
+      ],
+      "control": [
+        54,
+        54
+      ],
+      "melt_targeted": {
+        "J": 0.4954833984375,
+        "amb": 0,
+        "static": false
+      },
+      "melt_random": {
+        "J": 0.0,
+        "amb": 0,
+        "static": true
+      }
+    }
+  ],
+  "reproduce": "python experiments/m4/sweep_melt.py"
+}
