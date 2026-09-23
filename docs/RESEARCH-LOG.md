@@ -477,3 +477,67 @@ dan jujur tentang batasnya.
   disklosikan); instrumen warisan 009 (r_min=0,3, horizon-pendek 5000).
 
 **Hasil: (menyusul — diisi setelah run, tanpa pengeditan kriteria).**
+**Hasil Part B — sweep jendela kritis (`experiments/m4/sweep_melt.py`, hukum
+pembeku FNV 4f2f83084da03371, seed 4401, T ∈ {250..20000}):**
+
+- **Prediksi 008 REFUTED dua arah, diganti hukum yang lebih tajam:**
+  1. "Terlambat → kristal permanen" SALAH — leleh pada kristal penuh
+     (T=20000) memulihkan PENUH: **2 entri dinding ([61,52]) cukup** untuk
+     J 0 → 0,4955 (atraktor keluarga), identik di seluruh T ≥ 500. Kristal
+     adalah struktur yang DAPAT DIBUANG di umur berapa pun — obatnya
+     tersimpan dalam tanda tangan dindingnya sendiri (realized ∩ cap>0,
+     terurut frekuensi).
+  2. "Pelelehan tepat-waktu menjaga J>0" TERBALIK — intervensi paling
+     berbahaya justru di MID-FLOW: T=250 (masih mengalir, mid=3029),
+     leleh busiest-8 → BEKU (J=0); leleh acak-8 di T yang sama → selamat
+     (J=0,2486). Entri tersebus di dunia mengalir = kelas pembeku (replikasi
+     bencana v2-it0); dinding baru menjadi obat setelah massa terkonsentrasi.
+  - Baseline tanpa-leleh (T=3000): J=0,0000 ✓ sanity harness.
+  - Kronologi nilai antara (indikator 008) terkonfirmasi lebih halus:
+    3029 (T=250) → 1125 (500) → 294 (1000) → 194 (2000+) — beku total ±2000.
+  - Hukum struktural tambahan: dinding = entri realized dengan c>0 —
+    (2,0,2) realized tetapi c=0 ⟹ cap=0 ⟹ bukan dinding (sel kosong tak
+    bisa memancar).
+
+**Hasil Part A — FULL RUN loop v4 (seed 8802–8805, dua rezim, dari hukum
+final v3 — kontinuitas loop):**
+
+- **W3v4a (perbaikan multi-rezim): PASS.** Hukum fb final: **cap1 0,4984
+  (dipertahankan) DAN cap3 1,0233** — rezim mati warisan v3 DIHIDUPKAN.
+- **W3v4b (kinerja multi-rezim): PASS.** ΣJ fb 5,0232 > ctrl 2,0070
+  (per rezim: fb cap1 2,000 / cap3 3,023; ctrl cap1 1,489 / cap3 0,518).
+- **it0 — penemuan-ulang independen:** hanya 2 kandidat ber-skor positif:
+  (52,+1) dan (61,+1) — TEPAT dua dinding kristal dari Part B. Kontrafaktual
+  dua-rezim menemukan resep leleh tanpa diberi tahu. cap3: 0 → 0,3766.
+- it1 → 0,8472 (rej=5 — guard dua-rezim menolak pembunuh-cap1); it2 komit
+  koktail ber-skor gabungan −0,059 (aturan komit mensyaratkan safety, bukan
+  skor gabungan positif — **catatan kebijakan** untuk loop berikut: wajibkan
+  skor koktail > 0); it3 → **1,0233**.
+- Kontrol acak-dari-pool: cap3 nyaris selalu 0 (sekali beruntung 0,5183,
+  hilang lagi); cap1 beku di it3 (J→0) — varians aksi buta (pelajaran 009
+  berulang). Atribusi dua komponen dilaporkan: keahlian model (perbaikan
+  cap3 terarah) + sialnya kontrol.
+- **Ketahanan:** cap1 di 3 seed segar 0,4900/0,4994/0,5051 ✓. cap3: J tak
+  terukur di seed segar (FM-E — seluruh 512 pasangan ambigu, tak ada edge
+  aliran-nol; instrumen J terbatas di rezim padat mengalir) → verifikasi
+  via mobilitas: **2/6 seed segar mengalir** (+ seed verdict mengalir =
+  3/7) — pulihnya cap3 NYATA tetapi instance-bergantung: rezim padat
+  bersifat bistable di bawah hukum baru (mengalir / kristal tergantung
+  kondisi awal). Batas terbuka berikutnya.
+
+**Pelajaran lingkungan (durable):** kuota disk (bukan disk penuh) — arsip
+window.bin (1,6G, regenerable-deterministik) kini di-gitignore penuh;
+"panic" engine 9903 = write_snapshot kena kuota, bukan bug dinamika.
+
+**Reproduksi:** `python experiments/m4/sweep_melt.py`;
+`python experiments/m4/loop4.py` (hasil: `result_loop4.json` — penamaan
+per-loop dimulai kali ini setelah v4 sempat menimpa result.json v3;
+keduanya utuh di git). Test: `pytest analysis/tests/` (55) +
+`cargo test` (80).
+
+**Status kontrak:** W3v4a + W3v4b PASS; Part B mengadili 008 dengan data;
+batas baru didisklosikan (bistability cap3; FM-E di rezim padat; kebijakan
+skor-koktail). Loop kini: aman (v3), melihat dua rezim (v4), dan tahu
+cara melelehkan kristal — untuk selanjutnya: loop v5 (kandidat: kebijakan
+skor-koktail + multi-seed robustness sebagai kriteria, menuju hukum yang
+sehat di kedua rezim pada SEMUA instans), M2 replikator, MAP publish.
