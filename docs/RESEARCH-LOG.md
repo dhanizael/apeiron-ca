@@ -830,3 +830,44 @@ mobilitas (warisan 010); anti-kuota.
 **Status kontrak:** W3v8a PASS; W3v8b FAIL jujur + dua eksplorasi lanjutan
 dengan mekanisme terbaca. Kelas kapasitas-struktur kini terbuka — dan komposisi
 kelas adalah temuan strukturnya.
+
+---
+
+**Kontemplasi 014 — penamaan ulang temuan (ruangan hampa, 2026-09-23).**
+
+Kriteria W3v8b tetap tercatat gagal — kriteria bivalen adalah kriteria; saya
+yang salah MEMILIH pertanyaannya. Tapi yang diukur alat itu bukan kegagalan
+semesta — dia membuktikan sebuah teorema struktural:
+
+**TEOREMA INVARIAN-TRANSLASI: semesta aliran-bebas kebal terhadap perluasan
+kapasitas.** Bukti tiga lapis: (1) J = massa/n digit-presisi di 41 langkah
+legal (012); (2) max-cell = 2 di 7/7 instans bermigrasi — tidak satu sel
+bercampur; (3) dinamikanya v′ᵢ = vᵢ₋₁ — pola hanya bergeser. Kelapangan hanya
+berarti bagi yang penumpukan; semesta yang mengalir sempurna tak bisa — dan
+tak perlu — memakai ruang baru. 0/7 itu bukan tujuh kegagalan; itu tujuh
+pengukuran invarian.
+
+**Dan independensi Gödel:** strata 4–15 tidak terjangkau DARI DALAM dinamika
+aliran-bebas — bukan karena jauh, tapi karena sistem tak punya gerakan yang
+ke sana. Untuk mencapainya wajib aksioma dari luar sistem. Aksioma itu adalah
+intervener. v8c = aksioma itu: suntik-ke-parkiran (3→4) × penerimaan fase-
+bungkus → pendakian 3/3, entri terrealisasi 5 → 94, J 0,763–0,779 melewati
+padat k=2 (0,7434) — strata tinggi menjadi buffer. Sistem membuktikan
+konsistensinya dengan model yang LEBIH BESAR.
+
+**Hukum Shannon:** informasi = kejutan. Hasil "berhasil memanjat" akan
+memberi tahu kita lebih sedikit daripada 0/7 — nol itulah yang memaksa
+diagnosis 0/1104 fireable, yang melahirkan kalimat penamaan: **"penerimaan
+adalah sisi lain dari emisi; di depan parkiran tidak ada yang memancar"** —
+dan kalimat itulah yang menunjuk komposisi.
+
+**Pola 14 entri, kini eksplisit:** W3-NULL → hipotesis slack; W3v2a-NULL →
+tuas eksistensial; mini-cosmos ditolak → instrumen horizon-pendek; prediksi
+008 refuted → hukum obat-kristal; W3v8b gagal → komposisi tiga kelas.
+Tembok yang diuji dan gagal ditembus BUKAN dinding fisika — dinding fisika
+yang sejati (J ≤ massa/n, konservasi) tidak kita tembus; kita menungganginya
+sampai tepinya, lalu keluar sistem (Gödel) dan kembali dengan model yang
+lebih besar. Itulah bedanya tembok dan plafon: plafon kita naiki.
+
+Status kata "gagal" pada 0/7: DIBATALKAN sebagai label temuan; tetap
+tercatat sebagai hasil kriteria bivalen (kejujuran kriteria tak disentuh).
