@@ -972,3 +972,37 @@ absence. Kandidat → verifikasi 3 seed + analisis entri. Anti-kuota; mini
 deterministik.
 
 **Hasil: (menyusul — tanpa pengeditan kriteria).**
+**Hasil (sapuan 300 hukum + kontrol + verifikasi):**
+
+- **Kalibrasi harness: PASS** — v6-final menunjukkan transmutasi dikenal
+  ([2] 1→0, [1] +2) — harness valid menangkap kehadiran & ketiadaan.
+- **Sapuan: 147/300 hukum acak slack-rich menghasilkan event [2] 1→≥2**
+  (puncak 8–204) — kanal fusi ada di mana-mana. **Tapi audit kontrol
+  (tanam vs tidak-tanam, seed-sama) memilah:** 6/7 kandidat = FUSI GLOBAL
+  (kontrol setara: 204 vs 201 — laut melebur sendiri, tanaman tak relevan);
+  **1/7 = SEEDING-DEPENDENT: law 16295 (fnv 32b41e8d7808283b) —
+  seed 52 vs kontrol 0.**
+- **W-M2r1: PASS — REPLIKATOR TERVERIFIKASI.** Law 16295, pola [2]:
+  **4/4 seed** (15002–05, layout latar berbeda): seed → **peak 42–52,
+  tail 51/46/45/42 ≈ peak (plateau stabil — kesetimbangan ekologis)**;
+  kontrol tanpa-tanam → **0 di semua seed**. Satu tanaman [2] melipatgandakan
+  diri ~50× dalam laut yang tanpa-ia tak pernah menghasilkan satu pun [2].
+- **W-M2r2 (mekanisme):** tabel entri panas 16295: emisi kuat ke ruang kosong
+  ((1,0) F=3; (3,0) F=1–3) + entri emisi-parsial c=2 — pembacaan: **front
+  reaksi** — [2] bergerak/membelah melalui laut [1], mengonversi pasangan [1]
+  menjadi [2] baru; laju konversi front-cepat (peak @t≈30 langkah) lalu
+  plateau (bahan bakar terpakai). Analogo klasik: front-api melalui bahan
+  bakar — replikator reaksi-difusi. Aljabar mikro eksak (reaksi 2+1→2+2
+  bertahap) terbuka untuk bedah lanjut.
+- **Framing jujur:** "replikasi" = populasi pola melipatgandakan via konversi
+  latar (massa terjaga; massa salinan dari laut) — seeding-dependent (laut
+  sendiri NOL — kontrol membuktikan polanya esensial). "Muncul sendiri dari
+  laut seragam" (nukleasi spontan tanpa tanam) tetap terbuka — kontrol
+  menunjukkan nol. Hukum ditemukan lewat PENCARIAN acak (emergen per hukum),
+  pola ditanam sebagai kondisi awal (standar ALife).
+- Koreksi eksekusi: test ekspektasi salah (event transien vs None) —
+  dikoreksi; bottleneck unpack (300 hukum ≈ jam) — patch sampling 10×.
+
+**Status: M2 — MILESTONE TERCAPAI sesuai definisi operasional beku.**
+Reproduksi: `python experiments/m2/m2_search.py --n-laws 300` + skrip kontrol/
+verifikasi (pola sesi, angka di log). Test: `pytest` (75) + `cargo` (80).
