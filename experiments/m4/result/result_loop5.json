@@ -1,0 +1,976 @@
+{
+  "experiment": "M4-loop-v5",
+  "mode": "full",
+  "lineage": "v4-final",
+  "criteria": {
+    "W3v5a_robust_multi_regime_health": true,
+    "W3v5b_multi_regime_performance": true
+  },
+  "sum_H": {
+    "feedback": 6.008911,
+    "control": 5.009766
+  },
+  "final_verdict": {
+    "seeds": [
+      11011,
+      11012,
+      11013,
+      11014,
+      11015,
+      11016,
+      11017
+    ],
+    "cap1_rate": 1.0,
+    "cap3_rate": 1.0,
+    "cap1_detail": [
+      {
+        "seed": 11011,
+        "J": 0.50506591796875,
+        "static": false
+      },
+      {
+        "seed": 11012,
+        "J": 0.50244140625,
+        "static": false
+      },
+      {
+        "seed": 11013,
+        "J": 0.5001220703125,
+        "static": false
+      },
+      {
+        "seed": 11014,
+        "J": 0.49871826171875,
+        "static": false
+      },
+      {
+        "seed": 11015,
+        "J": 0.50164794921875,
+        "static": false
+      },
+      {
+        "seed": 11016,
+        "J": 0.49267578125,
+        "static": false
+      },
+      {
+        "seed": 11017,
+        "J": 0.4984130859375,
+        "static": false
+      }
+    ],
+    "cap3_detail": [
+      {
+        "seed": 11011,
+        "flowing": true,
+        "mobility": 0.955292
+      },
+      {
+        "seed": 11012,
+        "flowing": true,
+        "mobility": 0.967934
+      },
+      {
+        "seed": 11013,
+        "flowing": true,
+        "mobility": 0.962036
+      },
+      {
+        "seed": 11014,
+        "flowing": true,
+        "mobility": 0.963531
+      },
+      {
+        "seed": 11015,
+        "flowing": true,
+        "mobility": 0.969849
+      },
+      {
+        "seed": 11016,
+        "flowing": true,
+        "mobility": 0.965897
+      },
+      {
+        "seed": 11017,
+        "flowing": true,
+        "mobility": 0.962845
+      }
+    ]
+  },
+  "iterations": 4,
+  "trajectory": [
+    {
+      "iteration": 0,
+      "seed": 11002,
+      "decision": {
+        "hold": false,
+        "committed": [
+          {
+            "entry": 25,
+            "delta": 1,
+            "short_cap1": 0.50225830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.992981,
+            "score": 0.935425
+          },
+          {
+            "entry": 25,
+            "delta": -1,
+            "short_cap1": 0.50225830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.7114336666666666,
+            "score": 0.653877
+          },
+          {
+            "entry": 26,
+            "delta": -1,
+            "short_cap1": 0.50225830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.7072986666666666,
+            "score": 0.649742
+          },
+          {
+            "entry": 22,
+            "delta": -1,
+            "short_cap1": 0.50225830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.6448976666666667,
+            "score": 0.587341
+          },
+          {
+            "entry": 12,
+            "delta": -1,
+            "short_cap1": 0.50225830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.6273970000000001,
+            "score": 0.569841
+          },
+          {
+            "entry": 10,
+            "delta": 1,
+            "short_cap1": 0.50225830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.6254353333333333,
+            "score": 0.567879
+          },
+          {
+            "entry": 60,
+            "delta": -1,
+            "short_cap1": 0.50225830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.625099,
+            "score": 0.567543
+          },
+          {
+            "entry": 24,
+            "delta": 1,
+            "short_cap1": 0.50225830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.6247699999999999,
+            "score": 0.567214
+          }
+        ],
+        "cocktail_trail": [
+          {
+            "size": 8,
+            "cap1": 0.50225830078125,
+            "cap3_rate": 1.0,
+            "joint_score": 0.729612,
+            "safe": true,
+            "commit": true
+          }
+        ],
+        "n_pool": 41,
+        "n_rejected_unsafe": 19,
+        "n_positive": 21,
+        "cap3_seeds": 3,
+        "j_parent_short": {
+          "cap1": 0.50225830078125,
+          "cap3_health": [
+            {
+              "seed": 11002,
+              "flowing": true,
+              "mobility": 0.039673,
+              "J": 1.0057373046875
+            },
+            {
+              "seed": 11102,
+              "flowing": false,
+              "mobility": 0.0,
+              "J": 0.0
+            },
+            {
+              "seed": 11202,
+              "flowing": true,
+              "mobility": 0.132996,
+              "J": 1.01025390625
+            }
+          ]
+        }
+      },
+      "intervention": {
+        "targeted": [
+          [
+            25,
+            1
+          ],
+          [
+            25,
+            -1
+          ],
+          [
+            26,
+            -1
+          ],
+          [
+            22,
+            -1
+          ],
+          [
+            12,
+            -1
+          ],
+          [
+            10,
+            1
+          ],
+          [
+            60,
+            -1
+          ],
+          [
+            24,
+            1
+          ]
+        ],
+        "control": [
+          [
+            14,
+            -1
+          ],
+          [
+            30,
+            -1
+          ],
+          [
+            44,
+            -1
+          ],
+          [
+            57,
+            -1
+          ],
+          [
+            44,
+            1
+          ],
+          [
+            28,
+            -1
+          ],
+          [
+            36,
+            -1
+          ],
+          [
+            8,
+            1
+          ]
+        ],
+        "m": 8,
+        "m_control": 8
+      },
+      "observation": {
+        "loose_diagnostics": {
+          "n_loose_observed": 0,
+          "top_slack_observed": []
+        }
+      },
+      "feedback": {
+        "j_parent": 0.50225830078125,
+        "j": 0.50225830078125,
+        "delta_paired": 0.0,
+        "cap3_health": [
+          {
+            "seed": 11002,
+            "flowing": true,
+            "mobility": 0.786733,
+            "J": 0.7514457702636719
+          },
+          {
+            "seed": 11102,
+            "flowing": true,
+            "mobility": 0.785007,
+            "J": 0.7480077743530273
+          },
+          {
+            "seed": 11202,
+            "flowing": true,
+            "mobility": 0.789765,
+            "J": 0.7525520324707031
+          }
+        ],
+        "table_fnv": "4b2560e65a1fa4c1"
+      },
+      "control": {
+        "j_parent": 0.50225830078125,
+        "j": 0.50225830078125,
+        "delta_paired": 0.0,
+        "cap3_health": [
+          {
+            "seed": 11002,
+            "flowing": true,
+            "mobility": 0.471076,
+            "J": 0.7818136215209961
+          },
+          {
+            "seed": 11102,
+            "flowing": true,
+            "mobility": 0.486927,
+            "J": 0.779541015625
+          },
+          {
+            "seed": 11202,
+            "flowing": true,
+            "mobility": 0.486259,
+            "J": 0.7905178070068359
+          }
+        ],
+        "table_fnv": "a7dc22f37e71cf23"
+      }
+    },
+    {
+      "iteration": 1,
+      "seed": 11003,
+      "decision": {
+        "hold": false,
+        "committed": [
+          {
+            "entry": 12,
+            "delta": 1,
+            "short_cap1": 0.50042724609375,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8073533333333334,
+            "score": 0.019196
+          },
+          {
+            "entry": 8,
+            "delta": 1,
+            "short_cap1": 0.50042724609375,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8070626666666666,
+            "score": 0.018905
+          },
+          {
+            "entry": 25,
+            "delta": -1,
+            "short_cap1": 0.50042724609375,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8004616666666666,
+            "score": 0.012304
+          },
+          {
+            "entry": 5,
+            "delta": -1,
+            "short_cap1": 0.49444580078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8047286666666666,
+            "score": 0.01059
+          }
+        ],
+        "cocktail_trail": [
+          {
+            "size": 8,
+            "cap1": 0.00250244140625,
+            "cap3_rate": 1.0,
+            "joint_score": -0.475138,
+            "safe": false,
+            "commit": false
+          },
+          {
+            "size": 4,
+            "cap1": 0.49444580078125,
+            "cap3_rate": 1.0,
+            "joint_score": 0.050446,
+            "safe": true,
+            "commit": true
+          }
+        ],
+        "n_pool": 40,
+        "n_rejected_unsafe": 1,
+        "n_positive": 16,
+        "cap3_seeds": 3,
+        "j_parent_short": {
+          "cap1": 0.50042724609375,
+          "cap3_health": [
+            {
+              "seed": 11003,
+              "flowing": true,
+              "mobility": 0.788652,
+              "J": 0.7531194686889648
+            },
+            {
+              "seed": 11103,
+              "flowing": true,
+              "mobility": 0.785954,
+              "J": 0.7487163543701172
+            },
+            {
+              "seed": 11203,
+              "flowing": true,
+              "mobility": 0.789866,
+              "J": 0.7533397674560547
+            }
+          ]
+        }
+      },
+      "intervention": {
+        "targeted": [
+          [
+            12,
+            1
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            25,
+            -1
+          ],
+          [
+            5,
+            -1
+          ]
+        ],
+        "control": [
+          [
+            42,
+            -1
+          ],
+          [
+            37,
+            -1
+          ],
+          [
+            38,
+            -1
+          ],
+          [
+            61,
+            -1
+          ],
+          [
+            24,
+            1
+          ],
+          [
+            45,
+            -1
+          ],
+          [
+            46,
+            -1
+          ],
+          [
+            44,
+            -1
+          ]
+        ],
+        "m": 4,
+        "m_control": 8
+      },
+      "observation": {
+        "loose_diagnostics": {
+          "n_loose_observed": 0,
+          "top_slack_observed": []
+        }
+      },
+      "feedback": {
+        "j_parent": 0.50042724609375,
+        "j": 0.49957275390625,
+        "delta_paired": -0.0008544921875,
+        "cap3_health": [
+          {
+            "seed": 11003,
+            "flowing": true,
+            "mobility": 0.845566,
+            "J": 0.753082275390625
+          },
+          {
+            "seed": 11103,
+            "flowing": true,
+            "mobility": 0.842194,
+            "J": 0.748687744140625
+          },
+          {
+            "seed": 11203,
+            "flowing": true,
+            "mobility": 0.845993,
+            "J": 0.75335693359375
+          }
+        ],
+        "table_fnv": "bd6253cfd73363f9"
+      },
+      "control": {
+        "j_parent": 0.50042724609375,
+        "j": 0.50042724609375,
+        "delta_paired": 0.0,
+        "cap3_health": [
+          {
+            "seed": 11003,
+            "flowing": true,
+            "mobility": 0.694227,
+            "J": 0.6287851333618164
+          },
+          {
+            "seed": 11103,
+            "flowing": true,
+            "mobility": 0.694506,
+            "J": 0.6304264068603516
+          },
+          {
+            "seed": 11203,
+            "flowing": true,
+            "mobility": 0.694081,
+            "J": 0.6284017562866211
+          }
+        ],
+        "table_fnv": "f47faf9f0c216381"
+      }
+    },
+    {
+      "iteration": 2,
+      "seed": 11004,
+      "decision": {
+        "hold": false,
+        "committed": [
+          {
+            "entry": 6,
+            "delta": 1,
+            "short_cap1": 0.498779296875,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8980963333333333,
+            "score": 0.055628
+          },
+          {
+            "entry": 44,
+            "delta": -1,
+            "short_cap1": 0.498779296875,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.884369,
+            "score": 0.041901
+          },
+          {
+            "entry": 12,
+            "delta": 1,
+            "short_cap1": 0.498779296875,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8730976666666667,
+            "score": 0.030629
+          },
+          {
+            "entry": 8,
+            "delta": -1,
+            "short_cap1": 0.498779296875,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8548433333333333,
+            "score": 0.012375
+          },
+          {
+            "entry": 5,
+            "delta": 1,
+            "short_cap1": 0.498779296875,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8533633333333334,
+            "score": 0.010895
+          },
+          {
+            "entry": 21,
+            "delta": -1,
+            "short_cap1": 0.498779296875,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8516436666666666,
+            "score": 0.009175
+          },
+          {
+            "entry": 8,
+            "delta": 1,
+            "short_cap1": 0.498779296875,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8514506666666666,
+            "score": 0.008982
+          },
+          {
+            "entry": 24,
+            "delta": -1,
+            "short_cap1": 0.498779296875,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8512666666666666,
+            "score": 0.008798
+          }
+        ],
+        "cocktail_trail": [
+          {
+            "size": 8,
+            "cap1": 0.498779296875,
+            "cap3_rate": 1.0,
+            "joint_score": 0.047105,
+            "safe": true,
+            "commit": true
+          }
+        ],
+        "n_pool": 41,
+        "n_rejected_unsafe": 1,
+        "n_positive": 17,
+        "cap3_seeds": 3,
+        "j_parent_short": {
+          "cap1": 0.498779296875,
+          "cap3_health": [
+            {
+              "seed": 11004,
+              "flowing": true,
+              "mobility": 0.845078,
+              "J": 0.7496337890625
+            },
+            {
+              "seed": 11104,
+              "flowing": true,
+              "mobility": 0.838562,
+              "J": 0.744903564453125
+            },
+            {
+              "seed": 11204,
+              "flowing": true,
+              "mobility": 0.843765,
+              "J": 0.749786376953125
+            }
+          ]
+        }
+      },
+      "intervention": {
+        "targeted": [
+          [
+            6,
+            1
+          ],
+          [
+            44,
+            -1
+          ],
+          [
+            12,
+            1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            21,
+            -1
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            24,
+            -1
+          ]
+        ],
+        "control": [
+          [
+            28,
+            1
+          ],
+          [
+            60,
+            -1
+          ],
+          [
+            36,
+            1
+          ],
+          [
+            62,
+            -1
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            56,
+            -1
+          ],
+          [
+            45,
+            -1
+          ],
+          [
+            58,
+            -1
+          ]
+        ],
+        "m": 8,
+        "m_control": 8
+      },
+      "observation": {
+        "loose_diagnostics": {
+          "n_loose_observed": 0,
+          "top_slack_observed": []
+        }
+      },
+      "feedback": {
+        "j_parent": 0.498779296875,
+        "j": 0.498779296875,
+        "delta_paired": 0.0,
+        "cap3_health": [
+          {
+            "seed": 11004,
+            "flowing": true,
+            "mobility": 0.891947,
+            "J": 0.7479438781738281
+          },
+          {
+            "seed": 11104,
+            "flowing": true,
+            "mobility": 0.883509,
+            "J": 0.7440099716186523
+          },
+          {
+            "seed": 11204,
+            "flowing": true,
+            "mobility": 0.893263,
+            "J": 0.7491121292114258
+          }
+        ],
+        "table_fnv": "5d93a5111207a0b3"
+      },
+      "control": {
+        "j_parent": 0.498779296875,
+        "j": 0.498779296875,
+        "delta_paired": 0.0,
+        "cap3_health": [
+          {
+            "seed": 11004,
+            "flowing": false,
+            "mobility": 0.0,
+            "J": 0.0
+          },
+          {
+            "seed": 11104,
+            "flowing": false,
+            "mobility": 0.0,
+            "J": 0.0
+          },
+          {
+            "seed": 11204,
+            "flowing": false,
+            "mobility": 0.0,
+            "J": 0.0
+          }
+        ],
+        "table_fnv": "3569b42d71c6944f"
+      }
+    },
+    {
+      "iteration": 3,
+      "seed": 11005,
+      "decision": {
+        "hold": false,
+        "committed": [
+          {
+            "entry": 46,
+            "delta": -1,
+            "short_cap1": 0.50830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.9154960000000001,
+            "score": 0.023237
+          },
+          {
+            "entry": 24,
+            "delta": 1,
+            "short_cap1": 0.50830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8995286666666665,
+            "score": 0.00727
+          },
+          {
+            "entry": 8,
+            "delta": 1,
+            "short_cap1": 0.50830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8973126666666666,
+            "score": 0.005054
+          },
+          {
+            "entry": 13,
+            "delta": 1,
+            "short_cap1": 0.50830078125,
+            "cap3_rate": 1.0,
+            "cap3_mob": 0.8968506666666668,
+            "score": 0.004592
+          }
+        ],
+        "cocktail_trail": [
+          {
+            "size": 4,
+            "cap1": 0.50830078125,
+            "cap3_rate": 1.0,
+            "joint_score": 0.073569,
+            "safe": true,
+            "commit": true
+          }
+        ],
+        "n_pool": 42,
+        "n_rejected_unsafe": 0,
+        "n_positive": 5,
+        "cap3_seeds": 3,
+        "j_parent_short": {
+          "cap1": 0.50830078125,
+          "cap3_health": [
+            {
+              "seed": 11005,
+              "flowing": true,
+              "mobility": 0.895417,
+              "J": 0.7523126602172852
+            },
+            {
+              "seed": 11105,
+              "flowing": true,
+              "mobility": 0.889282,
+              "J": 0.743621826171875
+            },
+            {
+              "seed": 11205,
+              "flowing": true,
+              "mobility": 0.892077,
+              "J": 0.7512521743774414
+            }
+          ]
+        }
+      },
+      "intervention": {
+        "targeted": [
+          [
+            46,
+            -1
+          ],
+          [
+            24,
+            1
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            13,
+            1
+          ]
+        ],
+        "control": [
+          [
+            6,
+            1
+          ],
+          [
+            60,
+            -1
+          ],
+          [
+            61,
+            1
+          ],
+          [
+            54,
+            -1
+          ],
+          [
+            28,
+            -1
+          ],
+          [
+            57,
+            -1
+          ],
+          [
+            14,
+            1
+          ],
+          [
+            56,
+            1
+          ]
+        ],
+        "m": 4,
+        "m_control": 8
+      },
+      "observation": {
+        "loose_diagnostics": {
+          "n_loose_observed": 0,
+          "top_slack_observed": []
+        }
+      },
+      "feedback": {
+        "j_parent": 0.50830078125,
+        "j": 0.50830078125,
+        "delta_paired": 0.0,
+        "cap3_health": [
+          {
+            "seed": 11005,
+            "flowing": true,
+            "mobility": 0.96376,
+            "J": 0.75
+          },
+          {
+            "seed": 11105,
+            "flowing": true,
+            "mobility": 0.972221,
+            "J": 0.75
+          },
+          {
+            "seed": 11205,
+            "flowing": true,
+            "mobility": 0.961502,
+            "J": 0.75
+          }
+        ],
+        "table_fnv": "ee65c75045c607ad"
+      },
+      "control": {
+        "j_parent": 0.50830078125,
+        "j": 0.50830078125,
+        "delta_paired": 0.0,
+        "cap3_health": [
+          {
+            "seed": 11005,
+            "flowing": true,
+            "mobility": 0.503523,
+            "J": 0.5284461975097656
+          },
+          {
+            "seed": 11105,
+            "flowing": true,
+            "mobility": 0.511559,
+            "J": 0.5369110107421875
+          },
+          {
+            "seed": 11205,
+            "flowing": true,
+            "mobility": 0.506488,
+            "J": 0.5302877426147461
+          }
+        ],
+        "table_fnv": "96ec4f5579faee63"
+      }
+    }
+  ],
+  "reproduce": "python experiments/m4/loop5.py"
+}
