@@ -764,3 +764,27 @@ mengintai — kelas kapasitas-struktur (k-lift dengan hukum penerimaan)
 adalah kandidat ronde berikutnya (membubarkan keabadian sel-penuh), atau
 regulasi densitas tertutup-loop (umpan-balik J→suntik) sebagai kontrol
 kontinu.
+
+---
+
+## 014 — Loop v8: MIGRASI-K — kelas kapasitas-struktur (DIBUKA; 2026-09-23)
+
+**Misi:** tuas struktural terakhir (log 005/012/013): angkat semesta k=2 →
+k=4. Massa & n tetap (J-bound 0,4993 tetap); ruang nilai 0–3 → 0–15; ruang
+model 64 → 4096 entri; keabadian sel-penuh berubah total (di k=4, sel-3 bukan
+sel penuh).
+
+**Desain intervensi dibekukan — PHASE-WRAP LIFT:** F_k4[l,c,r] = F_k2[l&3,
+c&3, r&3] untuk r&3 ≠ 3; F_k4[l,c,r] = F_k2[l&3, c&3, 0] untuk r&3 = 3,
+r < 15 (penerimaan fase-bungkus — sel-3 menerima seperti fase-0, semantik
+kontinu pada wrap); F = 0 pada r = 15. Kapasitas-aman diverifikasi program.
+Lengan kontrol: embedding murni (prediksi aljabar: tak pernah melebihi 3 —
+null yang jujur).
+
+**Kriteria dibekukan:** W3v8a (migrasi utuh): phase-wrap 7/7 — massa eksak,
+tak statis @20k, J/(massa/n) ≥ 0,90. W3v8b (strata baru): ≥ 6/7 instans
+max-cell > 3 DAN entri terrealisasi > 6 @20k; kontrol embedding berdampingan
+(prediksi ≤3 & =6). Growth meter entri @checkpoint 2000/20000; FM-E →
+mobilitas (warisan 010); anti-kuota.
+
+**Hasil: (menyusul — tanpa pengeditan kriteria).**
