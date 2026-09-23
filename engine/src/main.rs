@@ -95,7 +95,32 @@ fn cmd_run(args: &[String]) -> i32 {
     };
     std::fs::write(Path::new(&outdir).join("rule.bin"), &rule.table).unwrap();
 
-    let mut cur = if init_cap > 0 {
+    let init_state_path = flag(args, "--init-state", "");
+    let mut cur = if !init_state_path.is_empty() {
+        // Kelanjutan run: mulai dari snapshot (final.bin) — mengesampingkan
+        // --seed/--uniform/--init-cap. Verifikasi kekuatan: identitas
+        // kelanjutan-prefiks (tests/init_state.rs).
+        let snap = match snapshot::read_snapshot(Path::new(&init_state_path)) {
+            Ok(s) => s,
+            Err(e) => {
+                eprintln!("init-state tidak valid: {}", e);
+                return 1;
+            }
+        };
+        if snap.n_cells != n {
+            eprintln!("init-state n={} ≠ --n {}", snap.n_cells, n);
+            return 1;
+        }
+        if snap.k != k {
+            eprintln!("init-state k={} ≠ --k {}", snap.k, k);
+            return 1;
+        }
+        lattice::World {
+            n: snap.n_cells,
+            k: snap.k,
+            words: snap.words,
+        }
+    } else if init_cap > 0 {
         lattice::World::from_seed_uniform_capped(n, k, seed, init_cap)
     } else if uniform || k > 1 {
         lattice::World::from_seed_uniform(n, k, seed)
@@ -137,6 +162,14 @@ fn cmd_run(args: &[String]) -> i32 {
         ("k", k.to_string()),
         ("n_cells", n.to_string()),
         ("init_cap", init_cap.to_string()),
+        (
+            "init_source",
+            if init_state_path.is_empty() {
+                "\"seed\"".into()
+            } else {
+                "\"snapshot\"".into()
+            },
+        ),
         (
             "init",
             if init_cap > 0 {
@@ -289,7 +322,9 @@ fn cmd_probe(args: &[String]) -> i32 {
         return 1;
     }
     let threads = if threads_req == 0 {
-        std::thread::available_parallelism().map(|v| v.get()).unwrap_or(1)
+        std::thread::available_parallelism()
+            .map(|v| v.get())
+            .unwrap_or(1)
     } else {
         threads_req
     };
