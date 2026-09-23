@@ -1006,3 +1006,33 @@ deterministik.
 **Status: M2 — MILESTONE TERCAPAI sesuai definisi operasional beku.**
 Reproduksi: `python experiments/m2/m2_search.py --n-laws 300` + skrip kontrol/
 verifikasi (pola sesi, angka di log). Test: `pytest` (75) + `cargo` (80).
+
+---
+
+## 017 — M2 ilmiah lanjutan: mikro-front, nukleasi spontan, pencarian k=4 (DIBUKA; 2026-09-24)
+
+Tiga kampanye, hipotesis pre-registered, semua bivalen:
+
+**K-1 (mikro-front 16295):** 1-sea SEMPURNA (semua sel=1) + satu [2] →
+census PER-LANGKAH 40 langkah → siklus reaksi eksak (mana yang memancar/
+menerima, kecepatan front) + uji sapu-penuh 20k. Hipotesis: front
+mengonversi pasangan [1] → [2] baru (2+[1,1] → 2+2), kecepatan ≥1 salinan/
+langkah; sapu-penuh → plateau ~massa/2. Alternatif: front mati (habis
+konteks) → dilaporkan.
+
+**K-2 (nukleasi spontan):** tangga densitas {0.05, 0.25, 0.5, 0.75, 1.0}
+TANPA tanam, hukum 16295, 2000 langkah. Hipotesis: laut seragam TAK STABIL
+(kolom (l=1,r=1) mengandung F=2 — entri (l,1,1) atau (l,2,1) atau (l,0,1)
+= 2 memicu deviasi) → ambang ρ* eksak dilaporkan; alternatif: nol di semua
+(nukleasi butuh bibit — batas seeding-dependence diperluas).
+
+**K-3 (pencarian k=4):** 150 hukum slack-rich k=4 (seeds 17001+) × pola
+{[2],[2,2],[3],[4],[2,2,2]} × latar difus (819×[1]) × 2000 langkah,
+census-fitness. **Kontrol tanam-vs-tidak WAJIB untuk tiap kandidat**
+(pelajaran 016: 6/7 kandidat ternyata fusi-global). Kandidat lolos kontrol
+→ verifikasi 3 seed. Hipotesis: k=4 (16× spesies) mengandung replikator
+lebar (w≥2); alternatif: null + peta pelebaran.
+
+Anti-kuota; deterministik; artefak per kampanye.
+
+**Hasil: (menyusul — tanpa pengeditan).**
