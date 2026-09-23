@@ -617,3 +617,32 @@ v1 buta → v2 melihat pasangan → v3 kontrafaktual 1 rezim → v4 dua rezim �
 **Reproduksi:** `python experiments/m4/health_landscape.py`;
 `python experiments/m4/loop5.py` (hasil `result_loop5.json`). Test:
 `pytest analysis/tests/` (58) + `cargo test` (80).
+
+---
+
+## 012 — Loop v6: peta respons mutasi lengkap — lolos-langit-langit atau buktikan-langit-langit (DIBUKA; 2026-09-23)
+
+**Misi:** akhiri risiko "terlena" (poles kebijakan tanpa henti) dengan
+kartografi ekshaustif: ukur SELURUH lingkungan respons hukum v5-final
+(setiap langkah legal ±1, cap1 J + cap3 health 3-seed, horizon penuh 20k)
+sehingga pertanyaan "apakah atraktor 0,50/mob 0,96 dapat dilampaui kelas ±1"
+terjawab TOTAL — lolos, atau langit-langit terbukti. Dedup-entri (celah v5)
+diimplementasikan di seleksi. Peta juga = peta kausal kondensasi LENGKAP
+untuk hukum incumben (setiap pemicu beku teridentifikasi — enumerasi, bukan
+teori; teori umum tetap terbuka).
+
+**Hipotesis pre-registered (SEKARANG, sebelum peta; bivalen pada data):**
+- H-A (sibuk = berbahaya): ΔJ_cap1(e,+1) berkorelasi negatif dengan
+  frekuensi realized e di atraktor cap1; |ρ| ≥ 0,3 tanda negatif = SUPPORTED.
+- H-B (outflow-3 menyembuhkan cap3): mean Δmob_cap3 entri c=3 > entri c≤2
+  sebesar ≥ 0,05 = SUPPORTED.
+- H-C (antisimetri): mean |Δ(e,+1)+Δ(e,−1)| cap1 < 0,02 = SIMETRIS,
+  else NONLINIER (dua-duanya hasil).
+
+**Kriteria dibekukan:** W3v6a (self-calibrating): hukum final 7/7+7/7 pada
+blok 12011–12017 DAN (mean J_cap1 > incumben + 0,01 ATAU mean mob_cap3 >
+incumben + 0,02, blok sama). GAGAL = langit-langit kelas ±1 terbukti
+(dilaporkan sebagai hasil utama). W3v6b: aditivitas koktail dilaporkan.
+Kebijakan: dedup satu-arah-terbaik-per-entri; joint-score > 0 (warisan v5).
+
+**Hasil: (menyusul — tanpa pengeditan kriteria).**
