@@ -1,0 +1,418 @@
+{
+  "experiment": "M4-loop-v8",
+  "mode": "full",
+  "criteria": {
+    "W3v8a_migration_intact": true,
+    "W3v8b_new_strata": false,
+    "new_strata_count": 0
+  },
+  "control_embedding_summary": {
+    "max_cell": 2,
+    "n_realized": [
+      5
+    ]
+  },
+  "iterations": 7,
+  "rows": [
+    {
+      "receipt": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.502685546875,
+          "amb": 0,
+          "static": false,
+          "mass": 8236,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8527,
+            "1": 7478,
+            "2": 379
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ],
+          "mass_ok": true,
+          "ratio_free_flow": 1.0
+        }
+      },
+      "embedding": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.502685546875,
+          "amb": 0,
+          "static": false,
+          "mass": 8236,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8527,
+            "1": 7478,
+            "2": 379
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ]
+        }
+      },
+      "mass_source": 8236
+    },
+    {
+      "receipt": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.50384521484375,
+          "amb": 0,
+          "static": false,
+          "mass": 8255,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8543,
+            "1": 7427,
+            "2": 414
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ],
+          "mass_ok": true,
+          "ratio_free_flow": 1.0
+        }
+      },
+      "embedding": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.50384521484375,
+          "amb": 0,
+          "static": false,
+          "mass": 8255,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8543,
+            "1": 7427,
+            "2": 414
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ]
+        }
+      },
+      "mass_source": 8255
+    },
+    {
+      "receipt": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.50299072265625,
+          "amb": 0,
+          "static": false,
+          "mass": 8241,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8539,
+            "1": 7449,
+            "2": 396
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ],
+          "mass_ok": true,
+          "ratio_free_flow": 1.0
+        }
+      },
+      "embedding": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.50299072265625,
+          "amb": 0,
+          "static": false,
+          "mass": 8241,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8539,
+            "1": 7449,
+            "2": 396
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ]
+        }
+      },
+      "mass_source": 8241
+    },
+    {
+      "receipt": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.4921875,
+          "amb": 0,
+          "static": false,
+          "mass": 8064,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8665,
+            "1": 7374,
+            "2": 345
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ],
+          "mass_ok": true,
+          "ratio_free_flow": 1.0
+        }
+      },
+      "embedding": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.4921875,
+          "amb": 0,
+          "static": false,
+          "mass": 8064,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8665,
+            "1": 7374,
+            "2": 345
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ]
+        }
+      },
+      "mass_source": 8064
+    },
+    {
+      "receipt": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.497314453125,
+          "amb": 0,
+          "static": false,
+          "mass": 8148,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8601,
+            "1": 7418,
+            "2": 365
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ],
+          "mass_ok": true,
+          "ratio_free_flow": 1.0
+        }
+      },
+      "embedding": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.497314453125,
+          "amb": 0,
+          "static": false,
+          "mass": 8148,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8601,
+            "1": 7418,
+            "2": 365
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ]
+        }
+      },
+      "mass_source": 8148
+    },
+    {
+      "receipt": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.49859619140625,
+          "amb": 0,
+          "static": false,
+          "mass": 8169,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8587,
+            "1": 7425,
+            "2": 372
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ],
+          "mass_ok": true,
+          "ratio_free_flow": 1.0
+        }
+      },
+      "embedding": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.49859619140625,
+          "amb": 0,
+          "static": false,
+          "mass": 8169,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8587,
+            "1": 7425,
+            "2": 372
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ]
+        }
+      },
+      "mass_source": 8169
+    },
+    {
+      "receipt": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.49676513671875,
+          "amb": 0,
+          "static": false,
+          "mass": 8139,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8619,
+            "1": 7391,
+            "2": 374
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ],
+          "mass_ok": true,
+          "ratio_free_flow": 1.0
+        }
+      },
+      "embedding": {
+        "checkpoint_2000": {
+          "n_realized": 5
+        },
+        "full": {
+          "J": 0.49676513671875,
+          "amb": 0,
+          "static": false,
+          "mass": 8139,
+          "max_cell": 2,
+          "n15": 0,
+          "hist": {
+            "0": 8619,
+            "1": 7391,
+            "2": 374
+          },
+          "n_realized": 5,
+          "realized_head": [
+            16,
+            17,
+            18,
+            272,
+            288
+          ]
+        }
+      },
+      "mass_source": 8139
+    }
+  ],
+  "reproduce": "python experiments/m4/loop8.py"
+}
