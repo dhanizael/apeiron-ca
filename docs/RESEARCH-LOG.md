@@ -646,3 +646,49 @@ incumben + 0,02, blok sama). GAGAL = langit-langit kelas ±1 terbukti
 Kebijakan: dedup satu-arah-terbaik-per-entri; joint-score > 0 (warisan v5).
 
 **Hasil: (menyusul — tanpa pengeditan kriteria).**
+**Hasil (peta + FULL RUN loop v6):**
+
+- **Temuan teoretis sentral — BATAS ALIRAN-BEBAS (verifikasi digit-presisi):**
+  J_cap1 = 0.499267578125 = massa/n = 0.499268 EKSAK pada hukum incumben
+  DAN final. "Atraktor 0,50" bukan kebetulan dinamika — itu **plafon
+  konservasi: flux ≤ densitas massa**, dengan kesetaraan saat aliran bebas
+  (setiap unit massa berpindah tiap langkah). Tabel tak bisa melewatinya —
+  hanya bisa merusaknya (satu-satunya langkah pengubah-J: (4,−1) → −0,2486,
+  pencipta kemacetan; J turun ke ~setengah densitas, replikasi rezim terjalan
+  F0). Peta juga menunjukkan atraktor cap1 hanya merealisasikan **6 dari 64
+  entri** ([4,5,6,8,20,24] — aturan lalu-lintas minimal); 40 dari 41 langkah
+  legal adalah no-op eksak terhadap J (entri tak terrealisasi), meski
+  trajectory mikro terbukti berubah — **J adalah kuantitas makro yang robust
+  terhadap detail mikro**.
+- **Hipotesis pre-registered:** H-A (sibuk=berbahaya) NOT-SUPPORTED —
+  degenerat: lanskap ΔJ datar (semua 0 kecuali pencipta-jam), tak ada
+  variansi untuk dikorelasikan; H-B SUPPORTED (mean Δmob c=3 −0,0318 vs
+  c≤2 −0,1259 — outflow-3 paling sedikit merugikan cap3); H-C SYMMETRIC
+  (trivial: semua pasangan ± nol kecuali (4,·)).
+- **W3v6a: PASS — LOLOS dari langit-langit via sumbu cap3.** Hukum final
+  (FNV 078681c4…): cap1 7/7 (J = densitas, tak berubah — sesuai batas) DAN
+  **cap3 7/7 dengan mean mobilitas 0,9932 vs incumben 0,9643 (Δ = +0,0290 >
+  0,02)**; cross-blok 55001–07: 7/7+7/7, mob 0,9939. Kelas mobilitas kini
+  setara cocktail20 (0,99) — dicapai loop secara map-guided.
+- **Perjalanan koktail (dedup + joint-score bekerja):** it0 — koktail-8
+  ditolak (joint −0,3548; tuas mobilitas saling mengganggu), koktail-4
+  ditolak (−0,2769), koktail-2 [(8,−1),(24,−1)] lolos (+0,0055); it1
+  (re-map lanskap baru) — koktail-8 ditolak lagi (−0,2773), koktail-4
+  [(24,+1),(58,−1),(30,−1),(14,−1)] lolos (+0,0306) → final. Dedup
+  menjamin tak ada entri ganda (celah v5 tertutup).
+- **W3v6b (aditivitas):** peta OVERESTIMASI gabungan: error |joint − Σ
+  single| = 0,053 (it0) dan 0,078 (it1) — peta adalah heuristik ranking
+  yang baik, bukan prediktor aditif; validasi koktail simulasi tetap
+  penentu (desain v5–v6 terbukti tepat).
+
+**Status kontrak:** W3v6a PASS (lolos) + W3v6b dilaporkan; hipotesis
+bivalen diadili; batas aliran-bebas = jawaban teoretis untuk pertanyaan
+kausal (007/008/012): kondensasi = kehilangan aliran-bebas; J dibatasi
+densitas oleh konservasi — intervensi tabel bergerak di bawah plafon itu,
+tidak pernah di atasnya. Untuk melampaui densitas: ubah DENSITAS (rezim
+init-cap) atau struktur kapasitas (log 005) — peta menuju kelas
+intervensi berikutnya.
+
+**Reproduksi:** `python experiments/m4/mutation_map.py`;
+`python experiments/m4/loop6.py` (hasil `result_loop6.json`). Test:
+`pytest analysis/tests/` (62) + `cargo test` (80).
