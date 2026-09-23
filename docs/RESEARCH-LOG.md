@@ -904,3 +904,42 @@ tidak ada interaksi (cari di hukum emisi-parsial); FM-M2-2 tabrakan selalu
 fusi (tak pernah fisinya); FM-M2-3 duplikasi transien (tak sustamed).
 
 **Hasil: (menyusul — tanpa pengeditan kriteria).**
+**Hasil (probe + grid + sensus dini + verifikasi):**
+
+- **W-M2b (soliton): TIDAK** — pada konfigurasi terprobe ([1] di belakang
+  [2,2,2]), pass-through tak terjadi (detail: `m2_hunt.json`).
+- **Grid pertama (window-ekor): nol event — dan dikotomi tajam:** [1]/[1,1]
+  KONSTANTA (translasi — spesies abadi), kelas-2 LENYAP (terkikis). Sensus
+  ekor kelewatkan event dini — koreksi: sensus dini halus (window=steps,
+  pelajaran LM0 diterapkan ulang).
+- **SENSUS DINI MENANGKAPNYA — TRANSMUTASI BERLIPAT: 2 → 1+1.** Emisi
+  parsial ((0,2,2)=1, warisan mutasi v4) menyisakan 1 dan meneruskan 1:
+  **satu struktur menjadi DUA dalam satu langkah, massa terjaga (2=1+1),
+  produk abadi (translasi).** Δ[1] = +2 per [2], +4 per [2,2]; k2 & k4
+  identik; **terverifikasi 3/3 seed** (15003–05).
+- **W-M2a: FAIL pada kriteria beku — TIDAK ADA pola P yang menyalin dirinya
+  (P→2×P) di grid tercari.** Yang ditemukan lebih dalam: **aljabar reproduksi
+  lengkap kelas tercari** — (i) [1] = spesies abadi invarian-translasi (tak
+  pernah membelah: emisi selalu penuh); (ii) kelas-2 = transien yang
+  BERREPRODUKSI dengan transmutasi (2→1+1 — satu-satunya event
+  populasi-naik yang ditemukan, menuju spesies abadi); (iii) kelas-3 (k=4)
+  = terkikis bertahap via drip (3→1+2→…). Tak ada P→2P: pembelahan selalu
+  monoton menurun nilai — reasemble bentuk induk butuh panen + penyusunan
+  yang tak ada di dinamika translasi.
+- **W-M2c (argumen mekanisme — HASIL M2 ronde ini):** reproduksi di keluarga
+  ini = transmutasi menuju spesies abadi; replikasi-diri sejati butuh hukum
+  yang pembelahannya MEMBENTUK ULANG induk — dan instrumen M2 (census
+  sebagai fungsi-fitness) mengubah perburuan itu menjadi MASALAH PENCARIAN:
+  pencarian hukum ala M1 (30% kandidat acak lolos kriteria partikel!) dengan
+  fitness = event P→2×P tercensus. Verdict berlaku untuk grid tercari
+  (2 hukum × 6–7 pola × 2 latar), bukan seluruh keluarga.
+
+**Status kontrak:** M2 ronde pertama tuntas — instrumen sensus + aljabar
+reproduksi + null jujur dengan mekanisme. W-M2a FAIL (kriteria beku,
+dilaporkan apa adanya), W-M2b TIDAK, W-M2c terdokumentasi. Lanjutan alami:
+pencarian hukum-replikator (census-fitness), atau tutup kontrak dengan M2
+sebagai "aljabar reproduksi terpetakan + instrumen perburuan".
+
+**Reproduksi:** `python experiments/m2/m2_hunt.py`; skrip sensus dini &
+verifikasi (pola di sesi, hasil di `experiments/m2/result/`). Test:
+`pytest analysis/tests/` (72) + `cargo test` (80).
