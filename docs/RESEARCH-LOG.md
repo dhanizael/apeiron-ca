@@ -704,3 +704,24 @@ perubahan mikro untuk kelima langkah ini BELUM diverifikasi satu-satu
 (hanya e=4, si pengubah-J, yang terverifikasi berubah). Klaim robustness-J
 berlaku sebagaimana terukur; verifikasi mikro per-entri tersisa sebagai
 pekerjaan kecil terbuka.
+
+---
+
+## 013 — Loop v7: regulasi densitas — kelas intervensi ruang-keadaan, ronde pertama (DIBUKA; 2026-09-23)
+
+**Misi:** keluar dari kelas ±1 (log 012: plafonnya terbukti) — intervensi
+RUANG-KEADAAN: loop menyuntik massa (edit state via --init-state; hukum utuh)
+sehingga J naik mengikuti densitas — *jika* aliran bebas bertahan. Ilmu
+non-trivialnya: kebijakan suntik (di mana naikkan sel agar tidak memicu
+kemacetan: 2-cells hanya emisi-penuh di konfigurasi tertentu; 3-cells parkir)
+dan ambang jenuh kurva J(ρ) hidup yang digambar tangan loop sendiri.
+
+**Kriteria dibekukan:** W3v7a: kebijakan terbaik mencapai J ≥ 0,60 dengan
+identitas aliran-bebas (J/(massa/n) ∈ [0,98; 1,02]) dan tanpa kristalisasi,
+7/7 instans segar (13011–17). W3v7b: ambang jenuh dilaporkan bivalen.
+Kebijakan: uniform-cap2 (buta) vs lane-targeted (turunan temuan 012 — sel-1
+dengan kiri-1 → (1,2,·) emisi-penuh); cap kebijakan = 2 (anti-parkir).
+Level: {10%, 25%, 50%, 100%} × massa. Hukum v6-final (assert FNV 078681c4…
+— rekonstruksi dari silsilah). Hukum TIDAK diubah.
+
+**Hasil: (menyusul — tanpa pengeditan kriteria).**
