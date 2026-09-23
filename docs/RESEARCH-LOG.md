@@ -541,3 +541,29 @@ skor-koktail). Loop kini: aman (v3), melihat dua rezim (v4), dan tahu
 cara melelehkan kristal — untuk selanjutnya: loop v5 (kandidat: kebijakan
 skor-koktail + multi-seed robustness sebagai kriteria, menuju hukum yang
 sehat di kedua rezim pada SEMUA instans), M2 replikator, MAP publish.
+
+---
+
+## 011 — Loop v5: robustness multi-seed sebagai kriteria (DIBUKA; 2026-09-23)
+
+**Misi:** atasi bistability cap3 (log 010: pulihan instance-bergantung, 2/6
+seed segar) — hukum sehat di KEDUA rezim pada sebanyak mungkin instans.
+Upgrade kelas kriteria: dari level-instans (v2–v4) ke LAJU (distribusional);
+upgrade kebijakan: skor koktail gabungan wajib > 0 (koreksi kelemahan v4);
+kontrafaktual multi-seed (cap3 dinilai dari 3 seed via mobilitas — J tak
+terpercaya di rezim padat, FM-E).
+
+**Kriteria dibekukan (aturannya SEKARANG; instantiasinya dari baseline,
+sebelum verdict, disklosikan):**
+- W3v5a: hukum fb final, 7 seed verdict segar: cap1 mengalir 7/7 DAN cap3
+  laju ≥ max(6/7, laju-terbaik-baseline) DAN laju cap3 > laju v4-final
+  (protokol sama).
+- W3v5b: Σ_i (J_cap1 + rate_cap3)_fb > Σ_i (...)_ctrl, K=4.
+- Gerbang instrumen: horizon-pendek 5000 harus menyetujui 20000 pada
+  baseline 4 hukum; gagal → eskalasi terdokumentasi.
+- Kebijakan komit baru: koktail wajib lolos keselamatan DUA rezim + skor
+  gabungan > 0.
+- Seed: baseline 55001–55007; verdict 11002+; anti-kuota: window dihapus
+  segera pasca-pengukuran.
+
+**Hasil: (menyusul — tanpa pengeditan kriteria).**
