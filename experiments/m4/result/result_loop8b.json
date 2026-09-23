@@ -1,0 +1,233 @@
+{
+  "experiment": "M4-loop-v8b-compose",
+  "hypothesis": "receipt memanjat ke strata >3; embedding tetap \u22643",
+  "climb_rate_receipt": 0,
+  "embedding_stays_le3": 7,
+  "rows": [
+    {
+      "seed": 14001,
+      "mass_added": 8236,
+      "dense_k2_max": 3,
+      "dense_k2_n3": 1104,
+      "receipt": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7392277717590332,
+        "static": false,
+        "hist": {
+          "1": 6049,
+          "0": 5685,
+          "2": 3527,
+          "3": 1123
+        }
+      },
+      "embedding": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7392277717590332,
+        "static": false,
+        "hist": {
+          "1": 6049,
+          "0": 5685,
+          "2": 3527,
+          "3": 1123
+        }
+      }
+    },
+    {
+      "seed": 14002,
+      "mass_added": 8255,
+      "dense_k2_max": 3,
+      "dense_k2_n3": 900,
+      "receipt": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7432719469070435,
+        "static": false,
+        "hist": {
+          "1": 6227,
+          "0": 5464,
+          "2": 3796,
+          "3": 897
+        }
+      },
+      "embedding": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7432719469070435,
+        "static": false,
+        "hist": {
+          "1": 6227,
+          "0": 5464,
+          "2": 3796,
+          "3": 897
+        }
+      }
+    },
+    {
+      "seed": 14003,
+      "mass_added": 8241,
+      "dense_k2_max": 3,
+      "dense_k2_n3": 758,
+      "receipt": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7365347146987915,
+        "static": false,
+        "hist": {
+          "1": 6266,
+          "0": 5418,
+          "2": 3884,
+          "3": 816
+        }
+      },
+      "embedding": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7365347146987915,
+        "static": false,
+        "hist": {
+          "1": 6266,
+          "0": 5418,
+          "2": 3884,
+          "3": 816
+        }
+      }
+    },
+    {
+      "seed": 14004,
+      "mass_added": 8064,
+      "dense_k2_max": 3,
+      "dense_k2_n3": 735,
+      "receipt": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7443695068359375,
+        "static": false,
+        "hist": {
+          "1": 6391,
+          "0": 5487,
+          "2": 3781,
+          "3": 725
+        }
+      },
+      "embedding": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7443695068359375,
+        "static": false,
+        "hist": {
+          "1": 6391,
+          "0": 5487,
+          "2": 3781,
+          "3": 725
+        }
+      }
+    },
+    {
+      "seed": 14005,
+      "mass_added": 8148,
+      "dense_k2_max": 3,
+      "dense_k2_n3": 1122,
+      "receipt": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7417851686477661,
+        "static": false,
+        "hist": {
+          "1": 5910,
+          "0": 5848,
+          "2": 3492,
+          "3": 1134
+        }
+      },
+      "embedding": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7417851686477661,
+        "static": false,
+        "hist": {
+          "1": 5910,
+          "0": 5848,
+          "2": 3492,
+          "3": 1134
+        }
+      }
+    },
+    {
+      "seed": 14006,
+      "mass_added": 8169,
+      "dense_k2_max": 3,
+      "dense_k2_n3": 837,
+      "receipt": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.742119312286377,
+        "static": false,
+        "hist": {
+          "1": 6190,
+          "0": 5537,
+          "2": 3823,
+          "3": 834
+        }
+      },
+      "embedding": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.742119312286377,
+        "static": false,
+        "hist": {
+          "1": 6190,
+          "0": 5537,
+          "2": 3823,
+          "3": 834
+        }
+      }
+    },
+    {
+      "seed": 14007,
+      "mass_added": 8139,
+      "dense_k2_max": 3,
+      "dense_k2_n3": 946,
+      "receipt": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7424063682556152,
+        "static": false,
+        "hist": {
+          "1": 6159,
+          "0": 5606,
+          "2": 3738,
+          "3": 881
+        }
+      },
+      "embedding": {
+        "max_cell": 3,
+        "n15": 0,
+        "n_realized": 17,
+        "J": 0.7424063682556152,
+        "static": false,
+        "hist": {
+          "1": 6159,
+          "0": 5606,
+          "2": 3738,
+          "3": 881
+        }
+      }
+    }
+  ],
+  "reproduce": "python experiments/m4/loop8b.py"
+}
