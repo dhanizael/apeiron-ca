@@ -871,3 +871,36 @@ lebih besar. Itulah bedanya tembok dan plafon: plafon kita naiki.
 
 Status kata "gagal" pada 0/7: DIBATALKAN sebagai label temuan; tetap
 tercatat sebagai hasil kriteria bivalen (kejujuran kriteria tak disentuh).
+
+---
+
+## 015 — M2: REPLIKATOR (DIBUKA; kriteria & definisi operasional dibekukan 2026-09-23)
+
+**Milestone kontrak terakhir.** Framing jujur: di dunia konservasi-massa,
+"replikasi" = pertumbuhan populasi kelas-pola lewat redistribusi massa
+(panen latar/stata) — bukan penyalinan dari ketiadaan. Kandidat mekanisme
+pre-registered: **drip** — sel strata tinggi (5–7) memancarkan 1 ke ruang
+kosong di depannya saat mendaki; populasi [1] tumbuh dari penyimpanan strata
+(warisan analisis v8c).
+
+**Definisi operasional (dibekukan):** pola P = blok kontigu terjangkar
+(sel pertama & terakhir ≠ 0), dicocokkan eksak dengan wraparound (str.count,
+non-overlap — didokumentasikan). Copy = satu kemunculan. **Replikasi event:**
+semusta mulai dengan TEPAT 1 copy P; pada T: ≥2 copy; **sustained:** masih
+≥2 pada T+1000. **Terverifikasi:** direproduksi ≥3 seed. Latar: (i) laut
+kosong (duplikasi wajib membelah massa P sendiri), (ii) laut difus (1s ρ≈0,1
+— reservoir panen tersedia; suntikan keadaan = syarat awal standar ALife;
+klaim emergensi tetap pada DINAMIKA yang melipatkannya).
+
+**Kriteria dibekukan:** W-M2a: ≥1 kelas-pola dengan replikasi event
+sustained, terverifikasi ≥3 seed → PASS. W-M2b: soliton (pass-through:
+cepat menembus lambat, keduanya utuh) terverifikasi bivalen. W-M2c: bila
+null → argumen ketak-mungkinan level-mekanisme = HASIL M2 (spec §FM-D).
+
+**Grid pencarian terbatas:** hukum {v6-final k=2; k=4 receipt-lift} × pola
+{[1],[2],[1,1],[2,2],[2,2,2],[3(k4)]} × latar {kosong, difus ρ≈0,1} × 20k,
+sensus tiap 100 langkah. FM pre-registered: FM-M2-1 velocity-universal →
+tidak ada interaksi (cari di hukum emisi-parsial); FM-M2-2 tabrakan selalu
+fusi (tak pernah fisinya); FM-M2-3 duplikasi transien (tak sustamed).
+
+**Hasil: (menyusul — tanpa pengeditan kriteria).**
