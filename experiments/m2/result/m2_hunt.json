@@ -1,0 +1,458 @@
+{
+  "experiment": "M2-hunt",
+  "soliton": {
+    "crossed_at": null,
+    "both_survive": false,
+    "pos1_tail": [
+      586,
+      587,
+      588,
+      589,
+      590
+    ],
+    "posb_tail": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "events": [],
+  "n_events_sustained": 0,
+  "rows": [
+    {
+      "tag": "k2_p1_bg0",
+      "counts_head": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "counts_tail": [
+        1,
+        1,
+        1
+      ],
+      "max": 1,
+      "event": null
+    },
+    {
+      "tag": "k2_p1_bg819",
+      "counts_head": [
+        820,
+        820,
+        820,
+        820,
+        820,
+        820
+      ],
+      "counts_tail": [
+        820,
+        820,
+        820
+      ],
+      "max": 820,
+      "event": null
+    },
+    {
+      "tag": "k2_p2_bg0",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k2_p2_bg819",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k2_p11_bg0",
+      "counts_head": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "counts_tail": [
+        1,
+        1,
+        1
+      ],
+      "max": 1,
+      "event": null
+    },
+    {
+      "tag": "k2_p11_bg819",
+      "counts_head": [
+        41,
+        41,
+        41,
+        41,
+        41,
+        41
+      ],
+      "counts_tail": [
+        41,
+        41,
+        41
+      ],
+      "max": 41,
+      "event": null
+    },
+    {
+      "tag": "k2_p22_bg0",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k2_p22_bg819",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k2_p222_bg0",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k2_p222_bg819",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k4_p1_bg0",
+      "counts_head": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "counts_tail": [
+        1,
+        1,
+        1
+      ],
+      "max": 1,
+      "event": null
+    },
+    {
+      "tag": "k4_p1_bg819",
+      "counts_head": [
+        820,
+        820,
+        820,
+        820,
+        820,
+        820
+      ],
+      "counts_tail": [
+        820,
+        820,
+        820
+      ],
+      "max": 820,
+      "event": null
+    },
+    {
+      "tag": "k4_p2_bg0",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k4_p2_bg819",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k4_p11_bg0",
+      "counts_head": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "counts_tail": [
+        1,
+        1,
+        1
+      ],
+      "max": 1,
+      "event": null
+    },
+    {
+      "tag": "k4_p11_bg819",
+      "counts_head": [
+        41,
+        41,
+        41,
+        41,
+        41,
+        41
+      ],
+      "counts_tail": [
+        41,
+        41,
+        41
+      ],
+      "max": 41,
+      "event": null
+    },
+    {
+      "tag": "k4_p22_bg0",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k4_p22_bg819",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k4_p222_bg0",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k4_p222_bg819",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k4_p3_bg0",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k4_p3_bg819",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k4_p5_bg0",
+      "counts_head": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        0
+      ],
+      "max": 0,
+      "event": null
+    },
+    {
+      "tag": "k4_p5_bg819",
+      "counts_head": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "counts_tail": [
+        0,
+        0,
+        1
+      ],
+      "max": 1,
+      "event": null
+    }
+  ],
+  "reproduce": "python experiments/m2/m2_hunt.py"
+}
