@@ -1,0 +1,126 @@
+[
+  {
+    "law": 17108,
+    "pattern": [
+      2
+    ],
+    "seed": {
+      "peak": 379,
+      "tail": 379
+    },
+    "noseed": {
+      "peak": 378,
+      "tail": 378
+    },
+    "seeding_dependent": false
+  },
+  {
+    "law": 17091,
+    "pattern": [
+      2
+    ],
+    "seed": {
+      "peak": 254,
+      "tail": 254
+    },
+    "noseed": {
+      "peak": 254,
+      "tail": 254
+    },
+    "seeding_dependent": false
+  },
+  {
+    "law": 17045,
+    "pattern": [
+      2
+    ],
+    "seed": {
+      "peak": 226,
+      "tail": 223
+    },
+    "noseed": {
+      "peak": 227,
+      "tail": 224
+    },
+    "seeding_dependent": false
+  },
+  {
+    "law": 17149,
+    "pattern": [
+      3
+    ],
+    "seed": {
+      "peak": 241,
+      "tail": 241
+    },
+    "noseed": {
+      "peak": 241,
+      "tail": 241
+    },
+    "seeding_dependent": false
+  },
+  {
+    "law": 17147,
+    "pattern": [
+      2,
+      2
+    ],
+    "seed": {
+      "peak": 45,
+      "tail": 25
+    },
+    "noseed": {
+      "peak": 30,
+      "tail": 16
+    },
+    "seeding_dependent": false
+  },
+  {
+    "law": 17083,
+    "pattern": [
+      2,
+      2
+    ],
+    "seed": {
+      "peak": 52,
+      "tail": 39
+    },
+    "noseed": {
+      "peak": 53,
+      "tail": 39
+    },
+    "seeding_dependent": false
+  },
+  {
+    "law": 17009,
+    "pattern": [
+      4
+    ],
+    "seed": {
+      "peak": 31,
+      "tail": 25
+    },
+    "noseed": {
+      "peak": 29,
+      "tail": 25
+    },
+    "seeding_dependent": false
+  },
+  {
+    "law": 17009,
+    "pattern": [
+      2,
+      2,
+      2
+    ],
+    "seed": {
+      "peak": 6,
+      "tail": 2
+    },
+    "noseed": {
+      "peak": 6,
+      "tail": 2
+    },
+    "seeding_dependent": false
+  }
+]
