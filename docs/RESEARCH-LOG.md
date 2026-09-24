@@ -1270,3 +1270,26 @@ sesuai aljabar; bila lain — gerbang tetap sah, fungsi aktual dilaporkan.
 Pengukuran: trajektori parkiran per-fase, konsumsi pulsa, perjalanan output.
 
 **Hasil: (menyusul — tanpa pengeditan).**
+**Hasil (4 run tabel kebenaran + re-run determinisme):**
+
+- **W-G1: PASS — fungsi Boolean deterministik terverifikasi.** Kolom output
+  [0,0,0,0] pada tabel kebenaran (A,B)∈{00,10,01,11}, re-run identik eksak,
+  input terkonsumsi di semua run.
+- **W-G2: fungsi aktual = OR/buffer regeneratif (1-setoran → emit-and-
+  restore), BUKAN AND aljabar pratengara.** Koreksi aljabar (atribusi:
+  inference — pra-komputasi memakai F0[13]=0; v6-final membawa mutasi v5
+  (13,+1) → F2[13]=1): parkiran-3 terkikis [3,2,2,1,0] — rantai stabilisasi
+  pratengara runtuh. Dan sapuan aljabar lanjutan atas lanskap mutasi:
+  **kisi emisi lift-v6-final LENGKAP — setiap memori genap (4,6,8,10,12,14)
+  stabil diam, setiap +1 setoran mendarat di fase ganjil yang SEMUA emisi-
+  hotnya (F2[1]/[5]/[9]/[13]) → 1 setoran = 1 emit = pulsa output +
+  RESTORE memori.** Gerbang OR regeneratif: repeater sinyal — prasyarat
+  transmisi jarak jauh.
+- **Peta ke gerbang AND:** akumulasi 2-setoran butuh fase-ganjil dengan satu
+  emisi dingin — mustahil di lift-v6-final (kisi lengkap), TERSEDIA di ruang
+  hukum k=4 lain (hukum acak dengan emisi fase-ganjil dingin melimpah).
+  Pencarian hukum-gerbang (fitness: memori stabil + 2 setoran pra-emit) =
+  ronde berikutnya.
+
+**Status: GERBANG PERTAMA TERVERIFIKASI (fungsi Boolean deterministik di
+semusta flow — OR regeneratif); AND menunggu hukum yang tepat.**
