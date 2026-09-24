@@ -1320,3 +1320,23 @@ empiris 4-run (STEPS=60, tanam memori+penjaga+pulsa sesuai (m,kr)) →
 determinisme re-run. Anti-kuota; mini deterministik.
 
 **Hasil: (menyusul — tanpa pengeditan).**
+**Hasil (filter 300 hukum + verifikasi empiris 10 hukum):**
+
+- **Filter aljabar: 19/300 hukum lolos** — pola kolom [0,hot,0,hot] melimpah
+  (hipotesis 020 terkonfirmasi).
+- **Verifikasi empiris 10 hukum: 9 OR-like (trivial), 1 SEEDING-DEPENDENT
+  sejati: law 22126 (m=6, kr=2) — kolom [0,0,0,1] EKSAK = AND.**
+- **Trajektori memori (run 11): [6×10, 7×4, 8, 6]** — setoran-1 disimpan
+  TANPA emit (6→7), setoran-2 → 8 → EMIT → **memori pulih ke 6: gerbang
+  REUSABLE.** Run (10)/(01): memori menahan satu setoran selamanya (out=0);
+  run (00): konstanta. **Re-run: kolom + trajektori identik-eksak
+  (determinisme).**
+- **Verdict: W-G3 PASS (gerbang multi-setoran non-trivial: out(11)=1 sementara
+  out(10)=out(01)=0) + W-G4 PASS (kolom = [0,0,0,1] AND eksak).**
+- Trilogi gerbang: **OR regeneratif (repeater, log 020) + AND akumulatif-
+  reusable (ini)** — dua fungsi Boolean berbeda terverifikasi dalam keluarga
+  flow. Fan-out & penyusunan sirkuit = peta berikutnya; universalitas
+  keluarga flow (Kontemplasi 019) kini punya dua anak tangga terukur.
+
+**Reproduksi:** `python experiments/m2/gate_search.py`; verifikasi law 22126
+(m=6, kr=2). Test: `pytest` (76) + `cargo` (80).
