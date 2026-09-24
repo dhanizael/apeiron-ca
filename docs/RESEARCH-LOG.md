@@ -1036,3 +1036,33 @@ lebar (w≥2); alternatif: null + peta pelebaran.
 Anti-kuota; deterministik; artefak per kampanye.
 
 **Hasil: (menyusul — tanpa pengeditan).**
+**Hasil (tiga kampanye):**
+
+- **K-1 (mikro-front) — siklus eksak + SAPU PENUH:** census per-langkah
+  (1-sea sempurna + 1 [2]): populasi [2] 1,1,3,4,4,6,7,7,9… — **+2,+1,0
+  berulang = 1 salinan/langkah eksak**; mikro-jendela menunjukkan front
+  [.., 2, 0, 3, 0, ..] (parkiran-3 bergantian) meninggalkan jejak blok-[2].
+  **Sapu 20k: satu benih mengonversi SELURUH semusta** — histogram akhir
+  {2: 8192, 0: 8191, 1: 1} (kristal [2,0] sempurna + sisa paritas satu sel;
+  massa 16385 terjaga). Replikator 16295 = konverter universal.
+- **K-2 (nukleasi spontan) — SUBDUNIA 0/1 TERTUTUP:** laut 0/1 tanpa tanam
+  (ρ=0,5 dan 1,0): NOL [2] dalam 2000 langkah. Aljabar entri mengonfirmasi:
+  semua emisi konfigurasi {0,1} ≤ 1 (kolom (1,1,1)=1) — 2 tak dapat lahir
+  dari 0/1 murni. **Suntikan/bibit = satu-satunya pintu spesies-2** — kelas
+  ruang-keadaan (log 013) bukan sekadar membantu; ia prasyarat eksistensi.
+- **K-3 (pencarian k=4) — 187 hit mentah / ~100 dari 150 hukum, KONTROL
+  0/8 seeding-dependent.** Ruang k=4 kaya FUSI (laut melebur massal: peak
+  hingga 379; pola lebar [2,2] peak 52; spesies [3] peak 241; [4] peak 46)
+  tetapi seluruh sampel audit = fusi-global (kontrol setara seed). **Tidak
+  ada replikator seeding-dependent di sampel k=4 ini** — kekayaan k=4 adalah
+  kekayaan transisi-fasa, bukan (belum) replikasi. Pelebaran tercatat:
+  sampling pola/lain, hukum non-slack-rich, atau fitness seleksi-front.
+
+**Status:** replikator k=2 (16295) kini lengkap siklusnya — dari satu benih
+ke kristal seluruh-semusta, dengan pintu masuk yang terbukti tunggal
+(suntikan). K-2 menutup pertanyaan asal-usulnya; K-3 memetakan bahwa
+kekayaan k=4 belum menyediakan jalur replikasi-seeding — dua null dengan
+mekanisme, satu teorema sapu-penuh.
+
+**Reproduksi:** skrip kampanye (pola sesi; angka di log + `k4_search_raw.json`,
+`k4_control.json`). Test: `pytest` (75) + `cargo` (80).
