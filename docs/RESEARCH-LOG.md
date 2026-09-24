@@ -1293,3 +1293,30 @@ Pengukuran: trajektori parkiran per-fase, konsumsi pulsa, perjalanan output.
 
 **Status: GERBANG PERTAMA TERVERIFIKASI (fungsi Boolean deterministik di
 semusta flow — OR regeneratif); AND menunggu hukum yang tepat.**
+
+---
+
+## 021 — Pencarian hukum-gerbang: AND sejati (DIBUKA; kriteria dibekukan 2026-09-24)
+
+**Misi (peta 020):** gerbang multi-setoran — output menyala HANYA setelah ≥2
+setoran (AND). Filter aljabar pada tabel hukum (instan), lalu verifikasi
+empiris 4-run.
+
+**Kondisi aljabar (untuk pasangan (memori m, penjaga kr)):**
+(1) idle: F[0,m,kr]=0; (2) deposit: F[l,1,m]≠0 untuk l∈{0,1}; (3) pasca-
+setoran-1: F[0,m+1,kr]=0; (4) emit pasca-2: F[0,m+2,kr]≠0; (5) penjaga
+stabil: F[m,kr,0]=0; (6) travel: F[0,1,0]≠0.
+
+**Kriteria dibekukan:** W-G3 (gerbang kedua — multi-setoran): ≥1 hukum
+dengan gerbang empiris: kolom output (00,10,01,11) DETERMINISTIK dan
+NON-TRIVIAL — out(11) ≠ max(out(10), out(01)) (bergantung kedua input),
+reproduksi eksak. W-G4 (AND): kolom = [0,0,0,1]. FM pre-registered:
+FM-G1 lolos-aljabar gagal-empiris (dinamika interaksi beda — mekanisme
+dilaporkan); FM-G2 semua empiris OR-like → kanal 2-setoran lebih langka
+dari aljabar — peta pelebaran.
+
+**Protokol:** 300 hukum slack-rich k=4 (seeds 22001+) → filter aljabar →
+empiris 4-run (STEPS=60, tanam memori+penjaga+pulsa sesuai (m,kr)) →
+determinisme re-run. Anti-kuota; mini deterministik.
+
+**Hasil: (menyusul — tanpa pengeditan).**
