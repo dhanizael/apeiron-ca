@@ -1066,3 +1066,33 @@ mekanisme, satu teorema sapu-penuh.
 
 **Reproduksi:** skrip kampanye (pola sesi; angka di log + `k4_search_raw.json`,
 `k4_control.json`). Test: `pytest` (75) + `cargo` (80).
+
+---
+
+**Audit eksternal (2026-09-24, pertanyaan user: "apakah valid?") — dua klaim
+diaudit terhadap data + tiga pengukuran baru:**
+
+1. **"16295 = universal converter ala ice-nine/prion, belum ekosistem" —
+   VALID dengan dua koreksi presisi:**
+   (a) Konversi total benar (templated front, irreversibel-sejauh-terukur),
+   TETAPI ujungnya BUKAN beku: kontinu 2000 langkah pada kristal [2,0]
+   menunjukkan 512/511 window berubah tiap langkah — **fasa jenuh DINAMIS**
+   (populasi [2] terkunci 8191–8192; satu sel defek berkelana 1↔3).
+   Ice-nine membeku; milik kita bernapas.
+   (b) "Belum ekosistem" valid untuk DINAMIKA POPULASI (tak ada predasi/
+   siklus) — TETAPI dunia padat +100% ternyata **keseimbangan multi-spesies
+   berfluktuasi**: [2] 5796–5841, [1] 1077–1123, [3] ~1184 hidup
+   berdampingan (fluktuasi ±0,4–2%). Yang absen = siklus predasi/kompetisi
+   (boom-bust) — kelas-2-like (konsisten K5 log 005). Gap ekosistem = gap
+   DINAMIKA, bukan gap keberadaan.
+2. **"k=4 masih fusi-global, belum nemu seeding-dependent" — VALID,
+   scope presisi:** 0/8 audited dari 187 hit; 150 hukum slack-rich × 5
+   pola; bukan bukti ketiadaan. Kontras: k=2 memberi 1/~300 — replikator
+   langka (~0,3%).
+
+**Sintesis:** kedua observasi menunjuk gunung yang sama — semusta mencapai
+kuasistabilitas (fasa jenuh / keseimbangan berfluktuasi), belum DINAMIKA
+TERBUKA (turnover, predasi, boom-bust). Itu tepat lingkungan R1. Instrumen
+audit populasi (trajektori min/max/ekor per spesies) yang dibangun hari ini
+= fondasi kriteria berikutnya: "perpetuum ecologis" — populasi hidup dengan
+turnover di horizon panjang, tanpa absorpsi.
