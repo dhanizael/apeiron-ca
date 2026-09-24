@@ -1,0 +1,52 @@
+{
+  "candidate": {
+    "law_seed": 19631,
+    "k": 4,
+    "ic": "difus"
+  },
+  "verified": true,
+  "results": [
+    {
+      "seed": 15101,
+      "perpetuum": true,
+      "amp_max": 2.2627,
+      "coex": 10,
+      "static": false,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8514
+      }
+    },
+    {
+      "seed": 15102,
+      "perpetuum": true,
+      "amp_max": 2.2627,
+      "coex": 10,
+      "static": false,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8514
+      }
+    },
+    {
+      "seed": 15103,
+      "perpetuum": true,
+      "amp_max": 2.2627,
+      "coex": 10,
+      "static": false,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8514
+      }
+    }
+  ]
+}
