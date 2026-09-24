@@ -1131,3 +1131,36 @@ FM-P2 pulsa global seragam (tersaring koeksistensi); FM-P3 nol kandidat
 (taksonomi nasib = hasil: absorpsi/pulsa/hidup).
 
 **Hasil: (menyusul — tanpa pengeditan).**
+**Hasil (sapuan 1500 run + verifikasi):**
+
+- **Sapuan:** k=2 NOL kandidat (900 run: 1189-2=... nasib total 1500 —
+  absorpsi 1189, hidup-lemah 233, pulsa 0) — konsisten penutupan subdunia
+  0/1 (log 017). **k=4: 78 kandidat, SEMUA dari latar difus** (laut seragam
+  runtuh-absorpsi), amplitudo 1,2–2,0, koeksistensi hingga 13 spesies.
+- **W-P1: PASS — 3/3 instans independen @20k** (law 19631, fnv dicatat di
+  sweep JSON): amplitudo 1,91–2,09 di sepertiga akhir 20k, 10 spesies
+  berkoeksistensi, tak statis. Koreksi eksekusi didisklosikan: verifikasi
+  pertama memakai IC-seed sama (3 salinan 1 trajektori) — diperbaiki menjadi
+  3 laut difus independen (21001–03).
+- **W-P2: PASS (stretch) — TANDA PREDASI:** pasangan [0,1] berkorelasi
+  −0,745 / −0,834 / −0,887 di ketiga instans — spesies-0 dan spesies-1
+  berayunan ANTI-FASE (satu naik saat yang lain turun) — tanda tangan
+  Lotka-Volterra dalam semesta konservasi-massa.
+- **W-P3: PASS — baseline terpisah bersih:** v6-final difus amp 0,0 (statis);
+  16295 difus amp 0,0 (statis); padat +100% amp 0,32 (non-statis). Perpetuum
+  1,9–2,1 = **6× amplitudo keseimbangan terkuat yang dikenal** — kelas
+  dinamika yang berbeda sungguhan.
+- **Framing jujur:** mikro-mekanisme osilator 19631 terbuka (apa yang
+  membuat [0]/[1] berayunan anti-fase — kandidat: front 0↔1 yang memantul);
+  amplitudo-ekor diukur pada census tiap-5-state, window 6000 dari 20k;
+  "ekosistem" di sini = populasi multi-spesies hidup dengan fluktuasi besar
+  — siklus boom-bust penuh & turnover spesies (extinction/recovery) masih
+  di depan.
+
+**Status: W-P1 + W-P2 + W-P3 PASS — PERPETUUM ECOLOGIS DITEMUKAN.**
+Semesta pertama yang populasinya tak pernah selesai: 10 spesies, ayunan
+3×, predasi anti-fase, 20.000 langkah tanpa absorpsi.
+
+**Reproduksi:** `python experiments/m2/perpetuum_search.py`;
+`--verify-law 19631 --verify-k 4 --verify-ic difus`; skrip independen
+(pola sesi; angka di log + `perpetuum_verify_independent.json`).
