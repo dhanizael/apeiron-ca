@@ -1,0 +1,67 @@
+{
+  "law_19631_independent": [
+    {
+      "ic_seed": 21001,
+      "perpetuum": true,
+      "amp_max": 1.9113,
+      "coex": 10,
+      "static": false,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.7452
+      }
+    },
+    {
+      "ic_seed": 21002,
+      "perpetuum": true,
+      "amp_max": 2.0944,
+      "coex": 10,
+      "static": false,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8336
+      }
+    },
+    {
+      "ic_seed": 21003,
+      "perpetuum": true,
+      "amp_max": 1.9969,
+      "coex": 10,
+      "static": false,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8874
+      }
+    }
+  ],
+  "verified_count": 3,
+  "baselines": [
+    {
+      "world": "v6final_difus",
+      "amp_max": 0.0,
+      "coex": 1,
+      "static": true
+    },
+    {
+      "world": "16295_difus",
+      "amp_max": 0.0,
+      "coex": 1,
+      "static": true
+    },
+    {
+      "world": "v6final_padat100",
+      "amp_max": 0.3162,
+      "coex": 4,
+      "static": false
+    }
+  ]
+}

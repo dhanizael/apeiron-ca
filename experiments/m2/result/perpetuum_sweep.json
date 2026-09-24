@@ -1,0 +1,1184 @@
+{
+  "experiment": "perpetuum-sweep",
+  "criteria": {
+    "W_P1_perpetuum": true
+  },
+  "candidates": [
+    {
+      "law_seed": 19034,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.319,
+      "amp_species": 3,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9989
+      }
+    },
+    {
+      "law_seed": 19064,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.3683,
+      "amp_species": 2,
+      "predation": {
+        "pair": [
+          2,
+          3
+        ],
+        "rho": -0.9356
+      }
+    },
+    {
+      "law_seed": 19118,
+      "k": 2,
+      "ic": "difus",
+      "coex": 3,
+      "amp_max": 1.4759,
+      "amp_species": 2,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -1.0
+      }
+    },
+    {
+      "law_seed": 19119,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.3059,
+      "amp_species": 1,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9972
+      }
+    },
+    {
+      "law_seed": 19128,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.4673,
+      "amp_species": 3,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9997
+      }
+    },
+    {
+      "law_seed": 19131,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.344,
+      "amp_species": 1,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9999
+      }
+    },
+    {
+      "law_seed": 19138,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.379,
+      "amp_species": 1,
+      "predation": {
+        "pair": [
+          2,
+          3
+        ],
+        "rho": -0.9329
+      }
+    },
+    {
+      "law_seed": 19149,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.3761,
+      "amp_species": 2,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9631
+      }
+    },
+    {
+      "law_seed": 19154,
+      "k": 2,
+      "ic": "difus",
+      "coex": 3,
+      "amp_max": 0.959,
+      "amp_species": 2,
+      "predation": {
+        "pair": [
+          1,
+          2
+        ],
+        "rho": -1.0
+      }
+    },
+    {
+      "law_seed": 19155,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.5985,
+      "amp_species": 2,
+      "predation": {
+        "pair": [
+          2,
+          3
+        ],
+        "rho": -0.9986
+      }
+    },
+    {
+      "law_seed": 19161,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.3045,
+      "amp_species": 3,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9892
+      }
+    },
+    {
+      "law_seed": 19202,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.6223,
+      "amp_species": 3,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9482
+      }
+    },
+    {
+      "law_seed": 19206,
+      "k": 2,
+      "ic": "difus",
+      "coex": 3,
+      "amp_max": 0.3009,
+      "amp_species": 2,
+      "predation": {
+        "pair": [
+          1,
+          2
+        ],
+        "rho": -1.0
+      }
+    },
+    {
+      "law_seed": 19212,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.3583,
+      "amp_species": 3,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9983
+      }
+    },
+    {
+      "law_seed": 19213,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.3599,
+      "amp_species": 3,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9603
+      }
+    },
+    {
+      "law_seed": 19216,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.3609,
+      "amp_species": 3,
+      "predation": {
+        "pair": [
+          2,
+          3
+        ],
+        "rho": -0.9838
+      }
+    },
+    {
+      "law_seed": 19222,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.4403,
+      "amp_species": 3,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9723
+      }
+    },
+    {
+      "law_seed": 19263,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 0.436,
+      "amp_species": 1,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9251
+      }
+    },
+    {
+      "law_seed": 19296,
+      "k": 2,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 1.3852,
+      "amp_species": 1,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9995
+      }
+    },
+    {
+      "law_seed": 19502,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 1.444,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.796
+      }
+    },
+    {
+      "law_seed": 19506,
+      "k": 4,
+      "ic": "difus",
+      "coex": 6,
+      "amp_max": 0.9691,
+      "amp_species": 5,
+      "predation": {
+        "pair": [
+          2,
+          3
+        ],
+        "rho": -0.7865
+      }
+    },
+    {
+      "law_seed": 19507,
+      "k": 4,
+      "ic": "difus",
+      "coex": 6,
+      "amp_max": 0.8842,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9999
+      }
+    },
+    {
+      "law_seed": 19514,
+      "k": 4,
+      "ic": "difus",
+      "coex": 7,
+      "amp_max": 1.8501,
+      "amp_species": 7,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9921
+      }
+    },
+    {
+      "law_seed": 19515,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 1.9865,
+      "amp_species": 11,
+      "predation": {
+        "pair": [
+          0,
+          3
+        ],
+        "rho": -0.5674
+      }
+    },
+    {
+      "law_seed": 19516,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 2.913,
+      "amp_species": 10,
+      "predation": {
+        "pair": [
+          1,
+          2
+        ],
+        "rho": -0.6684
+      }
+    },
+    {
+      "law_seed": 19517,
+      "k": 4,
+      "ic": "difus",
+      "coex": 9,
+      "amp_max": 1.7867,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8293
+      }
+    },
+    {
+      "law_seed": 19520,
+      "k": 4,
+      "ic": "difus",
+      "coex": 5,
+      "amp_max": 0.38,
+      "amp_species": 4,
+      "predation": {
+        "pair": [
+          0,
+          2
+        ],
+        "rho": -0.6852
+      }
+    },
+    {
+      "law_seed": 19521,
+      "k": 4,
+      "ic": "difus",
+      "coex": 6,
+      "amp_max": 0.7363,
+      "amp_species": 6,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9085
+      }
+    },
+    {
+      "law_seed": 19526,
+      "k": 4,
+      "ic": "difus",
+      "coex": 12,
+      "amp_max": 0.9269,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8588
+      }
+    },
+    {
+      "law_seed": 19527,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 1.507,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          1,
+          2
+        ],
+        "rho": -0.6273
+      }
+    },
+    {
+      "law_seed": 19531,
+      "k": 4,
+      "ic": "difus",
+      "coex": 9,
+      "amp_max": 0.6312,
+      "amp_species": 6,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8184
+      }
+    },
+    {
+      "law_seed": 19535,
+      "k": 4,
+      "ic": "difus",
+      "coex": 8,
+      "amp_max": 0.8125,
+      "amp_species": 6,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9999
+      }
+    },
+    {
+      "law_seed": 19539,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.0661,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.5992
+      }
+    },
+    {
+      "law_seed": 19542,
+      "k": 4,
+      "ic": "difus",
+      "coex": 7,
+      "amp_max": 1.1754,
+      "amp_species": 7,
+      "predation": {
+        "pair": [
+          0,
+          2
+        ],
+        "rho": -0.7582
+      }
+    },
+    {
+      "law_seed": 19546,
+      "k": 4,
+      "ic": "difus",
+      "coex": 8,
+      "amp_max": 0.7351,
+      "amp_species": 5,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9492
+      }
+    },
+    {
+      "law_seed": 19547,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.3744,
+      "amp_species": 11,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.5678
+      }
+    },
+    {
+      "law_seed": 19548,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.3588,
+      "amp_species": 10,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8882
+      }
+    },
+    {
+      "law_seed": 19549,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 1.3116,
+      "amp_species": 11,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.6106
+      }
+    },
+    {
+      "law_seed": 19552,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 1.5695,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          3,
+          4
+        ],
+        "rho": -0.8387
+      }
+    },
+    {
+      "law_seed": 19553,
+      "k": 4,
+      "ic": "difus",
+      "coex": 12,
+      "amp_max": 1.5413,
+      "amp_species": 10,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.5707
+      }
+    },
+    {
+      "law_seed": 19557,
+      "k": 4,
+      "ic": "difus",
+      "coex": 9,
+      "amp_max": 1.7278,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9923
+      }
+    },
+    {
+      "law_seed": 19561,
+      "k": 4,
+      "ic": "difus",
+      "coex": 8,
+      "amp_max": 0.8008,
+      "amp_species": 6,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.993
+      }
+    },
+    {
+      "law_seed": 19566,
+      "k": 4,
+      "ic": "difus",
+      "coex": 9,
+      "amp_max": 1.6422,
+      "amp_species": 10,
+      "predation": {
+        "pair": [
+          0,
+          2
+        ],
+        "rho": -0.6039
+      }
+    },
+    {
+      "law_seed": 19567,
+      "k": 4,
+      "ic": "difus",
+      "coex": 7,
+      "amp_max": 1.7469,
+      "amp_species": 7,
+      "predation": {
+        "pair": [
+          1,
+          2
+        ],
+        "rho": -0.7031
+      }
+    },
+    {
+      "law_seed": 19571,
+      "k": 4,
+      "ic": "difus",
+      "coex": 9,
+      "amp_max": 1.608,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8202
+      }
+    },
+    {
+      "law_seed": 19573,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 2.1117,
+      "amp_species": 12,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.7776
+      }
+    },
+    {
+      "law_seed": 19576,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.0335,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.949
+      }
+    },
+    {
+      "law_seed": 19577,
+      "k": 4,
+      "ic": "difus",
+      "coex": 8,
+      "amp_max": 2.3815,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8212
+      }
+    },
+    {
+      "law_seed": 19580,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.6599,
+      "amp_species": 10,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.6458
+      }
+    },
+    {
+      "law_seed": 19581,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 0.8666,
+      "amp_species": 7,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.6481
+      }
+    },
+    {
+      "law_seed": 19589,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 1.8425,
+      "amp_species": 11,
+      "predation": {
+        "pair": [
+          0,
+          2
+        ],
+        "rho": -0.7896
+      }
+    },
+    {
+      "law_seed": 19595,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.4987,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8402
+      }
+    },
+    {
+      "law_seed": 19596,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 0.9752,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8846
+      }
+    },
+    {
+      "law_seed": 19597,
+      "k": 4,
+      "ic": "difus",
+      "coex": 9,
+      "amp_max": 1.9706,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8206
+      }
+    },
+    {
+      "law_seed": 19600,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 2.305,
+      "amp_species": 11,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.7404
+      }
+    },
+    {
+      "law_seed": 19601,
+      "k": 4,
+      "ic": "difus",
+      "coex": 8,
+      "amp_max": 1.6475,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9232
+      }
+    },
+    {
+      "law_seed": 19606,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 1.4672,
+      "amp_species": 11,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9393
+      }
+    },
+    {
+      "law_seed": 19607,
+      "k": 4,
+      "ic": "difus",
+      "coex": 8,
+      "amp_max": 0.7836,
+      "amp_species": 7,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8679
+      }
+    },
+    {
+      "law_seed": 19609,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 2.0113,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8309
+      }
+    },
+    {
+      "law_seed": 19612,
+      "k": 4,
+      "ic": "difus",
+      "coex": 5,
+      "amp_max": 1.6962,
+      "amp_species": 5,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.9718
+      }
+    },
+    {
+      "law_seed": 19613,
+      "k": 4,
+      "ic": "difus",
+      "coex": 8,
+      "amp_max": 1.2885,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.901
+      }
+    },
+    {
+      "law_seed": 19618,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.5563,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8411
+      }
+    },
+    {
+      "law_seed": 19619,
+      "k": 4,
+      "ic": "difus",
+      "coex": 8,
+      "amp_max": 1.5056,
+      "amp_species": 7,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8095
+      }
+    },
+    {
+      "law_seed": 19620,
+      "k": 4,
+      "ic": "difus",
+      "coex": 9,
+      "amp_max": 2.051,
+      "amp_species": 10,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.6816
+      }
+    },
+    {
+      "law_seed": 19621,
+      "k": 4,
+      "ic": "difus",
+      "coex": 9,
+      "amp_max": 1.628,
+      "amp_species": 10,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8844
+      }
+    },
+    {
+      "law_seed": 19626,
+      "k": 4,
+      "ic": "difus",
+      "coex": 7,
+      "amp_max": 1.756,
+      "amp_species": 6,
+      "predation": {
+        "pair": [
+          3,
+          4
+        ],
+        "rho": -0.9646
+      }
+    },
+    {
+      "law_seed": 19627,
+      "k": 4,
+      "ic": "difus",
+      "coex": 3,
+      "amp_max": 0.8808,
+      "amp_species": 2,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -1.0
+      }
+    },
+    {
+      "law_seed": 19630,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.6216,
+      "amp_species": 8,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.7786
+      }
+    },
+    {
+      "law_seed": 19631,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 2.0226,
+      "amp_species": 10,
+      "predation": {
+        "pair": [
+          0,
+          2
+        ],
+        "rho": -0.6526
+      }
+    },
+    {
+      "law_seed": 19634,
+      "k": 4,
+      "ic": "difus",
+      "coex": 8,
+      "amp_max": 1.5581,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8903
+      }
+    },
+    {
+      "law_seed": 19635,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.2097,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          2
+        ],
+        "rho": -0.5892
+      }
+    },
+    {
+      "law_seed": 19638,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.9648,
+      "amp_species": 10,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.6275
+      }
+    },
+    {
+      "law_seed": 19639,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.9034,
+      "amp_species": 13,
+      "predation": {
+        "pair": [
+          0,
+          2
+        ],
+        "rho": -0.678
+      }
+    },
+    {
+      "law_seed": 19640,
+      "k": 4,
+      "ic": "difus",
+      "coex": 9,
+      "amp_max": 1.7799,
+      "amp_species": 10,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.8388
+      }
+    },
+    {
+      "law_seed": 19641,
+      "k": 4,
+      "ic": "difus",
+      "coex": 9,
+      "amp_max": 1.7725,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.6593
+      }
+    },
+    {
+      "law_seed": 19646,
+      "k": 4,
+      "ic": "difus",
+      "coex": 11,
+      "amp_max": 1.5545,
+      "amp_species": 13,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.6083
+      }
+    },
+    {
+      "law_seed": 19647,
+      "k": 4,
+      "ic": "difus",
+      "coex": 10,
+      "amp_max": 1.6553,
+      "amp_species": 9,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -0.6692
+      }
+    },
+    {
+      "law_seed": 19650,
+      "k": 4,
+      "ic": "difus",
+      "coex": 4,
+      "amp_max": 1.7267,
+      "amp_species": 3,
+      "predation": {
+        "pair": [
+          0,
+          1
+        ],
+        "rho": -1.0
+      }
+    }
+  ],
+  "fate_counts": {
+    "absorbed": 1189,
+    "pulsed": 0,
+    "alive": 233
+  },
+  "reproduce": "python experiments/m2/perpetuum_search.py"
+}
