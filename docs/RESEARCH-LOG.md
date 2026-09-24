@@ -1363,3 +1363,23 @@ FM pre-registered: FM-F1 [2] tak membelah di 22126 → perangkat lain dari
 entri parsial hukum ini; FM-F2 output teredam di kawat → ukur & laporkan.
 
 **Hasil: (menyusul — tanpa pengeditan).**
+**Hasil (W-F1 + W-F2):**
+
+- **W-F1 (fan-out): TIDAK di hukum ini** — [2] di 0s menggelinding utuh
+  (translasi; entri (0,2,0) law 22126 = 2): FM-F1 terpicu, transmutasi 015
+  tak direplikasi di 22126. Perangkat fan-out = pencarian entri parsial
+  di hukum ini (ronde lanjut); sirkut seri TIDAK menunggu fan-out.
+- **W-F2 (sirkuit dua-gerbang): PASS EKSAK 8/8 baris + re-run identik.**
+  Tabel (A,B,C) → out: hanya (1,1,1) = 1; (1,1,0): gerbang-1 menyala,
+  output-nya menempuh kawat 76 sel, MENYETOR ke gerbang-2 dan MENAHAN
+  (memori 7, tak memancar tanpa C) — perilaku tunggu yang persis seperti
+  teori; C-menunggu (0,·,1) juga tertahan; rantai penuh (1,1,1) → gerbang-2
+  mencapai 8 → memancar → out=1. **(A∧B)∧C eksak.**
+- **Makna:** komposisi komposisi — dua gerbang terverifikasi (log 020/021)
+  + kawat terverifikasi (setoran-jarak-jauh) = fungsi 3-input. Anak tangga
+  universalitas: komponen ✓, kawat ✓, sirkuit ✓. Fan-out (percabangan) =
+  anak tangga keempat (butuh perangkat belah di hukum yang sama —
+  pencarian entri parsial 22126 atau hukum-gerbang lain).
+
+**Reproduksi:** `python experiments/m2/circuit.py`; W-F1 probe (pola sesi,
+data di log). Test: `pytest` (79) + `cargo` (80).
