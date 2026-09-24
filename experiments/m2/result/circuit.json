@@ -1,0 +1,163 @@
+{
+  "experiment": "two-gate-circuit",
+  "law": "22126",
+  "truth_table": {
+    "000": 0,
+    "001": 0,
+    "010": 0,
+    "011": 0,
+    "100": 0,
+    "101": 0,
+    "110": 0,
+    "111": 1
+  },
+  "circuit_exact": true,
+  "deterministic_rerun": true,
+  "rows": {
+    "000": {
+      "g1_fired": false,
+      "g2_fired": false,
+      "out_seen": false,
+      "g1_tail": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "g2_tail": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "expected": 0
+    },
+    "001": {
+      "g1_fired": false,
+      "g2_fired": false,
+      "out_seen": false,
+      "g1_tail": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "g2_tail": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "expected": 0
+    },
+    "010": {
+      "g1_fired": false,
+      "g2_fired": false,
+      "out_seen": false,
+      "g1_tail": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "g2_tail": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "expected": 0
+    },
+    "011": {
+      "g1_fired": false,
+      "g2_fired": false,
+      "out_seen": false,
+      "g1_tail": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "g2_tail": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "expected": 0
+    },
+    "100": {
+      "g1_fired": false,
+      "g2_fired": false,
+      "out_seen": false,
+      "g1_tail": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "g2_tail": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "expected": 0
+    },
+    "101": {
+      "g1_fired": false,
+      "g2_fired": false,
+      "out_seen": false,
+      "g1_tail": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "g2_tail": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "expected": 0
+    },
+    "110": {
+      "g1_fired": true,
+      "g2_fired": false,
+      "out_seen": true,
+      "g1_tail": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "g2_tail": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": 0
+    },
+    "111": {
+      "g1_fired": true,
+      "g2_fired": true,
+      "out_seen": true,
+      "g1_tail": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "g2_tail": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected": 1
+    }
+  },
+  "reproduce": "python experiments/m2/circuit.py"
+}
