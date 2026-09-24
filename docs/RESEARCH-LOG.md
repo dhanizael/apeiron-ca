@@ -1428,3 +1428,17 @@ jarak) → sesuaikan jarak, laporkan.
 (empiris > aljabar). Tangga universalitas: komponen/kawat/sirkuit ✓,
 fan-out ✓; gerbang lebih kaya + k-lift cascade = penerus. **MAP (log
 001-023) = langkah strategis berikutnya.**
+
+---
+
+## 024 — MAP PUBLISH: paket publikasi siap terbit (DIBUKA & DITUTUP; 2026-09-24)
+
+**Misi:** dokumen publikasi (ditunda 4×) — `map/`: MANIFESTO (visi + jawaban
+OEE tiga-dinding), PRIOR-ART (peta telaah 2026-09-21, klaim terbatas-teks),
+STATUS (tabel milestone + angka verbatim dari log 001-023) + runbook
+reproduksi. Kriteria: (1) setiap angka di STATUS terlacak ke
+docs/RESEARCH-LOG.md (trace-pass grep); (2) klaim kebaruan terbatas-teks
+("dalam telaah kami"), tanpa "no system in the world"; (3) runbook satu
+perintah per hasil utama. Push GitHub = keputusan user (kredensial/repo).
+
+**Hasil: (diisi setelah trace-pass).**
