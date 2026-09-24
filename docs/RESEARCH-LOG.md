@@ -1340,3 +1340,26 @@ determinisme re-run. Anti-kuota; mini deterministik.
 
 **Reproduksi:** `python experiments/m2/gate_search.py`; verifikasi law 22126
 (m=6, kr=2). Test: `pytest` (76) + `cargo` (80).
+
+---
+
+## 022 — FAN-OUT + SIRKUIT DUA-GERBANG: (A∧B)∧C (DIBUKA; kriteria dibekukan 2026-09-24)
+
+**Misi (anak tangga ketiga menuju universalitas, Kontemplasi 019):** dari
+dua gerbang terverifikasi (OR log 020, AND reusable log 021) menjadi
+SIRKUT.
+
+**Kriteria dibekukan:**
+- **W-F1 (fan-out):** satu pulsa [2] di 0s, law 22126, membelah menjadi
+  DUA pulsa [1] yang berjalan (transmutasi 015 direplikasi di hukum ini) —
+  bivalen; bila tidak → cari perangkat fan-out lain di entri 22126.
+- **W-F2 (sirkuit):** dua gerbang AND 22126 (memori 6, penjaga 2) dirangkai:
+  gerbang-1 (A∧B) → kawat → setoran ke gerbang-2; input C menanduk gerbang-2
+  lebih dulu (menahan 1 setoran). **Tabel kebenaran 8 baris (A,B,C) ∈ {0,1}³:
+  output sirkuit = (A∧B)∧C eksak**, re-run identik. Output dibaca: gerbang-2
+  mencapai 8 (memancar).
+
+FM pre-registered: FM-F1 [2] tak membelah di 22126 → perangkat lain dari
+entri parsial hukum ini; FM-F2 output teredam di kawat → ukur & laporkan.
+
+**Hasil: (menyusul — tanpa pengeditan).**
