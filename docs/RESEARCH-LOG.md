@@ -1383,3 +1383,29 @@ entri parsial hukum ini; FM-F2 output teredam di kawat → ukur & laporkan.
 
 **Reproduksi:** `python experiments/m2/circuit.py`; W-F1 probe (pola sesi,
 data di log). Test: `pytest` (79) + `cargo` (80).
+
+---
+
+## 023 — FAN-OUT: hukum dua-properti (gerbang ∧ belah) (DIBUKA; kriteria dibekukan 2026-09-24)
+
+**Kontemplasi aljabar ronde ini:** bila hukum memenuhi filter gerbang
+(log 021) **DAN** entri (0,2,0) = 1, maka pulsa [2] yang berjalan di 0s
+**membelah dirinya sendiri** menjadi dua [1] yang berjalan berdampingan
+(2−1 disimpan, 1 diteruskan — transmutasi 015, kini sebagai perangkat
+fan-out dalam perjalanan). Dua [1] hasil belahan = persis bentuk setoran
+gerbang. **Satu hukum, dua anak tangga: gerbang + fan-out.**
+
+**Kriteria dibekukan:**
+- **W-FO1:** ≥1 hukum lolos filter gerbang (021) ∧ entri (0,2,0)=1 —
+  bivalen; bila nol di 300 → perluas (k=2 gate-algebra / lebih banyak hukum).
+- **W-FO2a:** di hukum terpilih, tabel kebenaran AND (atau fungsi aktual
+  yang dilaporkan) terverifikasi + re-run deterministik.
+- **W-FO2b:** fan-out empiris: satu [2] → DUA [1] berjalan (census posisi).
+- **W-FO3 (stretch):** demo cabang — satu [2] → belahan → DUA memori
+  gerbang menahan setoran (satu sinyal mengaktifkan dua gerbang).
+
+FM pre-registered: FM-O1 nol hukum dua-properti di 300 → sapu k=2 dengan
+gate-algebra versi k=2; FM-O2 belahan tak sampai kedua gerbang (geometri
+jarak) → sesuaikan jarak, laporkan.
+
+**Hasil: (menyusul — tanpa pengeditan).**
