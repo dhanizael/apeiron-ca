@@ -1096,3 +1096,38 @@ TERBUKA (turnover, predasi, boom-bust). Itu tepat lingkungan R1. Instrumen
 audit populasi (trajektori min/max/ekor per spesies) yang dibangun hari ini
 = fondasi kriteria berikutnya: "perpetuum ecologis" — populasi hidup dengan
 turnover di horizon panjang, tanpa absorpsi.
+
+---
+
+## 018 — PERPETUUM ECOLOGIS: mencari hukum yang tak pernah selesai (DIBUKA; kriteria dibekukan 2026-09-24)
+
+**Misi (dari audit 017):** semua dunia kita mencapai kuasistabilitas (fasa
+jenuh; keseimbangan kaku ±0,4–2%). Yang diburu: hukum + keadaan awal yang
+populasinya TETAP HIDUP dengan turnover — tak padam, tak beku, tak terkunci.
+
+**Definisi operasional (dibekukan SEKARANG):** sensus populasi per spesies
+nilai p_v(t) (str.count per char, sampel tiap-10 state). **PERPETUUM pada
+horizon H:** (a) koeksistensi — ≥2 spesies dengan mean ≥ 10; (b) amplitudo
+((max−min)/mean) ≥ 0,3 pada ≥1 spesies **di sepertiga TERAKHIR horizon**
+(dinamika bertahan, bukan transien); (c) tak statis — ≥1 pasangan state
+berurutan berbeda di sepertiga akhir. **Tanda predasi (W-P2, stretch, bukan
+gate):** korelasi trajektori dua spesies ≤ −0,5 di sepertiga akhir (satu naik
+saat yang lain turun — tanda Lotka-Volterra). **Baseline kuasistabil
+(W-P3):** dunia known (v6-final difus; padat +100%; 16295-difus) diukur meter
+sama — prediksi amplitudo < 0,1 (referensi pemisah perpetuum vs keseimbangan).
+
+**Pintu murah (aljabar):** laut seragam TAK STABIL bila F(c,c,c) ≠ c — hukum
+acak menyediakannya; yang menentukan nasibnya: runtuh → kristal (absorpsi),
+runtuh → pulsa global (tersaring: butuh koeksistensi), atau runtuh →
+DINAMIKA HIDUP (perpetuum!). IC murah tanpa tanam: all-1s, all-2s, (k=4:
++all-3s), difus-0,5.
+
+**Protokol:** sapu k=2: 300 hukum slack-rich (19001+) × IC {all-1, all-2,
+difus} × 2000 langkah; k=4: 150 hukum (19501+) × IC {all-1, all-2, all-3,
+difus}; sensus penuh p_v. Kandidat → **verifikasi 3 seed × 20k langkah**
+(kriteria (a)-(c) dievaluasi di sepertiga akhir 20k). FM pre-registered:
+FM-P1 osilator teredam (amplitudo menurun — dilaporkan sebagai transien);
+FM-P2 pulsa global seragam (tersaring koeksistensi); FM-P3 nol kandidat
+(taksonomi nasib = hasil: absorpsi/pulsa/hidup).
+
+**Hasil: (menyusul — tanpa pengeditan).**
