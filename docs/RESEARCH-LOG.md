@@ -1409,3 +1409,22 @@ gate-algebra versi k=2; FM-O2 belahan tak sampai kedua gerbang (geometri
 jarak) → sesuaikan jarak, laporkan.
 
 **Hasil: (menyusul — tanpa pengeditan).**
+**Hasil (W-FO1/2/3):**
+
+- **W-FO1: PASS — 9/300 hukum dua-properti** (filter gerbang ∧ (0,2,0)=1).
+- **W-FO2b: PASS — fan-out [2]→[1]+[1] hidup di 9/9 hukum dua-properti**
+  (census posisi: satu sel → dua sel berjalan).
+- **W-FO2a: SEMUA 9 gerbang-nya OR-like secara empiris** — ketiga kalinya
+  aljabar level-entri over-prediksi (021: 9/10; 023: 9/9). Pelajaran beku:
+  **perilaku gerbang = properti emergen dinamika; tabel kebenaran empiris
+  adalah satu-satunya filter.** Desain dibalik: census empiris langsung
+  300 hukum × 4-run (tanpa filter).
+- **Census empiris: 2/300 hukum AND** — 22126 (ditemukan-ulang, konsisten)
+  + **22285 BARU (fnv a13e1cfb48446ed2, kolom [0,0,0,1], re-run identik)**
+  — yang TIDAK lolos filter aljabar: filter under-include. Dua rasa AND:
+  22126 reusable (6→7→8→6), 22285 one-shot (6→3→4→5→0).
+
+**Status:** fan-out ✓ (9/9), AND kedua ✓ (census), pelajaran instrumen ✓
+(empiris > aljabar). Tangga universalitas: komponen/kawat/sirkuit ✓,
+fan-out ✓; gerbang lebih kaya + k-lift cascade = penerus. **MAP (log
+001-023) = langkah strategis berikutnya.**
