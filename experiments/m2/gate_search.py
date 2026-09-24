@@ -14,7 +14,8 @@ sys.path.insert(0, str(ROOT / "analysis"))
 sys.path.insert(0, str(ROOT / "experiments" / "m2"))
 sys.path.insert(0, str(ROOT / "experiments" / "m4"))
 
-from semesta import ca  # noqa: E402
+from semesta import ca, io  # noqa: E402
+from state_surgery import write_snapshot  # noqa: E402
 
 K = 4
 SZ = 1 << (3 * K)
