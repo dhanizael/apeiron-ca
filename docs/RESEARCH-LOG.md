@@ -1164,3 +1164,40 @@ Semesta pertama yang populasinya tak pernah selesai: 10 spesies, ayunan
 **Reproduksi:** `python experiments/m2/perpetuum_search.py`;
 `--verify-law 19631 --verify-k 4 --verify-ic difus`; skrip independen
 (pola sesi; angka di log + `perpetuum_verify_independent.json`).
+
+---
+
+## 019 — Meter OEE pada dunia perpetuum: model belum jenuh sampai 10⁶ (2026-09-24)
+
+**Pertanyaan user (benar):** perpetuum ≠ OEE sejati. Ukur dengan alat proyek
+sendiri: **model_bits(t) = k × entri aktif di window ~t** (protokol K5,
+log 005), checkpoint 10³→10⁶ (run terpanjang proyek), dunia perpetuum 19631
++ dua baseline.
+
+**Hasil (oee_meter.json):**
+- **perpetuum 19631 (k=4): coverage 1850 → 2128 → 2190 → 2264 entri;
+  model_bits 7400 → 8512 → 8760 → 9056 dari plafon 16384** — MASIH NAIK
+  di 10⁶, tanpa jenuh. Laju melambat log-like (+1112/+248/+74 per dekade).
+  Tail tak statis di semua checkpoint (dunia tetap hidup di 10⁶).
+- **Baseline: v6-final & 16295 (laut difus 0/1): coverage = 1 entri,
+  model_bits = 2/128, STATIS di semua checkpoint** — dunia-dunia itu
+  membeku ke fixed point (laut difus setengah-densitas berada di bawah
+  rezim aliran).
+
+**Verdict atas klaim user: KONFIRMASI dengan angka.** Perpetuum ≠ OEE sejati
+— TETAPI ini dunia pertama proyek yang modelnya belum jenuh di horizon:
+pertumbuhan bertahan sampai 10⁶. Gap ke OEE sejati terkuantifikasi dua lapis:
+(1) plafon hingga — ruang entri k=4 terbatas 4096 (16384 bit); laju log-like
+menuju jenuh di bawah plafon; (2) OEE sejati = kebaruan TAK TERBATAS —
+butuh ruang model itu sendiri tumbuh.
+
+**Arsitektur yang mengikuti:** semusta-saja terbatas pada k beku; **sistem
+terbuka adalah LOOP (semusta + Newton + intervener)** — dan tuas
+k-lift-bertahap (k=4→8→…; mesin migrasi sudah ada, log 014) adalah kandidat
+pertama pertumbuhan plafon berkelanjutan: unbounded-in-time melalui
+ekspansi bertahap, masing-masing tahap terukur (model_bits melompat saat
+migrasi, lalu tumbuh lagi). North star proyek — "Semesta + Newton dalam
+loop tertutup" — memang arsitektur OEE-nya.
+
+**Reproduksi:** `python experiments/m2/oee_meter.py`. Test: `pytest` (75) +
+`cargo` (80).

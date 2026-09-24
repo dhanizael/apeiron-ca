@@ -1,0 +1,190 @@
+{
+  "experiment": "oee-meter",
+  "checkpoints": [
+    1000,
+    10000,
+    100000,
+    1000000
+  ],
+  "worlds": {
+    "perpetuum19631": [
+      {
+        "t": 1000,
+        "coverage_active": 1850,
+        "model_bits": 7400,
+        "ceiling_bits": 16384,
+        "tail_hist": {
+          "0": 12216,
+          "1": 2050,
+          "2": 1314,
+          "3": 322,
+          "4": 193,
+          "5": 170,
+          "6": 30,
+          "7": 40,
+          "8": 15,
+          "9": 14,
+          "10": 6,
+          "11": 10,
+          "12": 1,
+          "13": 3
+        },
+        "static_tail": false
+      },
+      {
+        "t": 10000,
+        "coverage_active": 2128,
+        "model_bits": 8512,
+        "ceiling_bits": 16384,
+        "tail_hist": {
+          "0": 12280,
+          "1": 2015,
+          "2": 1241,
+          "3": 350,
+          "4": 190,
+          "5": 183,
+          "6": 34,
+          "7": 42,
+          "8": 11,
+          "9": 16,
+          "10": 11,
+          "11": 5,
+          "12": 2,
+          "13": 4
+        },
+        "static_tail": false
+      },
+      {
+        "t": 100000,
+        "coverage_active": 2190,
+        "model_bits": 8760,
+        "ceiling_bits": 16384,
+        "tail_hist": {
+          "0": 12213,
+          "1": 2078,
+          "2": 1284,
+          "3": 343,
+          "4": 164,
+          "5": 167,
+          "6": 51,
+          "7": 29,
+          "8": 13,
+          "9": 25,
+          "10": 5,
+          "11": 6,
+          "12": 5,
+          "13": 1
+        },
+        "static_tail": false
+      },
+      {
+        "t": 1000000,
+        "coverage_active": 2264,
+        "model_bits": 9056,
+        "ceiling_bits": 16384,
+        "tail_hist": {
+          "0": 12231,
+          "1": 2028,
+          "2": 1305,
+          "3": 352,
+          "4": 176,
+          "5": 167,
+          "6": 47,
+          "7": 30,
+          "8": 10,
+          "9": 19,
+          "10": 5,
+          "11": 5,
+          "12": 5,
+          "13": 4
+        },
+        "static_tail": false
+      }
+    ],
+    "v6final": [
+      {
+        "t": 1000,
+        "coverage_active": 1,
+        "model_bits": 2,
+        "ceiling_bits": 128,
+        "tail_hist": {
+          "1": 16384
+        },
+        "static_tail": true
+      },
+      {
+        "t": 10000,
+        "coverage_active": 1,
+        "model_bits": 2,
+        "ceiling_bits": 128,
+        "tail_hist": {
+          "1": 16384
+        },
+        "static_tail": true
+      },
+      {
+        "t": 100000,
+        "coverage_active": 1,
+        "model_bits": 2,
+        "ceiling_bits": 128,
+        "tail_hist": {
+          "1": 16384
+        },
+        "static_tail": true
+      },
+      {
+        "t": 1000000,
+        "coverage_active": 1,
+        "model_bits": 2,
+        "ceiling_bits": 128,
+        "tail_hist": {
+          "1": 16384
+        },
+        "static_tail": true
+      }
+    ],
+    "replicator16295": [
+      {
+        "t": 1000,
+        "coverage_active": 1,
+        "model_bits": 2,
+        "ceiling_bits": 128,
+        "tail_hist": {
+          "1": 16384
+        },
+        "static_tail": true
+      },
+      {
+        "t": 10000,
+        "coverage_active": 1,
+        "model_bits": 2,
+        "ceiling_bits": 128,
+        "tail_hist": {
+          "1": 16384
+        },
+        "static_tail": true
+      },
+      {
+        "t": 100000,
+        "coverage_active": 1,
+        "model_bits": 2,
+        "ceiling_bits": 128,
+        "tail_hist": {
+          "1": 16384
+        },
+        "static_tail": true
+      },
+      {
+        "t": 1000000,
+        "coverage_active": 1,
+        "model_bits": 2,
+        "ceiling_bits": 128,
+        "tail_hist": {
+          "1": 16384
+        },
+        "static_tail": true
+      }
+    ]
+  },
+  "reproduce": "python experiments/m2/oee_meter.py"
+}
