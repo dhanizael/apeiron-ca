@@ -1244,3 +1244,29 @@ tunggal adalah finitude sendiri — dan dia memberi kita ukuran, bukan larangan.
 
 **Pertanyaan terbuka terbaru & tertajam: universalitas keluarga flow pada k
 tetap. Langkah pertama yang terukur: satu gerbang logika di dunia receipt.**
+
+---
+
+## 020 — GERBANG PERTAMA: gerbang logika di semusta flow (DIBUKA; aljabar pre-computed 2026-09-24)
+
+**Target kontemplasi 019:** satu gerbang logika di dunia receipt — membuktikan
+bahan komputasi (memori/sinyal/interaksi) tersusun menjadi fungsi Boolean.
+
+**Desain gerbang (aljabar pre-computed terhadap tabel v6-final sesungguhnya —
+semua entri dicek):** dunia k=4 phase-wrap receipt. **Memori:** parkiran-3 di
+posisi P + penjaga-1 di P+1 — stabil diam: emisi parkiran (0,3,1)=0, penjaga
+(3,1,0)=0, penjaga tak menguras (3,1,0)... [entri: F_k4(0,3,1)=F2[13]=0;
+F_k4(3,1,0)=F2[52]=0]. **Input:** pulsa-1 disuntik di kiri (state surgery);
+berjalan (0,1,0)=1; tiba di P−1: **menyetor** ke parkiran (l,1,3)→(l,1,0)=1
+(pulsa terkonsumsi: 1−1+0=0); parkiran 3→4 (stabil diam: (0,4,1)=F2[1]=0).
+Setoran kedua → 5 → **MEMANCAR** (0,5,1)=F2[5]=1: parkiran 5→4, penjaga
+1→2; penjaga melepas pulsa output (4,2,0)=F2[8]=1 → berjalan ke kanan
+(1,1,0)=F2[20]=1. **Semantik: output = AND(A,B)** (ambang 2 setoran).
+Pulsa A di P−10, B di P−14 (tiba berurutan; tanda tangan waktu berbeda).
+
+**Kriteria dibekukan:** W-G1: kolom output 4 run (A,B)∈{00,10,01,11} =
+fungsi Boolean DETERMINISTIK (re-run identik). W-G2: fungsi = AND (0,0,0,1)
+sesuai aljabar; bila lain — gerbang tetap sah, fungsi aktual dilaporkan.
+Pengukuran: trajektori parkiran per-fase, konsumsi pulsa, perjalanan output.
+
+**Hasil: (menyusul — tanpa pengeditan).**
