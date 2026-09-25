@@ -73,10 +73,12 @@ def world_seeds(engine, name):
         return law, 4, cells
     if name == "v6final":
         from density_map import load_v6_final
-        return load_v6_final(), 2, [(0 if ca.Rng(21001).next_u64() % 2 == 0 else 1) for _ in range(N)]
+        rng = ca.Rng(21001)  # instans-tunggal (log 027: per-elemen = laut-1)
+        return load_v6_final(), 2, [rng.next_u64() % 2 for _ in range(N)]
     if name == "replicator16295":
         law = ca.random_table_rich(2, 16295)
-        return law, 2, [(0 if ca.Rng(21001).next_u64() % 2 == 0 else 1) for _ in range(N)]
+        rng = ca.Rng(21001)
+        return law, 2, [rng.next_u64() % 2 for _ in range(N)]
     raise ValueError(name)
 
 

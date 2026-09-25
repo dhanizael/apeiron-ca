@@ -97,7 +97,11 @@ def verify(engine, outdir, cand, steps=20000):
     results = []
     for s in (15101, 15102, 15103):
         ics = dict(ics_for(cand["k"]))
-        cells = ics[cand["ic"]]
+        if cand["ic"] == "difus":
+            rng = ca.Rng(s)  # IC independen per-seed (log 027)
+            cells = [rng.next_u64() % 2 for _ in range(N)]
+        else:
+            cells = ics[cand["ic"]]
         v = run_pop(engine, law, cand["k"], cells, s, steps, workdir,
                     f"v_{cand['law_seed']}_{s}", window=6000)
         results.append({"seed": s, "perpetuum": v["perpetuum"],

@@ -49,8 +49,9 @@ flowchart LR
   crystal of itself (4/4 seeds; unseeded control = 0)
 - A **perpetuum ecologis**: 10 species, populations still swinging at 10⁶
   steps, anti-phase predation signature ρ ≤ −0.7
-- Logic gates **inside the universe**: a regenerative OR, a reusable AND
-  (truth table [0,0,0,1]), and a two-gate circuit — (A∧B)∧C, 8/8 rows exact
+- Logic gates **inside the universe**: a regenerative OR, an AND gate
+  (truth table [0,0,0,1]; one-shot — collapses after emitting, per our own
+  public errata), and a two-gate circuit — (A∧B)∧C, 8/8 rows exact
 
 ## Reproduce
 

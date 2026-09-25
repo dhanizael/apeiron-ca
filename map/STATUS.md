@@ -19,7 +19,7 @@ analysis: Python; suites green at every merge.
 | 016–017 | Perpetuum ecologis | **Law 19631: 10 species coexisting, amplitude 1.91–2.09 on the last third of 20k steps, anti-phase predation signature ρ = −0.75…−0.89 (3/3 independent instances); baselines 6× separated** | 018 |
 | 018 | External audit | Ice-nine corrected: the crystal is a *dynamic* saturated phase (one wandering defect); the dense world is a fluctuating multi-species equilibrium | 017 |
 | 019–020 | First gates | Regenerative OR (1-deposit → emit-and-restore, inputs consumed, deterministic) | 020 |
-| 021 | AND gate | **Law 22126: column [0,0,0,1] exact; memory 6→7→8→emit→6 (REUSABLE); re-run identical** — found by empirical census after the algebra filter over-predicted 3× | 021, 023 |
+| 021 | AND gate | **Law 22126: column [0,0,0,1] exact; memory 6→7→8→emit (ONE-SHOT: the gate collapses after emitting — an external audit caught our earlier 'reusable' claim; errata log 027); re-run identical** — found by empirical census after the algebra filter over-predicted 3× | 021, 023 |
 | 022 | Two-gate circuit | **(A∧B)∧C exact, 8/8 truth-table rows + deterministic re-run**; 76-cell wire; wait-behavior as theorized | 022 |
 
 ## The discovered constants and theorems
