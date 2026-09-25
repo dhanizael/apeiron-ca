@@ -1523,3 +1523,59 @@ F2 (trajektori populasi perpetuum): DITUNDA — run figur menghasilkan
 satu-spesies (v=1 dominan di window sampel) berbeda dari verifikasi 018;
 dipelajari dulu (bug sampling filter vs run berbeda), **figur yang
 meragukan tak dimuat.** Terpush ke github.com/dhanizael/apeiron-ca.
+
+---
+
+## 027 — ERRATA PUBLIK: tiga klaim diaudit eksternal, diverifikasi, dikoreksi (2026-09-25)
+
+Reviewer eksternal (AI kedua user) mengaudit repo yang telah terbit dan
+menemukan tiga masalah. Sesi ini memverifikasi SEMUA klaim langsung ke kode
+dan engine — **ketiga-tiganya BENAR**. Ini errata publik.
+
+**ERRATUM 1 — Klaim "REUSABLE AND" (log 021, README, STATUS) DIBATALKAN.**
+Trajektori penuh 60 langkah run (1,1): [6×10, 7×4, 8, 6, **3, 1, 0, 0…**]
+— memori 6 di t=15 adalah titik LALUI, bukan restorasi; gerbang longsor
+(mem 8→6→3→1→0, penjaga ikut runtuh 2→4→2→0) dan **mati permanen**:
+injeksi pasangan kedua pada state akhir → fire=False. Penyebab pembacaan
+keliru kami: `gate_search.py` menyimpan `mem_traj[:16]` — snapshot terpotong
+menyembunyikan longsoran. Diagnosa tambahan kami: jendela t=13..23
+menunjukkan gelombang eksitasi menyapu melewati gerbang (keeper terdorong
+2→4→2) — **gerbang 22126 adalah ONE-SHOT: akumulasi 2 setoran → 1 emit →
+runtuh.** Fungsi [0,0,0,1] dan determinismenya TETAP SAH (kolom terukur
+dari run utuh 60); klaim reusable dicabut. AND reusable = target
+pencarian berikutnya (butuh fase-ganjil yang mengembalikan memori —
+mungkin di hukum lain, bukan 22126).
+
+**ERRATUM 2 — Bug RNG di baseline OEE (log 019) TERKONFIRMASI.**
+`ca.Rng(21001)` di-instansiasi ulang per elemen list-comprehension →
+"laut difus" = **laut-1 murni** (semua sel=1). Dampak diukur ulang:
+(1) baseline v6-final/16295 pada laut-1 memang statis-1-entri (angka
+"2 bit, statis" TETAP BENAR untuk kondisi yang dijalankan — deskripsi
+"diffuse"-lah yang keliru); (2) **namun kontrasnya melemah**: dengan laut
+difus BENAR (Rng satu instans), v6-final menunjukkan **10 entri aktif,
+non-statis** di 20k — baseline sejati tidak "bebu"; OEE-meter harus
+diulang dengan baseline benar sebelum klaim "kontras 6×" dipakai. Angka
+perpetuum (9056 bit @10⁶) TIDAK tersentuh (IC perpetuum memakai Rng
+instans-tunggal yang benar sejak awal di verifikasi independen 018).
+
+**ERRATUM 3 — IC hardcoded di `perpetuum_search.py::verify()` (log 018).**
+Tiga "seed" (15101–03) memanggil `diffuse_sea(N, 20001)` — IC identik
+(terverifikasi: IC(15101)==IC(15102) True; `--seed` diabaikan engine bila
+`--init-state` ada). **Namun hasil terbit AMAN**: angka 018 berasal dari
+verifikasi ulang independen (IC 21001–03, Rng instans-tunggal) yang
+ditulis eksplisit di log 018 — dan kami menggenapkan genangan itu kini:
+3 instans difus-benar @20k → **16 spesies (nilai 0–15 SEMUA berpenghuni),
+jendela 84/84 berubah di ketiganya** — klaim perpetuum bertambah kuat,
+bukan melemah.
+
+**Pelajaran beku (instrumen):** (1) trajektori WAJIB disimpan PENUH, bukan
+[:16] — potongan menyembunyikan longsoran; (2) Rng jangan di-instansiasi
+dalam list-comprehension — bug ini lolos karena nilai tidak "terlihat
+salah" (1 semua tampak seperti laut); (3) CLI --seed + --init-state =
+jebakan dokumentasi (seed diabaikan) — selalu baca validasi engine.
+
+**Perbaikan repo (commit ini):** gate.py/circuit.py → window=steps penuh +
+census ekor; oee_meter → Rng instans-tunggal (diperbaiki); perpetuum_search
+verify → IC independen per-seed (diperbaiki); STATUS/README → klaim
+reusable dicabut, diganti one-shot + gerbang mati setelah emit; keterangan
+baseline difus dikoreksi.
