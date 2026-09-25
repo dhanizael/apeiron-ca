@@ -1442,3 +1442,10 @@ docs/RESEARCH-LOG.md (trace-pass grep); (2) klaim kebaruan terbatas-teks
 perintah per hasil utama. Push GitHub = keputusan user (kredensial/repo).
 
 **Hasil: (diisi setelah trace-pass).**
+**Trace-pass 024:** angka utama STATUS terlacak ke log — 2.31e9 ✓ (002),
+9056 ✓ (019), 42–52 ✓ (016), [0,0,0,1] ✓ (021), 8192 ✓ (017), 4096/4.096 ✓
+(004), MAE 7.58e-05 ✓ (001, dikoreksi dari pembulatan memori 0.0001 —
+STATUS kini memakai verbatim log), MAE = 0.0 ✓ (004), "unik dari 256
+kandidat" ✓ (001, dikoreksi redaksinya), 5.39×10⁸ ✓ (002), 76 sel ✓ (022),
+1.91 ✓ (018), 0.32 ✓ (019). **Kriteria (1) PASS; (2) klaim terbatas-teks di
+PRIOR-ART ✓; (3) runbook satu-perintah ✓. Paket map/ siap terbit.**
