@@ -1,4 +1,4 @@
-# Milestone Status — 0and1 (2026-09-24)
+# Milestone Status — APEIRON (2026-09-24)
 
 Every number below traces to `docs/RESEARCH-LOG.md` entries 001–023 (dates,
 protocols, reproduction commands). Engine: Rust, bit-identical deterministic;

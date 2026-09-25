@@ -1,4 +1,5 @@
-# 0and1 — A Digital Universe with a Law-Discovering Machine Inside It
+# APEIRON
+## A Digital Universe of 0 and 1, with a Law-Discovering Machine Inside It
 
 **Manifesto v1 — 2026-09-24**
 
