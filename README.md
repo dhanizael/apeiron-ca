@@ -8,6 +8,24 @@ with every intervention verified against ground truth we hold.
 **One closed loop. Nothing enters from outside. Eighteen rounds of genuine
 novelty came out.**
 
+![Spacetime of the AND gate](figures/gate_spacetime.svg)
+
+*Spacetime of the AND gate inside the universe (law 22126, one run, real
+data): two input pulses travel right, deposit into the memory cell
+(dark block holds), the second deposit fires the output pulse — which
+leaves rightward while the memory restores. Generated from the
+deterministic run; see `experiments/m2/figures.py`.*
+
+```mermaid
+flowchart LR
+    U["Universe (flow-NCCA)"] -->|raw state stream| N["Newton"]
+    N -->|exact recovered laws| F["Findings"]
+    F -->|verified interventions| U
+    N --> M["OEE meter: model_bits(t)"]
+```
+
+*The closed loop: nothing enters from outside — and the model keeps growing.*
+
 ---
 
 ## Start here
