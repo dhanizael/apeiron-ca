@@ -71,6 +71,10 @@ genuine novelty in fact. The openness lives in the relation.
 
 ## Why publish now
 
+*Project: **Apeiron** · repositories and packages: `apeiron-ca` (Apeiron
+Cellular Automata) · the slack instrument will be named **kenoma** (κένωμα,
+the room that lets things move).*
+
 Because the claims are checked against an instrument, not a vibe. Every
 number in STATUS.md traces to a research log entry with a one-line
 reproduction command. The walls we hit paid rent: each became a theorem,

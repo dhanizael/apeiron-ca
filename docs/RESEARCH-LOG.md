@@ -1492,3 +1492,21 @@ bernama Apeiron di era Newton OS — usang, kemungkinan bukan halangan.)
 `0 and 1` = subjudul filosofis ("Apeiron — a universe of 0 and 1 that
 measures itself"). Rename direktori/repo lokal-di-GitHub = aksi user saat
 push (jalur kerja sesi ini tidak terganggu).
+
+**Lampiran 025 — audit namespace (input AI kedua user, diverifikasi langsung ke
+sumber primer oleh sesi ini):** microsoft/apeiron ADA (GitHub, update
+2026-09-04 ✓); crates.io `apeiron` DIAMBIL (0.0.0 squatter ✓); PyPI
+`apeiron-ca` KOSONG ✓ (fetch 404). (Sisa klaim — crates kenoma/apeiron-ca,
+jumlah repo GitHub — UNVERIFIED oleh sesi ini; konfirmasi final di waktu
+publish.)
+
+**Adjudikasi: OPSI 1 — APEIRON tetap nama proyek; `apeiron-ca` nama
+repo/package.** Alasan: (1) log 025 sudah mengadjudikasi Apeiron sebagai
+nama perjalanan (gunung OEE + kosmologi konservasi + asimtot) — mengganti
+ke Kenoma dua log kemudian = churn identitas, dan Kenoma menamai SATU
+temuan (slack, log 006) bukan perjalanan; (2) pola standar open-source:
+nama proyek ≠ nama package (domain-suffix); `-ca` bermakna (Cellular
+Automata); (3) AI penulis opsi sendiri menilai Opsi 1 "paling mantap".
+**"Kenoma" (κένωμα — kekosongan- yang-memberi-ruang) diadopsi ke KOSAKATA
+proyek: nama calon modul slack-meter — perbendaharaan Yunani menyesuaikan
+temuan (apeiron = perjalanan; kenoma = ruangnya).**
