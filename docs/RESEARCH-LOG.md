@@ -1449,3 +1449,46 @@ STATUS kini memakai verbatim log), MAE = 0.0 ✓ (004), "unik dari 256
 kandidat" ✓ (001, dikoreksi redaksinya), 5.39×10⁸ ✓ (002), 76 sel ✓ (022),
 1.91 ✓ (018), 0.32 ✓ (019). **Kriteria (1) PASS; (2) klaim terbatas-teks di
 PRIOR-ART ✓; (3) runbook satu-perintah ✓. Paket map/ siap terbit.**
+
+---
+
+## 025 — PENAMAAN: APEIRON (kontemplasi + keputusan; 2026-09-24)
+
+**Amannah user: tidak memerintahkan persetujuan — mengadili. Ini adjudikasi.**
+
+**Yang diterima (dengan verifikasi):** etimologi a- + peiras ("tanpa
+batas") ✓ standar; Anaximander abad-6 SM ✓; fragmen B1 ("membayar ganti
+rugi atas ketidakadilan sesuai tatanan waktu") ✓ kutipan kanonik (via
+Simplicius–Theophrastus); pembacaan konservasi atas B1 ✓ arus utama
+sejarah filsafat. Tiga kecocokan presisi yang tak dimiliki kandidat lain:
+(1) **Apeiron menamai gunung OEE itu sendiri** — kata tercatat tertua
+untuk "tanpa-batas", target meter model_bits(t); (2) **B1 = prinsip
+konservasi pertama dalam sejarah** — dan keluarga flow kita adalah
+kosmologi Anaximander yang dieksekusi: zat dasar yang konservasi
+(by construction), dengan kristal-0 (log 008) sebagai eksperimen
+eksekusi dari pikirannya "bila zat dasar finit, semusta mati beku";
+(3) **slack (log 006) = ruang primordial Apeiron** — "slack = ruang untuk
+menjadi" adalah kalimat B1 dalam bahasa kita. Yang dilewatkan penulis
+inspirasi dan justru memperkuat: **batas aliran-bebas J = massa/n adalah
+asimtot Apeiron itu sendiri** — flux tak pernah mencapai yang tak-terbatas,
+dan k-lift cascade = memperluas batasnya berjenjang (unbounded-in-time).
+Namanya menyatukan meter, tembok, dan tangga.
+
+**Yang dikoreksi/disederhanakan:** (a) judul paper insight-nya ada typo —
+*"Apeiron: Exact Law Recovery and the Limits of Open-Endedness in
+Conserved Digital Universes"* (End-edness); (b) "tinggalkan 0and1" —
+ditolak sebagai pengabaian, diterima sebagai perubahan primasi:
+**Apeiron menamai perjalanan; "0 dan 1" tetap filosofi substratnya**
+— keduanya mengatakan hal yang sama dalam dua kosakata (Yunani kuno dan
+bit), dan baris penutup MANIFESTO sudah mengikat mereka sejak awal.
+
+**Timing (fakta penentu):** MAP belum terbit ke mana pun — nol hutang
+identitas eksternal. **Kalau ada momen mengganti nama, momennya adalah
+sekarang; setelah terbit, nama membeku selamanya.** (Cek tabrakan nama
+GitHub/PyPI = aksi user saat push; catatan UNVERIFIED: ada browser lama
+bernama Apeiron di era Newton OS — usang, kemungkinan bukan halangan.)
+
+**Keputusan:** NAMA PRIMER = **APEIRON**. Subjek paper dan publikasi.
+`0 and 1` = subjudul filosofis ("Apeiron — a universe of 0 and 1 that
+measures itself"). Rename direktori/repo lokal-di-GitHub = aksi user saat
+push (jalur kerja sesi ini tidak terganggu).
