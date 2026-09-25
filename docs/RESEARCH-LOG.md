@@ -1510,3 +1510,16 @@ Automata); (3) AI penulis opsi sendiri menilai Opsi 1 "paling mantap".
 **"Kenoma" (κένωμα — kekosongan- yang-memberi-ruang) diadopsi ke KOSAKATA
 proyek: nama calon modul slack-meter — perbendaharaan Yunani menyesuaikan
 temuan (apeiron = perjalanan; kenoma = ruangnya).**
+
+## 026 — Visual publikasi: spacetime gerbang + diagram loop (2026-09-24)
+
+Review eksternal (AI kedua user): repo kuat secara angka, kurang VISUAL di
+atas lipatan. Dieksekusi dengan standar proyek: **figur lahir dari run
+deterministik asli, bukan dekorasi.** `experiments/m2/figures.py` (SVG
+murni-stdlib, tanpa dependensi): F1 = spacetime gerbang AND (law 22126,
+run 11 — dua pulsa menyetor, blok memori, pulsa output keluar) ✓ terbit
+di README above-the-fold + diagram loop Mermaid (render native GitHub).
+F2 (trajektori populasi perpetuum): DITUNDA — run figur menghasilkan
+satu-spesies (v=1 dominan di window sampel) berbeda dari verifikasi 018;
+dipelajari dulu (bug sampling filter vs run berbeda), **figur yang
+meragukan tak dimuat.** Terpush ke github.com/dhanizael/apeiron-ca.
